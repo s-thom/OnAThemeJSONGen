@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OnATheme.Properties
-{
-
-
+namespace OnATheme.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -22,49 +22,110 @@ namespace OnATheme.Properties
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OnATheme.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///    &quot;ambientocclusion&quot;: false,
+        ///    &quot;textures&quot;: {
+        ///        &quot;particle&quot;: &quot;#top&quot;
+        ///    },
+        ///    &quot;elements&quot;: [
+        ///        {   &quot;from&quot;: [ 0.8, 0, 8 ],
+        ///            &quot;to&quot;: [ 15.2, 16, 8 ],
+        ///            &quot;rotation&quot;: { &quot;origin&quot;: [ 8, 8, 8 ], &quot;axis&quot;: &quot;y&quot;, &quot;angle&quot;: 45, &quot;rescale&quot;: true },
+        ///            &quot;shade&quot;: false,
+        ///            &quot;faces&quot;: {
+        ///                &quot;north&quot;: { &quot;uv&quot;: [ 0, 0, 16, 16 ], &quot;texture&quot;: &quot;#bottom&quot; },
+        ///                &quot;south&quot;: { &quot;uv&quot;: [ 0, 0, 16, 16 ], &quot;texture&quot;: &quot;#bottom&quot; }
+        ///            }
+        ///        },
+        ///      [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string double_cross {
+            get {
+                return ResourceManager.GetString("double_cross", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///    &quot;ambientocclusion&quot;: false,
+        ///    &quot;textures&quot;: {
+        ///        &quot;particle&quot;: &quot;#top&quot;
+        ///    },
+        ///    &quot;elements&quot;: [
+        ///        {   &quot;from&quot;: [ 0.8, 0, 8 ],
+        ///            &quot;to&quot;: [ 15.2, 16, 8 ],
+        ///            &quot;rotation&quot;: { &quot;origin&quot;: [ 8, 8, 8 ], &quot;axis&quot;: &quot;y&quot;, &quot;angle&quot;: 45, &quot;rescale&quot;: true },
+        ///            &quot;shade&quot;: false,
+        ///            &quot;faces&quot;: {
+        ///                &quot;north&quot;: { &quot;uv&quot;: [ 0, 0, 16, 16 ], &quot;texture&quot;: &quot;#bottom&quot;, &quot;tintindex&quot;: 0 },
+        ///                &quot;south&quot;: { &quot;uv&quot;: [ 0, 0, 16, 16 ], &quot;texture&quot;: &quot;#bottom&quot;, &quot;tintindex&quot;: 0 }
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string double_cross_tint {
+            get {
+                return ResourceManager.GetString("double_cross_tint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///    &quot;ambientocclusion&quot;: false,
+        ///    &quot;textures&quot;: {
+        ///        &quot;particle&quot;: &quot;#particle&quot;
+        ///    },
+        ///    &quot;elements&quot;: [
+        ///        {   &quot;from&quot;: [ 0, 0, 0 ],
+        ///            &quot;to&quot;: [ 0, 0, 0 ],
+        ///            &quot;faces&quot;: {
+        ///                &quot;north&quot;: { &quot;uv&quot;: [ 0, 0, 0, 0 ], &quot;texture&quot;: &quot;#particle&quot; }
+        ///            }
+        ///        }
+        ///    ]
+        ///}
+        ///.
+        /// </summary>
+        internal static string none {
+            get {
+                return ResourceManager.GetString("none", resourceCulture);
             }
         }
     }
