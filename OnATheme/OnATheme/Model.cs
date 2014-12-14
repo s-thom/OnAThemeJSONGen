@@ -53,7 +53,27 @@ namespace OnATheme
         /// <summary>
         /// Create the model file for the variant
         /// </summary>
-        public abstract void CreateModel();
+        public void CreateModel()
+        {
+            if (!(this is ModelNoAdd)) // The "NoAdd" model doesn't create a file.
+            {
+                JsonWriter w = new JsonTextWriter(File.CreateText(@"OaT/assets/minecraft/models/block/" + ModelName + ".json"));
+                w.Formatting = Formatting.Indented;
+
+                w.WriteStartObject();
+                w.WritePropertyName("parent");
+                w.WriteValue(MODEL_PATH + _parent);
+                w.WritePropertyName("textures");
+
+                CreateTextureJSON(w);
+
+                w.WriteEndObject();
+
+                w.Close();
+            }
+        }
+
+        public abstract void CreateTextureJSON(JsonWriter w);
 
         public override string ToString()
         {

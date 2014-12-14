@@ -129,6 +129,7 @@ namespace OnATheme
                 b.CreateBlockstates();
             }
             File.WriteAllText(@"OaT/assets/minecraft/models/block/none.json", Properties.Resources.none);
+            File.WriteAllText(@"OaT/assets/minecraft/models/block/cross_tint.json", Properties.Resources.cross_tint);
             File.WriteAllText(@"OaT/assets/minecraft/models/block/double_cross.json", Properties.Resources.double_cross);
             File.WriteAllText(@"OaT/assets/minecraft/models/block/double_cross_tint.json", Properties.Resources.double_cross_tint);
         }

@@ -18,22 +18,12 @@ namespace OnATheme
         public ModelNone(string Block, string Texture, int VariantNumber)
             : base(Block, "none", Texture, VariantNumber)
         { }
-        public override void CreateModel()
+        public override void CreateTextureJSON(JsonWriter w)
         {
-            JsonWriter w = new JsonTextWriter(File.CreateText(@"OaT/assets/minecraft/models/block/" + ModelName + ".json"));
-            w.Formatting = Formatting.Indented;
-
-            w.WriteStartObject();
-            w.WritePropertyName("parent");
-            w.WriteValue(MODEL_PATH + _parent);
-            w.WritePropertyName("textures");
             w.WriteStartObject();
             w.WritePropertyName("particle");
             w.WriteValue(TEXTURE_PATH + _textureName);
             w.WriteEndObject();
-            w.WriteEndObject();
-
-            w.Close();
         }
     }
 }

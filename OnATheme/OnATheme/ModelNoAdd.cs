@@ -18,11 +18,9 @@ namespace OnATheme
             : base(Block, "", "", VariantNumber)
         { }
         /// <summary>
-        /// Will not do anything.
+        /// Will not do anything. Should never get called. *Should*
         /// </summary>
-        public override void CreateModel()
-        {
-            Console.WriteLine("Not generating model, as requested");
-        }
+        public override void CreateTextureJSON(JsonWriter w)
+        { }
     }
 }

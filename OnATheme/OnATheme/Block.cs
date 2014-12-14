@@ -37,6 +37,9 @@ namespace OnATheme
                 case "Cross":
                     Models.Add(new ModelCross(_blockName, "cross", Texture, 0));
                     break;
+                case "Cross Tint":
+                    Models.Add(new ModelCross(_blockName, "cross_tint", Texture, 0));
+                    break;
                 case "Double Cross":
                     Models.Add(new ModelDoubleCross(_blockName, "double_cross", Texture, 0));
                     Models.Add(new ModelDoubleCrossTop(_blockName, Texture, 0));
@@ -58,13 +61,12 @@ namespace OnATheme
                         Models.Add(new ModelAll(_blockName, _blockName, Texture, i));
                         break;
                     case "Cross":
+                    case "Cross Tint":
                         Models.Add(new ModelCross(_blockName, _blockName, Texture, i));
                         break;
                     case "Double Cross":
-                        Models.Add(new ModelDoubleCross(_blockName, _blockName, Texture, i));
-                        break;
                     case "Double Cross Tint":
-                        Models.Add(new ModelDoubleCrossTint(_blockName, _blockName, Texture, i));
+                        Models.Add(new ModelDoubleCross(_blockName, _blockName, Texture, i));
                         break;
                     case "Don't Create Models":
                         Models.Add(new ModelNoAdd(_blockName, i));

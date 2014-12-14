@@ -72,6 +72,28 @@ namespace OnATheme.Properties {
         ///            &quot;rotation&quot;: { &quot;origin&quot;: [ 8, 8, 8 ], &quot;axis&quot;: &quot;y&quot;, &quot;angle&quot;: 45, &quot;rescale&quot;: true },
         ///            &quot;shade&quot;: false,
         ///            &quot;faces&quot;: {
+        ///                &quot;north&quot;: { &quot;uv&quot;: [ 0, 0, 16, 16 ], &quot;texture&quot;: &quot;#bottom&quot;, &quot;tintindex&quot;: 0 },
+        ///                &quot;south&quot;: { &quot;uv&quot;: [ 0, 0, 16, 16 ], &quot;texture&quot;: &quot;#bottom&quot;, &quot;tintindex&quot;: 0 }
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string cross_tint {
+            get {
+                return ResourceManager.GetString("cross_tint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {
+        ///    &quot;ambientocclusion&quot;: false,
+        ///    &quot;textures&quot;: {
+        ///        &quot;particle&quot;: &quot;#top&quot;
+        ///    },
+        ///    &quot;elements&quot;: [
+        ///        {   &quot;from&quot;: [ 0.8, 0, 8 ],
+        ///            &quot;to&quot;: [ 15.2, 16, 8 ],
+        ///            &quot;rotation&quot;: { &quot;origin&quot;: [ 8, 8, 8 ], &quot;axis&quot;: &quot;y&quot;, &quot;angle&quot;: 45, &quot;rescale&quot;: true },
+        ///            &quot;shade&quot;: false,
+        ///            &quot;faces&quot;: {
         ///                &quot;north&quot;: { &quot;uv&quot;: [ 0, 0, 16, 16 ], &quot;texture&quot;: &quot;#bottom&quot; },
         ///                &quot;south&quot;: { &quot;uv&quot;: [ 0, 0, 16, 16 ], &quot;texture&quot;: &quot;#bottom&quot; }
         ///            }
