@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="secret_online, secretonline, secret online" />
+    <meta name="description" content="The random musings of a gamer and student." />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="196x196" href="http://secretonline.co/res/favicon.png">
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="secret_online">
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="http://secretonline.co/res/icon.png">
+    <meta name="msapplication-TileColor" content="#25AA00">
+    <link rel="canonical" href="http://git.secretonline.co/OnAThemeJSONGen">
+    <link rel="stylesheet" href="http://secretonline.co/styles/fixes.css">
+    <link rel="stylesheet" href="http://secretonline.co/styles/main.css">
+    <title>On A Theme JSON Generator - GitHub - secret_online</title>
+  </head>
+  <body>
+    <header class="app-bar promote-layer">
+      <div class="app-bar-container">
+        <button class="menu"><img class="noshadow" src="http://secretonline.co/res/hamburger.svg" alt="Menu"></button>
+        <a href="http://secretonline.co/">
+          <img class="noshadow" id="logo" src="http://secretonline.co/res/header.png" alt="secret_online">
+        </a>
+      </div>
+    </header>
+
+    <nav class="navdrawer-container promote-layer">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="http://secretonline.co/">Home</a></li>
+        <li><a href="http://git.secretonline.co">github.io</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <div class="body">
+        <h2>On A Theme JSON Generator</h2>
+        <p>Making texture variations in Minecraft is annoying. It's a lot of tedious work, which includes copying and pasting files, only to edit a couple of things, then repeat it.</p>
+        <p>I made this to make that process a little easier. The JSON generator handles a lot of this for you, with plans to be able to do a most of the process for you.</p>
+        <h3>Usage</h3>
+        <p>In the block menu, click "New Block". A dialogue will pop up, and ask to fill in any information.</p>
+        <ul>
+          <li>Block Name: This is the name of the block (i.e. allium).</li>
+          <li>Texture Name: The base name of the texture to use (e.g. flower_allium)</li>
+          <li>Number of Variants: The number of variations, not including the original.</li>
+          <li>Model Type: 
+            <ul>
+              <li>Don't Add Model: Create the blockstates file, without generating the model files.</li>
+              <li>Full Block: A normal block. Uses <code>cube_all</code> as the base model.</li>
+              <li>Cross: For things like flowers and cobwebs.</li>
+              <li>Double Cross: For two block tall flowers.</li>
+              <li>Double Cross Tint: Same as "Double Cross", but changes based on biome.</li>
+            </ul>
+          </li>
+        </ul>
+        <p>Once you have created the block, you can change the weights of the models. In the listboxes, navigate to the model you want to weight, and put in the number. Higher numbers mean a higher chance of being selected.</p>
+        <p>When you've made and weighted the variants, go to the File menu and click "Create Unzipped Version".</p>
+        <p>This will create a folder called "OaT", and inside will be the files, already laid out for easy integration into a resource pack.</p>
+        <h3>To Do:</h3>
+        <ol>
+          <li>Tidy up the code (it's a mess).</li>
+          <li>A better way of doing Attributes.</li>
+          <li>Support more models, possibly all of them.</li>
+        </ol>
+      </div>
+    </main>
+    <script src="http://secretonline.co/scripts/main.js"></script>
+  </body>
+</html>
