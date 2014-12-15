@@ -2,7 +2,7 @@ OnAThemeJSONGen
 ---
 
 JSON variant generator for Minecraft.  
-Originally created to be used with my pack: [On a Theme](http://secreonline.co/minecraft/textures/onatheme).
+Originally created to be used with my pack: [On a Theme](http://secretonline.co/minecraft/textures/on-a-theme).
 
 [Latest release](https://github.com/SecretOnline/OnAThemeJSONGen/releases/tag/v1.1.1)
 
