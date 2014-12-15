@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace OnATheme
 {
-    class Block
+    public class Block
     {
         public List<Attribute> Attributes = new List<Attribute>();
         private string _name;
@@ -44,6 +44,14 @@ namespace OnATheme
             w.WriteEndObject();
 
             w.Close();
+        }
+        /// <summary>
+        /// Name of the block
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return _name;
         }
     }
 }

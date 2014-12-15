@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace OnATheme
 {
-    class Model
+    public class Model
     {
         protected List<Texture> _textures;
         protected string _name;

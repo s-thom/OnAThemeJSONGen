@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace OnATheme
 {
-    class Texture
+    public class Texture
     {
         private string _ref;
         private string _name;

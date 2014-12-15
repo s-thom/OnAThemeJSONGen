@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace OnATheme
 {
-    class Attribute
+    public class Attribute
     {
         /// <summary>
         /// Models this attribute uses

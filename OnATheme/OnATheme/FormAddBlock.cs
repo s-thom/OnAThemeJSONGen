@@ -11,35 +11,37 @@ namespace OnATheme
 {
     public partial class FormAddBlock : Form
     {
+        List<Attribute> Attributes = new List<Attribute>();
+
         public FormAddBlock()
         {
             InitializeComponent();
         }
         /// <summary>
-        /// Close the form with a positive result
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonCreate_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-            this.Close();
-        }
-        /// <summary>
         /// Show the dialogue, and return a Block object
         /// </summary>
         /// <returns></returns>
-        public static BlockOLD ShowAndReturnObject() 
+        public static Block ShowAndReturnObject() 
         {
             FormAddBlock dialog = new FormAddBlock();
             if (dialog.ShowDialog() == DialogResult.OK) 
             {
-                BlockOLD newBlock = new BlockOLD(dialog.textBoxBlockName.Text, (int)dialog.numericUpDownVariants.Value, dialog.textBoxTextureName.Text, dialog.comboBoxType.Text);
+                Block newBlock = new Block(dialog.textBoxBlockName.Text, dialog.Attributes);
                 return newBlock;
             }
             else
             {
                return null; // In case of canceled dialogue
+            }
+        }
+
+        private void buttonAddAttribute_Click(object sender, EventArgs e)
+        {
+            Attribute newAttribute = FormAddAttribute.ShowAndReturnObject();
+            if (newAttribute != null)
+            {
+                Attributes.Add(newAttribute);
+                listBoxAttributes.Items.Add(newAttribute);
             }
         }
     }
