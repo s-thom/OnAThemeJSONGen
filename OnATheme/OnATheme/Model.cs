@@ -43,22 +43,25 @@ namespace OnATheme
         /// </summary>
         public void WriteModel()
         {
-            JsonWriter w = new JsonTextWriter(File.CreateText(@"OaT/assets/minecraft/models/block/" + _name + ".json"));
-            w.Formatting = Formatting.Indented;
+            if (_parent != "")
+            {
+                JsonWriter w = new JsonTextWriter(File.CreateText(@"OaT/assets/minecraft/models/block/" + _name + ".json"));
+                w.Formatting = Formatting.Indented;
 
-            w.WriteStartObject();
-            w.WritePropertyName("parent");
-            w.WriteValue(MODEL_PATH + _parent);
-            w.WritePropertyName("textures");
+                w.WriteStartObject();
+                w.WritePropertyName("parent");
+                w.WriteValue(MODEL_PATH + _parent);
+                w.WritePropertyName("textures");
 
-            w.WriteStartObject();
-            foreach (Texture t in _textures)
-                t.WriteTextureJSON(w);
-            w.WriteEndObject();
+                w.WriteStartObject();
+                foreach (Texture t in _textures)
+                    t.WriteTextureJSON(w);
+                w.WriteEndObject();
 
-            w.WriteEndObject();
+                w.WriteEndObject();
 
-            w.Close();
+                w.Close();
+            }
         }
         /// <summary>
         /// Write the info used in the blockstates file
