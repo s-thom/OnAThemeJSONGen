@@ -120,6 +120,7 @@
             "Don\'t Create Models",
             "Full Block",
             "Cross",
+            "Cross Tint",
             "Double Cross",
             "Double Cross Tint"});
             this.comboBoxType.Location = new System.Drawing.Point(96, 90);
