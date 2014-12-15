@@ -33,6 +33,10 @@ namespace OnATheme
         /// Model weight. Must be greater than 0
         /// </summary>
         public int Weight { get { return _weight; } set { if (value > 0) _weight = value; } }
+        /// <summary>
+        /// Name of the model
+        /// </summary>
+        public string Name { get { return _name; } set { _name = value; } }
 
         /// <summary>
         /// Create the model file for the variant

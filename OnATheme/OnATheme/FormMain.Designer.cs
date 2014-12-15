@@ -41,26 +41,28 @@
             this.removeBlockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listBoxBlocks = new System.Windows.Forms.ListBox();
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
+            this.splitContainerBlock = new System.Windows.Forms.SplitContainer();
+            this.listBoxAttributes = new System.Windows.Forms.ListBox();
             this.splitContainerAttribute = new System.Windows.Forms.SplitContainer();
             this.listBoxModels = new System.Windows.Forms.ListBox();
             this.numericUpDownModelWeight = new System.Windows.Forms.NumericUpDown();
             this.labelWeight = new System.Windows.Forms.Label();
-            this.splitContainerBlock = new System.Windows.Forms.SplitContainer();
-            this.listBoxAttributes = new System.Windows.Forms.ListBox();
+            this.labelModelName = new System.Windows.Forms.Label();
+            this.textBoxModelName = new System.Windows.Forms.TextBox();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
             this.splitContainerMain.Panel2.SuspendLayout();
             this.splitContainerMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerBlock)).BeginInit();
+            this.splitContainerBlock.Panel1.SuspendLayout();
+            this.splitContainerBlock.Panel2.SuspendLayout();
+            this.splitContainerBlock.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerAttribute)).BeginInit();
             this.splitContainerAttribute.Panel1.SuspendLayout();
             this.splitContainerAttribute.Panel2.SuspendLayout();
             this.splitContainerAttribute.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownModelWeight)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerBlock)).BeginInit();
-            this.splitContainerBlock.Panel1.SuspendLayout();
-            this.splitContainerBlock.Panel2.SuspendLayout();
-            this.splitContainerBlock.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -169,6 +171,33 @@
             this.splitContainerMain.SplitterDistance = 178;
             this.splitContainerMain.TabIndex = 2;
             // 
+            // splitContainerBlock
+            // 
+            this.splitContainerBlock.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerBlock.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerBlock.Name = "splitContainerBlock";
+            // 
+            // splitContainerBlock.Panel1
+            // 
+            this.splitContainerBlock.Panel1.Controls.Add(this.listBoxAttributes);
+            // 
+            // splitContainerBlock.Panel2
+            // 
+            this.splitContainerBlock.Panel2.Controls.Add(this.splitContainerAttribute);
+            this.splitContainerBlock.Size = new System.Drawing.Size(481, 288);
+            this.splitContainerBlock.SplitterDistance = 182;
+            this.splitContainerBlock.TabIndex = 1;
+            // 
+            // listBoxAttributes
+            // 
+            this.listBoxAttributes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxAttributes.FormattingEnabled = true;
+            this.listBoxAttributes.Location = new System.Drawing.Point(0, 0);
+            this.listBoxAttributes.Name = "listBoxAttributes";
+            this.listBoxAttributes.Size = new System.Drawing.Size(182, 288);
+            this.listBoxAttributes.TabIndex = 0;
+            this.listBoxAttributes.SelectedIndexChanged += new System.EventHandler(this.listBoxAttributes_SelectedIndexChanged);
+            // 
             // splitContainerAttribute
             // 
             this.splitContainerAttribute.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -181,10 +210,12 @@
             // 
             // splitContainerAttribute.Panel2
             // 
+            this.splitContainerAttribute.Panel2.Controls.Add(this.textBoxModelName);
+            this.splitContainerAttribute.Panel2.Controls.Add(this.labelModelName);
             this.splitContainerAttribute.Panel2.Controls.Add(this.numericUpDownModelWeight);
             this.splitContainerAttribute.Panel2.Controls.Add(this.labelWeight);
             this.splitContainerAttribute.Size = new System.Drawing.Size(295, 288);
-            this.splitContainerAttribute.SplitterDistance = 159;
+            this.splitContainerAttribute.SplitterDistance = 161;
             this.splitContainerAttribute.TabIndex = 0;
             // 
             // listBoxModels
@@ -193,7 +224,7 @@
             this.listBoxModels.FormattingEnabled = true;
             this.listBoxModels.Location = new System.Drawing.Point(0, 0);
             this.listBoxModels.Name = "listBoxModels";
-            this.listBoxModels.Size = new System.Drawing.Size(159, 288);
+            this.listBoxModels.Size = new System.Drawing.Size(161, 288);
             this.listBoxModels.TabIndex = 0;
             this.listBoxModels.SelectedIndexChanged += new System.EventHandler(this.listBoxModels_SelectedIndexChanged);
             // 
@@ -231,32 +262,24 @@
             this.labelWeight.TabIndex = 0;
             this.labelWeight.Text = "Model Weight";
             // 
-            // splitContainerBlock
+            // labelModelName
             // 
-            this.splitContainerBlock.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerBlock.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerBlock.Name = "splitContainerBlock";
+            this.labelModelName.AutoSize = true;
+            this.labelModelName.Enabled = false;
+            this.labelModelName.Location = new System.Drawing.Point(3, 44);
+            this.labelModelName.Name = "labelModelName";
+            this.labelModelName.Size = new System.Drawing.Size(110, 13);
+            this.labelModelName.TabIndex = 2;
+            this.labelModelName.Text = "Override Model Name";
             // 
-            // splitContainerBlock.Panel1
+            // textBoxModelName
             // 
-            this.splitContainerBlock.Panel1.Controls.Add(this.listBoxAttributes);
-            // 
-            // splitContainerBlock.Panel2
-            // 
-            this.splitContainerBlock.Panel2.Controls.Add(this.splitContainerAttribute);
-            this.splitContainerBlock.Size = new System.Drawing.Size(481, 288);
-            this.splitContainerBlock.SplitterDistance = 182;
-            this.splitContainerBlock.TabIndex = 1;
-            // 
-            // listBoxAttributes
-            // 
-            this.listBoxAttributes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxAttributes.FormattingEnabled = true;
-            this.listBoxAttributes.Location = new System.Drawing.Point(0, 0);
-            this.listBoxAttributes.Name = "listBoxAttributes";
-            this.listBoxAttributes.Size = new System.Drawing.Size(182, 288);
-            this.listBoxAttributes.TabIndex = 0;
-            this.listBoxAttributes.SelectedIndexChanged += new System.EventHandler(this.listBoxAttributes_SelectedIndexChanged);
+            this.textBoxModelName.Enabled = false;
+            this.textBoxModelName.Location = new System.Drawing.Point(6, 60);
+            this.textBoxModelName.Name = "textBoxModelName";
+            this.textBoxModelName.Size = new System.Drawing.Size(120, 20);
+            this.textBoxModelName.TabIndex = 3;
+            this.textBoxModelName.TextChanged += new System.EventHandler(this.textBoxModelName_TextChanged);
             // 
             // FormMain
             // 
@@ -276,16 +299,16 @@
             this.splitContainerMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
             this.splitContainerMain.ResumeLayout(false);
+            this.splitContainerBlock.Panel1.ResumeLayout(false);
+            this.splitContainerBlock.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerBlock)).EndInit();
+            this.splitContainerBlock.ResumeLayout(false);
             this.splitContainerAttribute.Panel1.ResumeLayout(false);
             this.splitContainerAttribute.Panel2.ResumeLayout(false);
             this.splitContainerAttribute.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerAttribute)).EndInit();
             this.splitContainerAttribute.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownModelWeight)).EndInit();
-            this.splitContainerBlock.Panel1.ResumeLayout(false);
-            this.splitContainerBlock.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerBlock)).EndInit();
-            this.splitContainerBlock.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,6 +334,8 @@
         private System.Windows.Forms.ToolStripMenuItem createUnZippedToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainerBlock;
         private System.Windows.Forms.ListBox listBoxAttributes;
+        private System.Windows.Forms.TextBox textBoxModelName;
+        private System.Windows.Forms.Label labelModelName;
     }
 }
 

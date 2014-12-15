@@ -88,7 +88,10 @@ namespace OnATheme
                 selectedModel = (Model)listBoxModels.Items[listBoxModels.SelectedIndex];
                 labelWeight.Enabled = true;
                 numericUpDownModelWeight.Enabled = true;
+                labelModelName.Enabled = true;
+                textBoxModelName.Enabled = true;
                 numericUpDownModelWeight.Value = selectedModel.Weight;
+                textBoxModelName.Text = selectedModel.Name;
             }
             catch
             {
@@ -121,6 +124,8 @@ namespace OnATheme
                 listBoxModels.Items.Clear();
                 numericUpDownModelWeight.Enabled = false;
                 labelWeight.Enabled = false;
+                labelModelName.Enabled = false;
+                textBoxModelName.Enabled = false;
             }
         }
         /// <summary>
@@ -151,6 +156,20 @@ namespace OnATheme
             File.WriteAllText(@"OaT/assets/minecraft/models/block/cross_tint.json", Properties.Resources.cross_tint);
             File.WriteAllText(@"OaT/assets/minecraft/models/block/double_cross.json", Properties.Resources.double_cross);
             File.WriteAllText(@"OaT/assets/minecraft/models/block/double_cross_tint.json", Properties.Resources.double_cross_tint);
+        }
+
+        private void textBoxModelName_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (textBoxModelName.Text != "")
+                    selectedModel.Name = textBoxModelName.Text;
+                listBoxModels.Refresh();
+            }
+            catch
+            {
+                Console.WriteLine("Unable to change model name, is a model selected?");
+            }
         }
 
         

@@ -37,7 +37,7 @@ namespace OnATheme
 
         private void buttonAddAttribute_Click(object sender, EventArgs e)
         {
-            Attribute newAttribute = FormAddAttribute.ShowAndReturnObject();
+            Attribute newAttribute = FormAddAttribute.ShowAndReturnObject(textBoxBlockName.Text);
             if (newAttribute != null)
             {
                 Attributes.Add(newAttribute);

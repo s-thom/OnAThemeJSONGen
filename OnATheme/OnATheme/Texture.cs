@@ -48,7 +48,7 @@ namespace OnATheme
         /// <returns></returns>
         public override string ToString()
         {
-            return _name;
+            return _ref + ": " + _name;
         }
     }
 }

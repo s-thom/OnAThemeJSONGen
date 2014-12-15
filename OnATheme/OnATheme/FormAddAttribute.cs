@@ -22,12 +22,12 @@ namespace OnATheme
         /// Show the dialogue, and return an Attribute object
         /// </summary>
         /// <returns></returns>
-        public static Attribute ShowAndReturnObject()
+        public static Attribute ShowAndReturnObject(string BlockName)
         {
             FormAddAttribute dialog = new FormAddAttribute();
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                Attribute newBlock = new Attribute(dialog.textBoxName.Text, dialog.textBoxParentModel.Text, dialog.Textures, (int)dialog.numericUpDownVariants.Value);
+                Attribute newBlock = new Attribute(dialog.textBoxName.Text, dialog.textBoxParentModel.Text, BlockName, dialog.Textures, (int)dialog.numericUpDownVariants.Value);
                 return newBlock;
             }
             else
@@ -38,7 +38,7 @@ namespace OnATheme
 
         private void buttonAddTexture_Click(object sender, EventArgs e)
         {
-            Textures.Add(new Texture(textBoxRef.Text, textBoxName.Text));
+            Textures.Add(new Texture(textBoxRef.Text, textBoxTexture.Text));
             listBoxTextures.Items.Add(Textures[Textures.Count - 1]);
         }
     }
