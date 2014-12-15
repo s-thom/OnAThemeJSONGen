@@ -133,14 +133,14 @@
             // addBlockToolStripMenuItem
             // 
             this.addBlockToolStripMenuItem.Name = "addBlockToolStripMenuItem";
-            this.addBlockToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.addBlockToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addBlockToolStripMenuItem.Text = "Add Block";
             this.addBlockToolStripMenuItem.Click += new System.EventHandler(this.addBlockToolStripMenuItem_Click);
             // 
             // removeBlockToolStripMenuItem
             // 
             this.removeBlockToolStripMenuItem.Name = "removeBlockToolStripMenuItem";
-            this.removeBlockToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.removeBlockToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.removeBlockToolStripMenuItem.Text = "Remove Block";
             this.removeBlockToolStripMenuItem.Click += new System.EventHandler(this.removeBlockToolStripMenuItem_Click);
             // 

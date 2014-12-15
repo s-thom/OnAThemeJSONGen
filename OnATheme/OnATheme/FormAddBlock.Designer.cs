@@ -39,10 +39,10 @@
             // labelBlockName
             // 
             this.labelBlockName.AutoSize = true;
-            this.labelBlockName.Location = new System.Drawing.Point(13, 13);
+            this.labelBlockName.Location = new System.Drawing.Point(7, 13);
             this.labelBlockName.Name = "labelBlockName";
             this.labelBlockName.Size = new System.Drawing.Size(65, 13);
-            this.labelBlockName.TabIndex = 0;
+            this.labelBlockName.TabIndex = 5;
             this.labelBlockName.Text = "Block Name";
             // 
             // textBoxBlockName
@@ -59,7 +59,7 @@
             this.buttonCreate.Location = new System.Drawing.Point(10, 192);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(187, 23);
-            this.buttonCreate.TabIndex = 6;
+            this.buttonCreate.TabIndex = 3;
             this.buttonCreate.Text = "Create Block";
             this.buttonCreate.UseVisualStyleBackColor = true;
             // 
@@ -69,14 +69,14 @@
             this.listBoxAttributes.Location = new System.Drawing.Point(10, 49);
             this.listBoxAttributes.Name = "listBoxAttributes";
             this.listBoxAttributes.Size = new System.Drawing.Size(187, 108);
-            this.listBoxAttributes.TabIndex = 7;
+            this.listBoxAttributes.TabIndex = 4;
             // 
             // buttonAddAttribute
             // 
             this.buttonAddAttribute.Location = new System.Drawing.Point(10, 163);
             this.buttonAddAttribute.Name = "buttonAddAttribute";
             this.buttonAddAttribute.Size = new System.Drawing.Size(187, 23);
-            this.buttonAddAttribute.TabIndex = 8;
+            this.buttonAddAttribute.TabIndex = 2;
             this.buttonAddAttribute.Text = "Add";
             this.buttonAddAttribute.UseVisualStyleBackColor = true;
             this.buttonAddAttribute.Click += new System.EventHandler(this.buttonAddAttribute_Click);
@@ -87,7 +87,7 @@
             this.labelAttributes.Location = new System.Drawing.Point(7, 33);
             this.labelAttributes.Name = "labelAttributes";
             this.labelAttributes.Size = new System.Drawing.Size(51, 13);
-            this.labelAttributes.TabIndex = 9;
+            this.labelAttributes.TabIndex = 6;
             this.labelAttributes.Text = "Attributes";
             // 
             // FormAddBlock
@@ -105,6 +105,7 @@
             this.Padding = new System.Windows.Forms.Padding(10, 0, 10, 10);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "New Block";
             this.ResumeLayout(false);
             this.PerformLayout();

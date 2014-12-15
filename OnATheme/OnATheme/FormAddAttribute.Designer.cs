@@ -30,7 +30,6 @@
         {
             this.labelName = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
-            this.labelTextures = new System.Windows.Forms.Label();
             this.listBoxTextures = new System.Windows.Forms.ListBox();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.labelRef = new System.Windows.Forms.Label();
@@ -43,8 +42,12 @@
             this.labelNumVariants = new System.Windows.Forms.Label();
             this.buttonAddTexture = new System.Windows.Forms.Button();
             this.groupBoxAddTexture = new System.Windows.Forms.GroupBox();
+            this.labelOverwrite = new System.Windows.Forms.Label();
+            this.textBoxOverwrite = new System.Windows.Forms.TextBox();
+            this.groupBoxTextures = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownVariants)).BeginInit();
             this.groupBoxAddTexture.SuspendLayout();
+            this.groupBoxTextures.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelName
@@ -52,9 +55,9 @@
             this.labelName.AutoSize = true;
             this.labelName.Location = new System.Drawing.Point(7, 13);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(121, 13);
+            this.labelName.Size = new System.Drawing.Size(125, 13);
             this.labelName.TabIndex = 0;
-            this.labelName.Text = "Name (i.e. \"half=upper\")";
+            this.labelName.Text = "Name (e.g. \"half=upper\")";
             // 
             // textBoxName
             // 
@@ -62,33 +65,24 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(162, 20);
             this.textBoxName.TabIndex = 1;
-            // 
-            // labelTextures
-            // 
-            this.labelTextures.AutoSize = true;
-            this.labelTextures.Location = new System.Drawing.Point(7, 123);
-            this.labelTextures.Name = "labelTextures";
-            this.labelTextures.Size = new System.Drawing.Size(48, 13);
-            this.labelTextures.TabIndex = 2;
-            this.labelTextures.Text = "Textures";
+            this.textBoxName.Text = "normal";
             // 
             // listBoxTextures
             // 
             this.listBoxTextures.FormattingEnabled = true;
-            this.listBoxTextures.Location = new System.Drawing.Point(10, 139);
+            this.listBoxTextures.Location = new System.Drawing.Point(3, 19);
             this.listBoxTextures.Name = "listBoxTextures";
-            this.listBoxTextures.Size = new System.Drawing.Size(162, 121);
-            this.listBoxTextures.TabIndex = 3;
+            this.listBoxTextures.Size = new System.Drawing.Size(153, 160);
+            this.listBoxTextures.TabIndex = 11;
             // 
             // buttonCreate
             // 
             this.buttonCreate.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonCreate.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonCreate.Location = new System.Drawing.Point(10, 373);
+            this.buttonCreate.Location = new System.Drawing.Point(10, 285);
             this.buttonCreate.Margin = new System.Windows.Forms.Padding(10, 3, 10, 10);
             this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(162, 23);
-            this.buttonCreate.TabIndex = 4;
+            this.buttonCreate.Size = new System.Drawing.Size(330, 26);
+            this.buttonCreate.TabIndex = 10;
             this.buttonCreate.Text = "Create";
             this.buttonCreate.UseVisualStyleBackColor = true;
             // 
@@ -127,7 +121,7 @@
             // labelParentModel
             // 
             this.labelParentModel.AutoSize = true;
-            this.labelParentModel.Location = new System.Drawing.Point(7, 58);
+            this.labelParentModel.Location = new System.Drawing.Point(175, 13);
             this.labelParentModel.Name = "labelParentModel";
             this.labelParentModel.Size = new System.Drawing.Size(70, 13);
             this.labelParentModel.TabIndex = 9;
@@ -135,22 +129,22 @@
             // 
             // textBoxParentModel
             // 
-            this.textBoxParentModel.Location = new System.Drawing.Point(10, 74);
+            this.textBoxParentModel.Location = new System.Drawing.Point(178, 29);
             this.textBoxParentModel.Name = "textBoxParentModel";
             this.textBoxParentModel.Size = new System.Drawing.Size(162, 20);
-            this.textBoxParentModel.TabIndex = 10;
+            this.textBoxParentModel.TabIndex = 2;
             // 
             // numericUpDownVariants
             // 
-            this.numericUpDownVariants.Location = new System.Drawing.Point(58, 100);
+            this.numericUpDownVariants.Location = new System.Drawing.Point(10, 68);
             this.numericUpDownVariants.Name = "numericUpDownVariants";
-            this.numericUpDownVariants.Size = new System.Drawing.Size(114, 20);
-            this.numericUpDownVariants.TabIndex = 11;
+            this.numericUpDownVariants.Size = new System.Drawing.Size(162, 20);
+            this.numericUpDownVariants.TabIndex = 3;
             // 
             // labelNumVariants
             // 
             this.labelNumVariants.AutoSize = true;
-            this.labelNumVariants.Location = new System.Drawing.Point(7, 102);
+            this.labelNumVariants.Location = new System.Drawing.Point(7, 52);
             this.labelNumVariants.Name = "labelNumVariants";
             this.labelNumVariants.Size = new System.Drawing.Size(45, 13);
             this.labelNumVariants.TabIndex = 12;
@@ -161,7 +155,7 @@
             this.buttonAddTexture.Location = new System.Drawing.Point(6, 72);
             this.buttonAddTexture.Name = "buttonAddTexture";
             this.buttonAddTexture.Size = new System.Drawing.Size(150, 23);
-            this.buttonAddTexture.TabIndex = 13;
+            this.buttonAddTexture.TabIndex = 9;
             this.buttonAddTexture.Text = "Add Texture";
             this.buttonAddTexture.UseVisualStyleBackColor = true;
             this.buttonAddTexture.Click += new System.EventHandler(this.buttonAddTexture_Click);
@@ -173,26 +167,53 @@
             this.groupBoxAddTexture.Controls.Add(this.labelTexture);
             this.groupBoxAddTexture.Controls.Add(this.textBoxRef);
             this.groupBoxAddTexture.Controls.Add(this.labelRef);
-            this.groupBoxAddTexture.Location = new System.Drawing.Point(10, 266);
+            this.groupBoxAddTexture.Location = new System.Drawing.Point(162, 19);
             this.groupBoxAddTexture.Name = "groupBoxAddTexture";
             this.groupBoxAddTexture.Size = new System.Drawing.Size(162, 101);
-            this.groupBoxAddTexture.TabIndex = 14;
+            this.groupBoxAddTexture.TabIndex = 6;
             this.groupBoxAddTexture.TabStop = false;
             this.groupBoxAddTexture.Text = "Add Texture";
+            // 
+            // labelOverwrite
+            // 
+            this.labelOverwrite.AutoSize = true;
+            this.labelOverwrite.Location = new System.Drawing.Point(175, 52);
+            this.labelOverwrite.Name = "labelOverwrite";
+            this.labelOverwrite.Size = new System.Drawing.Size(120, 13);
+            this.labelOverwrite.TabIndex = 15;
+            this.labelOverwrite.Text = "Overwrite Model Names";
+            // 
+            // textBoxOverwrite
+            // 
+            this.textBoxOverwrite.Location = new System.Drawing.Point(178, 68);
+            this.textBoxOverwrite.Name = "textBoxOverwrite";
+            this.textBoxOverwrite.Size = new System.Drawing.Size(162, 20);
+            this.textBoxOverwrite.TabIndex = 4;
+            // 
+            // groupBoxTextures
+            // 
+            this.groupBoxTextures.Controls.Add(this.groupBoxAddTexture);
+            this.groupBoxTextures.Controls.Add(this.listBoxTextures);
+            this.groupBoxTextures.Location = new System.Drawing.Point(10, 94);
+            this.groupBoxTextures.Name = "groupBoxTextures";
+            this.groupBoxTextures.Size = new System.Drawing.Size(330, 185);
+            this.groupBoxTextures.TabIndex = 5;
+            this.groupBoxTextures.TabStop = false;
+            this.groupBoxTextures.Text = "Textures";
             // 
             // FormAddAttribute
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(182, 406);
-            this.Controls.Add(this.groupBoxAddTexture);
+            this.ClientSize = new System.Drawing.Size(352, 319);
+            this.Controls.Add(this.groupBoxTextures);
+            this.Controls.Add(this.textBoxOverwrite);
+            this.Controls.Add(this.labelOverwrite);
             this.Controls.Add(this.labelNumVariants);
             this.Controls.Add(this.numericUpDownVariants);
             this.Controls.Add(this.textBoxParentModel);
             this.Controls.Add(this.labelParentModel);
             this.Controls.Add(this.buttonCreate);
-            this.Controls.Add(this.listBoxTextures);
-            this.Controls.Add(this.labelTextures);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.labelName);
             this.Name = "FormAddAttribute";
@@ -203,6 +224,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownVariants)).EndInit();
             this.groupBoxAddTexture.ResumeLayout(false);
             this.groupBoxAddTexture.PerformLayout();
+            this.groupBoxTextures.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,7 +234,6 @@
 
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.TextBox textBoxName;
-        private System.Windows.Forms.Label labelTextures;
         private System.Windows.Forms.ListBox listBoxTextures;
         private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.Label labelRef;
@@ -225,5 +246,8 @@
         private System.Windows.Forms.Label labelNumVariants;
         private System.Windows.Forms.Button buttonAddTexture;
         private System.Windows.Forms.GroupBox groupBoxAddTexture;
+        private System.Windows.Forms.Label labelOverwrite;
+        private System.Windows.Forms.TextBox textBoxOverwrite;
+        private System.Windows.Forms.GroupBox groupBoxTextures;
     }
 }
