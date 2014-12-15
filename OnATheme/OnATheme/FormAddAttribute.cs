@@ -27,6 +27,8 @@ namespace OnATheme
             FormAddAttribute dialog = new FormAddAttribute();
             if (dialog.ShowDialog() == DialogResult.OK)
             {
+                if (dialog.textBoxOverwrite.Text != "")
+                    BlockName = dialog.textBoxOverwrite.Text;
                 Attribute newBlock = new Attribute(dialog.textBoxName.Text, dialog.textBoxParentModel.Text, BlockName, dialog.Textures, (int)dialog.numericUpDownVariants.Value);
                 return newBlock;
             }
