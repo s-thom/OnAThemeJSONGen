@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace OnATheme
 {
-    class ModelNone : Model
+    class ModelNone : ModelOLD
     {
         /// <summary>
         /// Displayed model will be invisible

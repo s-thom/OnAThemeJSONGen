@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace OnATheme
 {
-    class ModelNoAdd : Model
+    class ModelNoAdd : ModelOLD
     {
         /// <summary>
         /// Will generate no model file, but still populate the blockstates

@@ -16,6 +16,7 @@ namespace OnATheme
         List<Block> Blocks = new List<Block>();
 
         Block selectedBlock;
+        Attribute selectedAttribute;
         Model selectedModel;
 
         public FormMain()
@@ -46,11 +47,29 @@ namespace OnATheme
             try
             {
                 selectedBlock = (Block)listBoxBlocks.Items[listBoxBlocks.SelectedIndex];
+                listBoxAttributes.Items.Clear();
+                foreach (Attribute a in selectedBlock.Attributes)
+                    listBoxAttributes.Items.Add(a);
+            }
+            catch
+            {
+                Console.WriteLine("A block might have been deleted");
+            }
+        }
+        /// <summary>
+        /// Select an attribute
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void listBoxAttributes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                selectedAttribute = (Attribute)listBoxAttributes.Items[listBoxAttributes.SelectedIndex];
                 listBoxModels.Items.Clear();
-                foreach (Model m in selectedBlock.Models)
-                {
+                foreach (Model m in selectedAttribute.Models)
                     listBoxModels.Items.Add(m);
-                }
+
             }
             catch
             {
@@ -125,13 +144,15 @@ namespace OnATheme
 
             foreach (Block b in Blocks)
             {
-                b.CreateBlockModels();
-                b.CreateBlockstates();
+                b.CreateJSON();
+                b.CreateJSON();
             }
             File.WriteAllText(@"OaT/assets/minecraft/models/block/none.json", Properties.Resources.none);
             File.WriteAllText(@"OaT/assets/minecraft/models/block/cross_tint.json", Properties.Resources.cross_tint);
             File.WriteAllText(@"OaT/assets/minecraft/models/block/double_cross.json", Properties.Resources.double_cross);
             File.WriteAllText(@"OaT/assets/minecraft/models/block/double_cross_tint.json", Properties.Resources.double_cross_tint);
         }
+
+        
     }
 }

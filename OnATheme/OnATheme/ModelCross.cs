@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace OnATheme
 {
-    class ModelCross : Model
+    class ModelCross : ModelOLD
     {
         /// <summary>
         /// Model in the shape of a cross

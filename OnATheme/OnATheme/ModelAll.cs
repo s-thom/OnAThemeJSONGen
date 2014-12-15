@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace OnATheme
 {
-    class ModelAll : Model
+    class ModelAll : ModelOLD
     {
         /// <summary>
         /// Generic block. All 6 sides one texture

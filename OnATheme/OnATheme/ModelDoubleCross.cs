@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace OnATheme
 {
-    class ModelDoubleCross : Model
+    class ModelDoubleCross : ModelOLD
     {
         /// <summary>
         /// A two block high model that is variant friendly

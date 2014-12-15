@@ -7,77 +7,77 @@ using Newtonsoft.Json;
 
 namespace OnATheme
 {
-    public abstract class Model
+    class Model
     {
-        protected string _parent; // Parent model ("allium")
-        protected string _textureName; // for "flower_allium_1", this is "flower_allium"
-        protected string _block; // Block this model belongs to
-        protected int _variantNo; // i.e. "1"
-        protected int _weight = 1;
-
-        protected static string MODEL_PATH = @"block/";
-        protected static string TEXTURE_PATH = @"blocks/";
+        protected List<Texture> _textures;
+        protected string _name;
+        protected string _parent;
+        protected int _weight = 1; // Default, just in case
+        static string MODEL_PATH = @"block/";
 
         /// <summary>
-        /// An individual model for a block.
+        /// Model for the game to use
         /// </summary>
+        /// <param name="Name"></param>
         /// <param name="Parent"></param>
-        /// <param name="Texture"></param>
-        /// <param name="VariantNumber"></param>
-        public Model(string Block, string Parent, string Texture, int VariantNumber)
+        /// <param name="Textures"></param>
+        /// <param name="Weight"></param>
+        public Model(string Name, string Parent, List<Texture> Textures)
         {
+            _name = Name;
             _parent = Parent;
-            _textureName = Texture;
-            _block = Block;
-            _variantNo = VariantNumber;
+            _textures = Textures;
         }
+
         /// <summary>
-        /// The name of the model
+        /// Model weight. Must be greater than 0
         /// </summary>
-        public virtual string ModelName 
-        { 
-            get 
-            {
-                if (_variantNo == 0)
-                    return _block;
-                else
-                    return _block + "_" + _variantNo.ToString();
-            } 
-        }
-        public string TextureName { get { return _textureName; } }
-        /// <summary>
-        /// <summary>
-        /// Weighting of the model
-        /// </summary>
-        public int Weight { get { return _weight; } set { _weight = value; } }
+        public int Weight { get { return _weight; } set { if (value > 0) _weight = value; } }
+
         /// <summary>
         /// Create the model file for the variant
         /// </summary>
-        public void CreateModel()
+        public void WriteModel()
         {
-            if (!(this is ModelNoAdd)) // The "NoAdd" model doesn't create a file.
-            {
-                JsonWriter w = new JsonTextWriter(File.CreateText(@"OaT/assets/minecraft/models/block/" + ModelName + ".json"));
-                w.Formatting = Formatting.Indented;
+            JsonWriter w = new JsonTextWriter(File.CreateText(@"OaT/assets/minecraft/models/block/" + _name + ".json"));
+            w.Formatting = Formatting.Indented;
 
-                w.WriteStartObject();
-                w.WritePropertyName("parent");
-                w.WriteValue(MODEL_PATH + _parent);
-                w.WritePropertyName("textures");
+            w.WriteStartObject();
+            w.WritePropertyName("parent");
+            w.WriteValue(MODEL_PATH + _parent);
+            w.WritePropertyName("textures");
 
-                CreateTextureJSON(w);
+            w.WriteStartObject();
+            foreach (Texture t in _textures)
+                t.WriteTextureJSON(w);
+            w.WriteEndObject();
 
-                w.WriteEndObject();
+            w.WriteEndObject();
 
-                w.Close();
-            }
+            w.Close();
         }
+        /// <summary>
+        /// Write the info used in the blockstates file
+        /// </summary>
+        /// <param name="w"></param>
+        public void WriteBlockstate(JsonWriter w)
+        {
+            w.WriteStartObject();
 
-        public abstract void CreateTextureJSON(JsonWriter w);
+            w.WritePropertyName("model");
+            w.WriteValue(_name);
+            w.WritePropertyName("weight");
+            w.WriteValue(_weight);
 
+            w.WriteEndObject();
+        }
+        /// <summary>
+        /// Name of the Model
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
-            return ModelName;
+            return _name;
         }
     }
 }

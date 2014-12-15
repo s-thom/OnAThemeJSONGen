@@ -29,12 +29,12 @@ namespace OnATheme
         /// Show the dialogue, and return a Block object
         /// </summary>
         /// <returns></returns>
-        public static Block ShowAndReturnObject() 
+        public static BlockOLD ShowAndReturnObject() 
         {
             FormAddBlock dialog = new FormAddBlock();
             if (dialog.ShowDialog() == DialogResult.OK) 
             {
-                Block newBlock = new Block(dialog.textBoxBlockName.Text, (int)dialog.numericUpDownVariants.Value, dialog.textBoxTextureName.Text, dialog.comboBoxType.Text);
+                BlockOLD newBlock = new BlockOLD(dialog.textBoxBlockName.Text, (int)dialog.numericUpDownVariants.Value, dialog.textBoxTextureName.Text, dialog.comboBoxType.Text);
                 return newBlock;
             }
             else
