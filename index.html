@@ -40,34 +40,42 @@
 
     <main>
       <div class="body">
+        <section>
         <h2>On A Theme JSON Generator</h2>
-        <p>Making texture variations in Minecraft is annoying. It's a lot of tedious work, which includes copying and pasting files, only to edit a couple of things, then repeat it.</p>
-        <p>I made this to make that process a little easier. The JSON generator handles a lot of this for you, with plans to be able to do a most of the process for you.</p>
-        <h3>Usage</h3>
-        <p>In the block menu, click "New Block". A dialogue will pop up, and ask to fill in any information.</p>
-        <ul>
-          <li>Block Name: This is the name of the block (i.e. allium).</li>
-          <li>Texture Name: The base name of the texture to use (e.g. flower_allium)</li>
-          <li>Number of Variants: The number of variations, not including the original.</li>
-          <li>Model Type: 
-            <ul>
-              <li>Don't Add Model: Create the blockstates file, without generating the model files.</li>
-              <li>Full Block: A normal block. Uses <code>cube_all</code> as the base model.</li>
-              <li>Cross: For things like flowers and cobwebs.</li>
-              <li>Double Cross: For two block tall flowers.</li>
-              <li>Double Cross Tint: Same as "Double Cross", but changes based on biome.</li>
-            </ul>
-          </li>
-        </ul>
-        <p>Once you have created the block, you can change the weights of the models. In the listboxes, navigate to the model you want to weight, and put in the number. Higher numbers mean a higher chance of being selected.</p>
-        <p>When you've made and weighted the variants, go to the File menu and click "Create Unzipped Version".</p>
-        <p>This will create a folder called "OaT", and inside will be the files, already laid out for easy integration into a resource pack.</p>
-        <h3>To Do:</h3>
-        <ol>
-          <li>Tidy up the code (it's a mess).</li>
-          <li>A better way of doing Attributes.</li>
-          <li>Support more models, possibly all of them.</li>
-        </ol>
+          <p>Making texture variations in Minecraft is annoying. It's a lot of tedious work, which includes copying and pasting files, only to edit a couple of things, then repeat it.</p>
+          <p>I made this to make that process a little easier. The JSON generator handles a lot of this for you, with plans to be able to do a most of the process for you.</p>
+        </section>
+        <section id="usage">
+          <h3>Usage</h3>
+          <p>Upon opening the program, it should look something like the screenshot below:</p>
+          <img src="1.png" alt="The program, as seen when first opened.">
+          <p>To add and remove block from the pack, you need to use the "Blocks" menu. Click the option to add a new block.</p>
+          <img src="2.png" alt="The Blocks menu.">
+          <p>A new window will pop up, and will ask for a block name. For this example, I'm going to use a rose bush. As you can see, I've filled in <code>double_rose</code> as the Block Name. This must be the name that is used by the game. Once you've done that, click "Add" to add an attribute of this block.</p>
+          <img src="3.png" alt="Creating a block.">
+          <p>Yet another window will appear. By default, the attributes are "normal". </p>
+          <img src="4.png" alt="Attributes window.">
+          <p>As we're working with a two block tall block, we need an attribute for both the top and the bottom. I'm going to make the top block invisible, and have both halves of the texture determined by the bottom. If you've played with variants with blocks that take up more than one block (e.g. beds), then you'll know why I am doing this.</p>
+          <p>Included with every pack made by <em>On A Theme</em> are a few models. One of those is <code>none</code>. It creates an invisible block, but the hitbox remains. I'm going to overwrite the model name, otherwise it will conflict when we come to do the bottom half.</p>
+          <img src="5.png" alt="Defining the model to use.">
+          <p>The next part is to define the textures for the model to use. While <code>none</code> has no visible texture, it still has particles when broken. To tell the model to do this, we add a reference of <code>particle</code>, and in our case, a texture of <code>double_plant_rose_top</code>.</p>
+          <img src="6.png" alt="Giving the model textures.">
+          <p>You'll now see it in the list of textures. Since this is the only thing we need to define for the upper half of the rose bush, I'm going to click "Create".</p>
+          <img src="7.png" alt="Top half complete.">
+          <p>You will now see the <code>half=upper</code> in the list of attributes. Now we need to create the lower one.</p>
+          <img src="8.png" alt="The attributes list.">
+          <p>Add another attribute, this time with the parent model being <code>double_cross</code>. This is another model that's bundled with this program. It allows both halves of the plant to be consistent when doing variations. I've also put a number into the number of variants. We'll see the effect of this later. Since you've seen me do it above, I went ahead and put in the textures.</p>
+          <img src="9.png" alt="Creating the top half.">
+          <p>Now that we've created both halves of our block, let's see what will be created.</p>
+          <img src="10.png" alt="Reviewing the block creation.">
+          <p>Back on the original window. You can select the block, attribute, and model to change the weighting and override the model name. More options will be made available as they are added. Use the number selector to change the weight. Higher values mean they are more likely to be picked. If you want to add more blocks, just follow the same steps as above.</p>
+          <img src="11.png" alt="Changing the weighting.">
+          <p>The final thing you'll want to do is generate the files. On the File menu, select "Create UnZipped". This will create a folder named "OaT" in the directory the executable is in. Inside that will be all the files, arranged in folders like those in a resource pack. Just copy and paste, and you're good to go.</p>
+          <img src="12.png" alt="Creating the files.">
+        </section>
+        <section>
+          Should you wish to improve the program, the source code is available on <a href="https://github.com/SecretOnline/OnAThemeJSONGen">GitHub</a>. Thanks for trying it out, and thank you <em>very</em> much for actually bothering to read the instructions.
+        </section>
       </div>
     </main>
     <script src="http://secretonline.co/scripts/main.js"></script>
