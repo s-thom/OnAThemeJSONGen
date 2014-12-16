@@ -45,11 +45,22 @@
             this.listBoxVariants = new System.Windows.Forms.ListBox();
             this.splitContainerAttribute = new System.Windows.Forms.SplitContainer();
             this.listBoxModels = new System.Windows.Forms.ListBox();
+            this.groupBoxRotation = new System.Windows.Forms.GroupBox();
+            this.groupBoxRotationY = new System.Windows.Forms.GroupBox();
+            this.checkBoxY270 = new System.Windows.Forms.CheckBox();
+            this.checkBoxY180 = new System.Windows.Forms.CheckBox();
+            this.checkBoxY90 = new System.Windows.Forms.CheckBox();
+            this.checkBoxY0 = new System.Windows.Forms.CheckBox();
+            this.groupBoxRotationX = new System.Windows.Forms.GroupBox();
+            this.checkBoxX270 = new System.Windows.Forms.CheckBox();
+            this.checkBoxX180 = new System.Windows.Forms.CheckBox();
+            this.checkBoxX90 = new System.Windows.Forms.CheckBox();
+            this.checkBoxX0 = new System.Windows.Forms.CheckBox();
+            this.checkBoxModelJson = new System.Windows.Forms.CheckBox();
             this.textBoxModelName = new System.Windows.Forms.TextBox();
             this.labelModelName = new System.Windows.Forms.Label();
             this.numericUpDownModelWeight = new System.Windows.Forms.NumericUpDown();
             this.labelWeight = new System.Windows.Forms.Label();
-            this.checkBoxModelJson = new System.Windows.Forms.CheckBox();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -63,6 +74,9 @@
             this.splitContainerAttribute.Panel1.SuspendLayout();
             this.splitContainerAttribute.Panel2.SuspendLayout();
             this.splitContainerAttribute.SuspendLayout();
+            this.groupBoxRotation.SuspendLayout();
+            this.groupBoxRotationY.SuspendLayout();
+            this.groupBoxRotationX.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownModelWeight)).BeginInit();
             this.SuspendLayout();
             // 
@@ -186,7 +200,7 @@
             // 
             this.splitContainerBlock.Panel2.Controls.Add(this.splitContainerAttribute);
             this.splitContainerBlock.Size = new System.Drawing.Size(481, 288);
-            this.splitContainerBlock.SplitterDistance = 182;
+            this.splitContainerBlock.SplitterDistance = 159;
             this.splitContainerBlock.TabIndex = 1;
             // 
             // listBoxVariants
@@ -195,7 +209,7 @@
             this.listBoxVariants.FormattingEnabled = true;
             this.listBoxVariants.Location = new System.Drawing.Point(0, 0);
             this.listBoxVariants.Name = "listBoxVariants";
-            this.listBoxVariants.Size = new System.Drawing.Size(182, 288);
+            this.listBoxVariants.Size = new System.Drawing.Size(159, 288);
             this.listBoxVariants.TabIndex = 0;
             this.listBoxVariants.SelectedIndexChanged += new System.EventHandler(this.listBoxVariants_SelectedIndexChanged);
             // 
@@ -211,12 +225,14 @@
             // 
             // splitContainerAttribute.Panel2
             // 
+            this.splitContainerAttribute.Panel2.Controls.Add(this.groupBoxRotation);
             this.splitContainerAttribute.Panel2.Controls.Add(this.checkBoxModelJson);
             this.splitContainerAttribute.Panel2.Controls.Add(this.textBoxModelName);
             this.splitContainerAttribute.Panel2.Controls.Add(this.labelModelName);
             this.splitContainerAttribute.Panel2.Controls.Add(this.numericUpDownModelWeight);
             this.splitContainerAttribute.Panel2.Controls.Add(this.labelWeight);
-            this.splitContainerAttribute.Size = new System.Drawing.Size(295, 288);
+            this.splitContainerAttribute.Panel2.Enabled = false;
+            this.splitContainerAttribute.Size = new System.Drawing.Size(318, 288);
             this.splitContainerAttribute.SplitterDistance = 161;
             this.splitContainerAttribute.TabIndex = 0;
             // 
@@ -230,9 +246,150 @@
             this.listBoxModels.TabIndex = 0;
             this.listBoxModels.SelectedIndexChanged += new System.EventHandler(this.listBoxModels_SelectedIndexChanged);
             // 
+            // groupBoxRotation
+            // 
+            this.groupBoxRotation.Controls.Add(this.groupBoxRotationY);
+            this.groupBoxRotation.Controls.Add(this.groupBoxRotationX);
+            this.groupBoxRotation.Location = new System.Drawing.Point(6, 109);
+            this.groupBoxRotation.Name = "groupBoxRotation";
+            this.groupBoxRotation.Size = new System.Drawing.Size(139, 167);
+            this.groupBoxRotation.TabIndex = 18;
+            this.groupBoxRotation.TabStop = false;
+            this.groupBoxRotation.Text = "Rotations";
+            // 
+            // groupBoxRotationY
+            // 
+            this.groupBoxRotationY.Controls.Add(this.checkBoxY270);
+            this.groupBoxRotationY.Controls.Add(this.checkBoxY180);
+            this.groupBoxRotationY.Controls.Add(this.checkBoxY90);
+            this.groupBoxRotationY.Controls.Add(this.checkBoxY0);
+            this.groupBoxRotationY.Location = new System.Drawing.Point(7, 92);
+            this.groupBoxRotationY.Name = "groupBoxRotationY";
+            this.groupBoxRotationY.Size = new System.Drawing.Size(124, 66);
+            this.groupBoxRotationY.TabIndex = 1;
+            this.groupBoxRotationY.TabStop = false;
+            this.groupBoxRotationY.Text = "Y";
+            // 
+            // checkBoxY270
+            // 
+            this.checkBoxY270.AutoSize = true;
+            this.checkBoxY270.Location = new System.Drawing.Point(80, 44);
+            this.checkBoxY270.Name = "checkBoxY270";
+            this.checkBoxY270.Size = new System.Drawing.Size(44, 17);
+            this.checkBoxY270.TabIndex = 3;
+            this.checkBoxY270.Text = "270";
+            this.checkBoxY270.UseVisualStyleBackColor = true;
+            this.checkBoxY270.CheckedChanged += new System.EventHandler(this.UpdateRotations);
+            // 
+            // checkBoxY180
+            // 
+            this.checkBoxY180.AutoSize = true;
+            this.checkBoxY180.Location = new System.Drawing.Point(6, 44);
+            this.checkBoxY180.Name = "checkBoxY180";
+            this.checkBoxY180.Size = new System.Drawing.Size(44, 17);
+            this.checkBoxY180.TabIndex = 2;
+            this.checkBoxY180.Text = "180";
+            this.checkBoxY180.UseVisualStyleBackColor = true;
+            this.checkBoxY180.CheckedChanged += new System.EventHandler(this.UpdateRotations);
+            // 
+            // checkBoxY90
+            // 
+            this.checkBoxY90.AutoSize = true;
+            this.checkBoxY90.Location = new System.Drawing.Point(80, 20);
+            this.checkBoxY90.Name = "checkBoxY90";
+            this.checkBoxY90.Size = new System.Drawing.Size(38, 17);
+            this.checkBoxY90.TabIndex = 1;
+            this.checkBoxY90.Text = "90";
+            this.checkBoxY90.UseVisualStyleBackColor = true;
+            this.checkBoxY90.CheckedChanged += new System.EventHandler(this.UpdateRotations);
+            // 
+            // checkBoxY0
+            // 
+            this.checkBoxY0.AutoSize = true;
+            this.checkBoxY0.Checked = true;
+            this.checkBoxY0.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxY0.Location = new System.Drawing.Point(6, 19);
+            this.checkBoxY0.Name = "checkBoxY0";
+            this.checkBoxY0.Size = new System.Drawing.Size(32, 17);
+            this.checkBoxY0.TabIndex = 0;
+            this.checkBoxY0.Text = "0";
+            this.checkBoxY0.UseVisualStyleBackColor = true;
+            this.checkBoxY0.CheckedChanged += new System.EventHandler(this.UpdateRotations);
+            // 
+            // groupBoxRotationX
+            // 
+            this.groupBoxRotationX.Controls.Add(this.checkBoxX270);
+            this.groupBoxRotationX.Controls.Add(this.checkBoxX180);
+            this.groupBoxRotationX.Controls.Add(this.checkBoxX90);
+            this.groupBoxRotationX.Controls.Add(this.checkBoxX0);
+            this.groupBoxRotationX.Location = new System.Drawing.Point(7, 20);
+            this.groupBoxRotationX.Name = "groupBoxRotationX";
+            this.groupBoxRotationX.Size = new System.Drawing.Size(124, 66);
+            this.groupBoxRotationX.TabIndex = 0;
+            this.groupBoxRotationX.TabStop = false;
+            this.groupBoxRotationX.Text = "X";
+            // 
+            // checkBoxX270
+            // 
+            this.checkBoxX270.AutoSize = true;
+            this.checkBoxX270.Location = new System.Drawing.Point(76, 44);
+            this.checkBoxX270.Name = "checkBoxX270";
+            this.checkBoxX270.Size = new System.Drawing.Size(44, 17);
+            this.checkBoxX270.TabIndex = 3;
+            this.checkBoxX270.Text = "270";
+            this.checkBoxX270.UseVisualStyleBackColor = true;
+            this.checkBoxX270.CheckedChanged += new System.EventHandler(this.UpdateRotations);
+            // 
+            // checkBoxX180
+            // 
+            this.checkBoxX180.AutoSize = true;
+            this.checkBoxX180.Location = new System.Drawing.Point(7, 44);
+            this.checkBoxX180.Name = "checkBoxX180";
+            this.checkBoxX180.Size = new System.Drawing.Size(44, 17);
+            this.checkBoxX180.TabIndex = 2;
+            this.checkBoxX180.Text = "180";
+            this.checkBoxX180.UseVisualStyleBackColor = true;
+            this.checkBoxX180.CheckedChanged += new System.EventHandler(this.UpdateRotations);
+            // 
+            // checkBoxX90
+            // 
+            this.checkBoxX90.AutoSize = true;
+            this.checkBoxX90.Location = new System.Drawing.Point(76, 20);
+            this.checkBoxX90.Name = "checkBoxX90";
+            this.checkBoxX90.Size = new System.Drawing.Size(38, 17);
+            this.checkBoxX90.TabIndex = 1;
+            this.checkBoxX90.Text = "90";
+            this.checkBoxX90.UseVisualStyleBackColor = true;
+            this.checkBoxX90.CheckedChanged += new System.EventHandler(this.UpdateRotations);
+            // 
+            // checkBoxX0
+            // 
+            this.checkBoxX0.AutoSize = true;
+            this.checkBoxX0.Checked = true;
+            this.checkBoxX0.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxX0.Location = new System.Drawing.Point(7, 20);
+            this.checkBoxX0.Name = "checkBoxX0";
+            this.checkBoxX0.Size = new System.Drawing.Size(32, 17);
+            this.checkBoxX0.TabIndex = 0;
+            this.checkBoxX0.Text = "0";
+            this.checkBoxX0.UseVisualStyleBackColor = true;
+            this.checkBoxX0.CheckedChanged += new System.EventHandler(this.UpdateRotations);
+            // 
+            // checkBoxModelJson
+            // 
+            this.checkBoxModelJson.AutoSize = true;
+            this.checkBoxModelJson.Checked = true;
+            this.checkBoxModelJson.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxModelJson.Location = new System.Drawing.Point(6, 86);
+            this.checkBoxModelJson.Name = "checkBoxModelJson";
+            this.checkBoxModelJson.Size = new System.Drawing.Size(88, 17);
+            this.checkBoxModelJson.TabIndex = 4;
+            this.checkBoxModelJson.Text = "Create JSON";
+            this.checkBoxModelJson.UseVisualStyleBackColor = true;
+            this.checkBoxModelJson.CheckedChanged += new System.EventHandler(this.checkBoxModelJson_CheckedChanged);
+            // 
             // textBoxModelName
             // 
-            this.textBoxModelName.Enabled = false;
             this.textBoxModelName.Location = new System.Drawing.Point(6, 60);
             this.textBoxModelName.Name = "textBoxModelName";
             this.textBoxModelName.Size = new System.Drawing.Size(120, 20);
@@ -242,7 +399,6 @@
             // labelModelName
             // 
             this.labelModelName.AutoSize = true;
-            this.labelModelName.Enabled = false;
             this.labelModelName.Location = new System.Drawing.Point(3, 44);
             this.labelModelName.Name = "labelModelName";
             this.labelModelName.Size = new System.Drawing.Size(110, 13);
@@ -251,7 +407,6 @@
             // 
             // numericUpDownModelWeight
             // 
-            this.numericUpDownModelWeight.Enabled = false;
             this.numericUpDownModelWeight.Location = new System.Drawing.Point(6, 17);
             this.numericUpDownModelWeight.Maximum = new decimal(new int[] {
             10000,
@@ -276,26 +431,11 @@
             // labelWeight
             // 
             this.labelWeight.AutoSize = true;
-            this.labelWeight.Enabled = false;
             this.labelWeight.Location = new System.Drawing.Point(3, 0);
             this.labelWeight.Name = "labelWeight";
             this.labelWeight.Size = new System.Drawing.Size(73, 13);
             this.labelWeight.TabIndex = 0;
             this.labelWeight.Text = "Model Weight";
-            // 
-            // checkBoxModelJson
-            // 
-            this.checkBoxModelJson.AutoSize = true;
-            this.checkBoxModelJson.Checked = true;
-            this.checkBoxModelJson.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxModelJson.Enabled = false;
-            this.checkBoxModelJson.Location = new System.Drawing.Point(6, 86);
-            this.checkBoxModelJson.Name = "checkBoxModelJson";
-            this.checkBoxModelJson.Size = new System.Drawing.Size(88, 17);
-            this.checkBoxModelJson.TabIndex = 4;
-            this.checkBoxModelJson.Text = "Create JSON";
-            this.checkBoxModelJson.UseVisualStyleBackColor = true;
-            this.checkBoxModelJson.CheckedChanged += new System.EventHandler(this.checkBoxModelJson_CheckedChanged);
             // 
             // FormMain
             // 
@@ -304,10 +444,13 @@
             this.ClientSize = new System.Drawing.Size(663, 312);
             this.Controls.Add(this.splitContainerMain);
             this.Controls.Add(this.menuStripMain);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStripMain;
+            this.MaximizeBox = false;
             this.Name = "FormMain";
             this.ShowIcon = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "On A Theme - JSON Generator";
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
@@ -324,6 +467,11 @@
             this.splitContainerAttribute.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerAttribute)).EndInit();
             this.splitContainerAttribute.ResumeLayout(false);
+            this.groupBoxRotation.ResumeLayout(false);
+            this.groupBoxRotationY.ResumeLayout(false);
+            this.groupBoxRotationY.PerformLayout();
+            this.groupBoxRotationX.ResumeLayout(false);
+            this.groupBoxRotationX.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownModelWeight)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -353,6 +501,17 @@
         private System.Windows.Forms.TextBox textBoxModelName;
         private System.Windows.Forms.Label labelModelName;
         private System.Windows.Forms.CheckBox checkBoxModelJson;
+        private System.Windows.Forms.GroupBox groupBoxRotation;
+        private System.Windows.Forms.GroupBox groupBoxRotationY;
+        private System.Windows.Forms.CheckBox checkBoxY270;
+        private System.Windows.Forms.CheckBox checkBoxY180;
+        private System.Windows.Forms.CheckBox checkBoxY90;
+        private System.Windows.Forms.CheckBox checkBoxY0;
+        private System.Windows.Forms.GroupBox groupBoxRotationX;
+        private System.Windows.Forms.CheckBox checkBoxX270;
+        private System.Windows.Forms.CheckBox checkBoxX180;
+        private System.Windows.Forms.CheckBox checkBoxX90;
+        private System.Windows.Forms.CheckBox checkBoxX0;
     }
 }
 

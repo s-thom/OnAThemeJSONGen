@@ -29,7 +29,11 @@ namespace OnATheme
             {
                 if (dialog.textBoxOverwrite.Text != "")
                     BlockName = dialog.textBoxOverwrite.Text;
-                BlockVariant newBlock = new BlockVariant(dialog.textBoxName.Text, dialog.textBoxParentModel.Text, BlockName, dialog.Textures, (int)dialog.numericUpDownVariants.Value, dialog.checkBoxCreateModels.Checked);
+
+                bool[] xRot = new bool[4] { dialog.checkBoxX0.Checked, dialog.checkBoxX90.Checked, dialog.checkBoxX180.Checked, dialog.checkBoxX270.Checked };
+                bool[] yRot = new bool[4] { dialog.checkBoxY0.Checked, dialog.checkBoxY90.Checked, dialog.checkBoxY180.Checked, dialog.checkBoxY270.Checked };
+
+                BlockVariant newBlock = new BlockVariant(dialog.textBoxName.Text, dialog.textBoxParentModel.Text, BlockName, dialog.Textures, (int)dialog.numericUpDownVariants.Value, dialog.checkBoxCreateModels.Checked, xRot, yRot);
                 return newBlock;
             }
             else

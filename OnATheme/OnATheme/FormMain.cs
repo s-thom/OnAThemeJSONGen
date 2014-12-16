@@ -86,11 +86,7 @@ namespace OnATheme
             try
             {
                 selectedModel = (Model)listBoxModels.Items[listBoxModels.SelectedIndex];
-                labelWeight.Enabled = true;
-                numericUpDownModelWeight.Enabled = true;
-                labelModelName.Enabled = true;
-                textBoxModelName.Enabled = true;
-                checkBoxModelJson.Enabled = true;
+                splitContainerAttribute.Panel2.Enabled = true;
                 numericUpDownModelWeight.Value = selectedModel.Weight;
                 textBoxModelName.Text = selectedModel.Name;
                 checkBoxModelJson.Checked = selectedModel.CreateJson;
@@ -124,11 +120,7 @@ namespace OnATheme
                 Blocks.Remove(selectedBlock);
                 listBoxBlocks.Items.Remove(selectedBlock);
                 listBoxModels.Items.Clear();
-                numericUpDownModelWeight.Enabled = false;
-                labelWeight.Enabled = false;
-                labelModelName.Enabled = false;
-                textBoxModelName.Enabled = false;
-                checkBoxModelJson.Enabled = false;
+                splitContainerAttribute.Panel2.Enabled = false;
             }
         }
         /// <summary>
@@ -159,7 +151,11 @@ namespace OnATheme
             File.WriteAllText(@"OaT/assets/minecraft/models/block/double_cross.json", Properties.Resources.double_cross);
             File.WriteAllText(@"OaT/assets/minecraft/models/block/double_cross_tint.json", Properties.Resources.double_cross_tint);
         }
-
+        /// <summary>
+        /// Rename the model
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textBoxModelName_TextChanged(object sender, EventArgs e)
         {
             try
@@ -173,10 +169,27 @@ namespace OnATheme
                 Console.WriteLine("Unable to change model name, is a model selected?");
             }
         }
-
+        /// <summary>
+        /// Change whether or not to create the model file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkBoxModelJson_CheckedChanged(object sender, EventArgs e)
         {
             selectedModel.CreateJson = checkBoxModelJson.Checked;
+        }
+        /// <summary>
+        /// Update the rotations for the selected model
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void UpdateRotations(object sender, EventArgs e)
+        {
+            bool[] xRot = new bool[4] { checkBoxX0.Checked, checkBoxX90.Checked, checkBoxX180.Checked, checkBoxX270.Checked };
+            bool[] yRot = new bool[4] { checkBoxY0.Checked, checkBoxY90.Checked, checkBoxY180.Checked, checkBoxY270.Checked };
+
+            selectedModel.XRotation = xRot;
+            selectedModel.YRotation = yRot;
         }
     }
 }

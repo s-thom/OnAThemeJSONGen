@@ -13,6 +13,9 @@ namespace OnATheme
         protected string _name;
         protected string _parent;
         protected int _weight = 1; // Default, just in case
+        protected bool[] _xRot = new bool[4] { true, false, false, false };
+        protected bool[] _yRot = new bool[4] { true, false, false, false };
+        protected bool _uvLock = false;
         protected bool _createModelJson;
         static string MODEL_PATH = @"block/";
 
@@ -23,12 +26,17 @@ namespace OnATheme
         /// <param name="Parent"></param>
         /// <param name="Textures"></param>
         /// <param name="Weight"></param>
-        public Model(string Name, string Parent, List<Texture> Textures, bool CreateJson)
+        public Model(string Name, string Parent, List<Texture> Textures, bool CreateJson, bool[] XRotations, bool[] YRotations)
         {
             _name = Name;
             _parent = Parent;
             _textures = Textures;
             _createModelJson = CreateJson;
+
+            if (XRotations.Length == 4)
+                _xRot = XRotations;
+            if (YRotations.Length == 4)
+                _yRot = YRotations;
         }
 
         /// <summary>
@@ -39,6 +47,20 @@ namespace OnATheme
         /// Name of the model
         /// </summary>
         public string Name { get { return _name; } set { _name = value; } }
+        /// <summary>
+        /// Rotate the texture with the block if false (default)
+        /// </summary>
+        public bool UVLock { get { return _uvLock; } set { _uvLock = value; } }
+        /// <summary>
+        /// Rotations around the X axis for this block
+        /// [0] = 0, [1] = 90, [2] = 180, [3] = 270
+        /// </summary>
+        public bool[] XRotation { get { return _xRot; } set { if (value.Length == 4) _xRot = value; } }
+        /// <summary>
+        /// Rotations around the Y axis for this block
+        /// [0] = 0, [1] = 90, [2] = 180, [3] = 270
+        /// </summary>
+        public bool[] YRotation { get { return _yRot; } set { if (value.Length == 4) _yRot = value; } }
         /// <summary>
         /// Whether or not to create the individual model file
         /// Set to false if you're using your own models
@@ -76,14 +98,41 @@ namespace OnATheme
         /// <param name="w"></param>
         public void WriteBlockstate(JsonWriter w)
         {
-            w.WriteStartObject();
+            // The loops and ifs are usd to decide whether or not to write this variant as rotated.
+            // Currently, thre is no way to specify different weights for each rotation (apart from manual editing)
+            for (int i = 0; i < 4; i++)
+                if (_xRot[i])
+                    for (int j = 0; j < 4; j++)
+                        if (_yRot[j])
+                        {
+                            w.WriteStartObject();
 
-            w.WritePropertyName("model");
-            w.WriteValue(_name);
-            w.WritePropertyName("weight");
-            w.WriteValue(_weight);
+                            w.WritePropertyName("model");
+                            w.WriteValue(_name);
 
-            w.WriteEndObject();
+                            if (_weight != 1)
+                            {
+                                w.WritePropertyName("weight");
+                                w.WriteValue(_weight);
+                            }
+                            if (i != 0) // Do not need to write if it's 0.
+                            {
+                                w.WritePropertyName("x");
+                                w.WriteValue(i * 90);
+                            }
+                            if (j != 0) // Same as above.
+                            {
+                                w.WritePropertyName("y");
+                                w.WriteValue(j * 90);
+                            }
+                            if (_uvLock)
+                            {
+                                w.WritePropertyName("uvlock");
+                                w.WriteValue(true); // If this piece of code is executed, then it must be true.
+                            }
+
+                            w.WriteEndObject();
+                        }
         }
         /// <summary>
         /// Name of the Model

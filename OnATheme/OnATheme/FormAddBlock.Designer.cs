@@ -101,6 +101,8 @@
             this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.textBoxBlockName);
             this.Controls.Add(this.labelBlockName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "FormAddBlock";
             this.Padding = new System.Windows.Forms.Padding(10, 0, 10, 10);
             this.ShowIcon = false;

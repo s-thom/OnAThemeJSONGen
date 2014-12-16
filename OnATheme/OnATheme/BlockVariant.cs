@@ -22,12 +22,12 @@ namespace OnATheme
         /// <param name="Block"></param>
         /// <param name="Name"></param>
         /// <param name="Models"></param>
-        public BlockVariant(string Name, string ParentModel, string BlockName, List<Texture> Textures, int NumVariants, bool CreateModelJson)
+        public BlockVariant(string Name, string ParentModel, string BlockName, List<Texture> Textures, int NumVariants, bool CreateModelJson, bool[] XRotations, bool[] YRotations)
         {
             if (Name != "")
                 _name = Name;
 
-            Models.Add(new Model(BlockName, ParentModel, Textures, CreateModelJson));
+            Models.Add(new Model(BlockName, ParentModel, Textures, CreateModelJson, XRotations, YRotations));
 
             for (int i = 1; i <= NumVariants; i++)
             {
@@ -38,7 +38,7 @@ namespace OnATheme
                     modelTextures.Add(new Texture(t.Reference, t.Name + "_" + i.ToString()));
                 }
 
-                Models.Add(new Model(BlockName + "_" + i.ToString(), BlockName, modelTextures, CreateModelJson));
+                Models.Add(new Model(BlockName + "_" + i.ToString(), BlockName, modelTextures, CreateModelJson, XRotations, YRotations));
             }
         }
 
