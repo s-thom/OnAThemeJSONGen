@@ -9,13 +9,13 @@ namespace OnATheme
 {
     public class Block
     {
-        public List<Attribute> Attributes = new List<Attribute>();
+        public List<BlockVariant> BlockVariants = new List<BlockVariant>();
         private string _name;
 
-        public Block(string Name, List<Attribute> Variants)
+        public Block(string Name, List<BlockVariant> Variants)
         {
             _name = Name;
-            Attributes = Variants;
+            BlockVariants = Variants;
         }
         /// <summary>
         /// Create all JSON files
@@ -23,8 +23,8 @@ namespace OnATheme
         public void CreateJSON()
         {
             // Create the model files first
-            foreach (Attribute a in Attributes)
-                foreach (Model m in a.Models)
+            foreach (BlockVariant b in BlockVariants)
+                foreach (Model m in b.Models)
                     m.WriteModel();
 
             // Create writer and set style
@@ -35,9 +35,9 @@ namespace OnATheme
             w.WritePropertyName("variants");
             w.WriteStartObject();
 
-            foreach (Attribute a in Attributes)
+            foreach (BlockVariant b in BlockVariants)
             {
-                a.WriteAttribute(w);
+                b.WriteBlockVariant(w);
             }
 
             w.WriteEndObject();

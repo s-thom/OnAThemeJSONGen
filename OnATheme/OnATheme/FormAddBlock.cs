@@ -11,7 +11,7 @@ namespace OnATheme
 {
     public partial class FormAddBlock : Form
     {
-        List<Attribute> Attributes = new List<Attribute>();
+        List<BlockVariant> Variants = new List<BlockVariant>();
 
         public FormAddBlock()
         {
@@ -26,7 +26,7 @@ namespace OnATheme
             FormAddBlock dialog = new FormAddBlock();
             if (dialog.ShowDialog() == DialogResult.OK) 
             {
-                Block newBlock = new Block(dialog.textBoxBlockName.Text, dialog.Attributes);
+                Block newBlock = new Block(dialog.textBoxBlockName.Text, dialog.Variants);
                 return newBlock;
             }
             else
@@ -34,14 +34,13 @@ namespace OnATheme
                return null; // In case of canceled dialogue
             }
         }
-
-        private void buttonAddAttribute_Click(object sender, EventArgs e)
+        private void buttonAddBlockVariant_Click(object sender, EventArgs e)
         {
-            Attribute newAttribute = FormAddAttribute.ShowAndReturnObject(textBoxBlockName.Text);
-            if (newAttribute != null)
+            BlockVariant newVariant = FormAddBlockVariant.ShowAndReturnObject(textBoxBlockName.Text);
+            if (newVariant != null)
             {
-                Attributes.Add(newAttribute);
-                listBoxAttributes.Items.Add(newAttribute);
+                Variants.Add(newVariant);
+                listBoxBlockVariants.Items.Add(newVariant);
             }
         }
     }

@@ -31,9 +31,9 @@
             this.labelBlockName = new System.Windows.Forms.Label();
             this.textBoxBlockName = new System.Windows.Forms.TextBox();
             this.buttonCreate = new System.Windows.Forms.Button();
-            this.listBoxAttributes = new System.Windows.Forms.ListBox();
-            this.buttonAddAttribute = new System.Windows.Forms.Button();
-            this.labelAttributes = new System.Windows.Forms.Label();
+            this.listBoxBlockVariants = new System.Windows.Forms.ListBox();
+            this.buttonAddBlockVariant = new System.Windows.Forms.Button();
+            this.labelBlockVariants = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelBlockName
@@ -63,41 +63,41 @@
             this.buttonCreate.Text = "Create Block";
             this.buttonCreate.UseVisualStyleBackColor = true;
             // 
-            // listBoxAttributes
+            // listBoxBlockVariants
             // 
-            this.listBoxAttributes.FormattingEnabled = true;
-            this.listBoxAttributes.Location = new System.Drawing.Point(10, 49);
-            this.listBoxAttributes.Name = "listBoxAttributes";
-            this.listBoxAttributes.Size = new System.Drawing.Size(187, 108);
-            this.listBoxAttributes.TabIndex = 4;
+            this.listBoxBlockVariants.FormattingEnabled = true;
+            this.listBoxBlockVariants.Location = new System.Drawing.Point(10, 49);
+            this.listBoxBlockVariants.Name = "listBoxBlockVariants";
+            this.listBoxBlockVariants.Size = new System.Drawing.Size(187, 108);
+            this.listBoxBlockVariants.TabIndex = 4;
             // 
-            // buttonAddAttribute
+            // buttonAddBlockVariant
             // 
-            this.buttonAddAttribute.Location = new System.Drawing.Point(10, 163);
-            this.buttonAddAttribute.Name = "buttonAddAttribute";
-            this.buttonAddAttribute.Size = new System.Drawing.Size(187, 23);
-            this.buttonAddAttribute.TabIndex = 2;
-            this.buttonAddAttribute.Text = "Add";
-            this.buttonAddAttribute.UseVisualStyleBackColor = true;
-            this.buttonAddAttribute.Click += new System.EventHandler(this.buttonAddAttribute_Click);
+            this.buttonAddBlockVariant.Location = new System.Drawing.Point(10, 163);
+            this.buttonAddBlockVariant.Name = "buttonAddBlockVariant";
+            this.buttonAddBlockVariant.Size = new System.Drawing.Size(187, 23);
+            this.buttonAddBlockVariant.TabIndex = 2;
+            this.buttonAddBlockVariant.Text = "Add Block Variant";
+            this.buttonAddBlockVariant.UseVisualStyleBackColor = true;
+            this.buttonAddBlockVariant.Click += new System.EventHandler(this.buttonAddBlockVariant_Click);
             // 
-            // labelAttributes
+            // labelBlockVariants
             // 
-            this.labelAttributes.AutoSize = true;
-            this.labelAttributes.Location = new System.Drawing.Point(7, 33);
-            this.labelAttributes.Name = "labelAttributes";
-            this.labelAttributes.Size = new System.Drawing.Size(51, 13);
-            this.labelAttributes.TabIndex = 6;
-            this.labelAttributes.Text = "Attributes";
+            this.labelBlockVariants.AutoSize = true;
+            this.labelBlockVariants.Location = new System.Drawing.Point(7, 33);
+            this.labelBlockVariants.Name = "labelBlockVariants";
+            this.labelBlockVariants.Size = new System.Drawing.Size(75, 13);
+            this.labelBlockVariants.TabIndex = 6;
+            this.labelBlockVariants.Text = "Block Variants";
             // 
             // FormAddBlock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(207, 225);
-            this.Controls.Add(this.labelAttributes);
-            this.Controls.Add(this.buttonAddAttribute);
-            this.Controls.Add(this.listBoxAttributes);
+            this.Controls.Add(this.labelBlockVariants);
+            this.Controls.Add(this.buttonAddBlockVariant);
+            this.Controls.Add(this.listBoxBlockVariants);
             this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.textBoxBlockName);
             this.Controls.Add(this.labelBlockName);
@@ -117,8 +117,8 @@
         private System.Windows.Forms.Label labelBlockName;
         private System.Windows.Forms.TextBox textBoxBlockName;
         private System.Windows.Forms.Button buttonCreate;
-        private System.Windows.Forms.ListBox listBoxAttributes;
-        private System.Windows.Forms.Button buttonAddAttribute;
-        private System.Windows.Forms.Label labelAttributes;
+        private System.Windows.Forms.ListBox listBoxBlockVariants;
+        private System.Windows.Forms.Button buttonAddBlockVariant;
+        private System.Windows.Forms.Label labelBlockVariants;
     }
 }

@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace OnATheme
 {
-    public class Attribute
+    public class BlockVariant
     {
         /// <summary>
         /// Models this attribute uses
@@ -22,7 +22,7 @@ namespace OnATheme
         /// <param name="Block"></param>
         /// <param name="Name"></param>
         /// <param name="Models"></param>
-        public Attribute(string Name, string ParentModel, string BlockName, List<Texture> Textures, int NumVariants)
+        public BlockVariant(string Name, string ParentModel, string BlockName, List<Texture> Textures, int NumVariants)
         {
             if (Name != "")
                 _name = Name;
@@ -46,7 +46,7 @@ namespace OnATheme
         /// Write text to be use in the blockstates file
         /// </summary>
         /// <param name="w"></param>
-        public void WriteAttribute(JsonWriter w)
+        public void WriteBlockVariant(JsonWriter w)
         {
             w.WritePropertyName(_name);
             w.WriteStartArray();
@@ -57,7 +57,7 @@ namespace OnATheme
             w.WriteEndArray();
         }
         /// <summary>
-        /// Name of the attribute
+        /// Name of the variant
         /// </summary>
         /// <returns></returns>
         public override string ToString()

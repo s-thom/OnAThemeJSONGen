@@ -9,11 +9,11 @@ using System.Windows.Forms;
 
 namespace OnATheme
 {
-    public partial class FormAddAttribute : Form
+    public partial class FormAddBlockVariant : Form
     {
         List<Texture> Textures = new List<Texture>();
 
-        public FormAddAttribute()
+        public FormAddBlockVariant()
         {
             InitializeComponent();
         }
@@ -22,14 +22,14 @@ namespace OnATheme
         /// Show the dialogue, and return an Attribute object
         /// </summary>
         /// <returns></returns>
-        public static Attribute ShowAndReturnObject(string BlockName)
+        public static BlockVariant ShowAndReturnObject(string BlockName)
         {
-            FormAddAttribute dialog = new FormAddAttribute();
+            FormAddBlockVariant dialog = new FormAddBlockVariant();
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 if (dialog.textBoxOverwrite.Text != "")
                     BlockName = dialog.textBoxOverwrite.Text;
-                Attribute newBlock = new Attribute(dialog.textBoxName.Text, dialog.textBoxParentModel.Text, BlockName, dialog.Textures, (int)dialog.numericUpDownVariants.Value);
+                BlockVariant newBlock = new BlockVariant(dialog.textBoxName.Text, dialog.textBoxParentModel.Text, BlockName, dialog.Textures, (int)dialog.numericUpDownVariants.Value);
                 return newBlock;
             }
             else

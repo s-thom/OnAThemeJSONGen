@@ -1,6 +1,6 @@
 ﻿namespace OnATheme
 {
-    partial class FormAddAttribute
+    partial class FormAddBlockVariant
     {
         /// <summary>
         /// Required designer variable.

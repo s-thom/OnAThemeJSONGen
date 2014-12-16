@@ -16,7 +16,7 @@ namespace OnATheme
         List<Block> Blocks = new List<Block>();
 
         Block selectedBlock;
-        Attribute selectedAttribute;
+        BlockVariant selectedVariant;
         Model selectedModel;
 
         public FormMain()
@@ -47,9 +47,9 @@ namespace OnATheme
             try
             {
                 selectedBlock = (Block)listBoxBlocks.Items[listBoxBlocks.SelectedIndex];
-                listBoxAttributes.Items.Clear();
-                foreach (Attribute a in selectedBlock.Attributes)
-                    listBoxAttributes.Items.Add(a);
+                listBoxVariants.Items.Clear();
+                foreach (BlockVariant b in selectedBlock.BlockVariants)
+                    listBoxVariants.Items.Add(b);
             }
             catch
             {
@@ -61,13 +61,13 @@ namespace OnATheme
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void listBoxAttributes_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBoxVariants_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                selectedAttribute = (Attribute)listBoxAttributes.Items[listBoxAttributes.SelectedIndex];
+                selectedVariant = (BlockVariant)listBoxVariants.Items[listBoxVariants.SelectedIndex];
                 listBoxModels.Items.Clear();
-                foreach (Model m in selectedAttribute.Models)
+                foreach (Model m in selectedVariant.Models)
                     listBoxModels.Items.Add(m);
 
             }
@@ -171,7 +171,5 @@ namespace OnATheme
                 Console.WriteLine("Unable to change model name, is a model selected?");
             }
         }
-
-        
     }
 }

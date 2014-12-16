@@ -42,13 +42,13 @@
             this.listBoxBlocks = new System.Windows.Forms.ListBox();
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
             this.splitContainerBlock = new System.Windows.Forms.SplitContainer();
-            this.listBoxAttributes = new System.Windows.Forms.ListBox();
+            this.listBoxVariants = new System.Windows.Forms.ListBox();
             this.splitContainerAttribute = new System.Windows.Forms.SplitContainer();
             this.listBoxModels = new System.Windows.Forms.ListBox();
+            this.textBoxModelName = new System.Windows.Forms.TextBox();
+            this.labelModelName = new System.Windows.Forms.Label();
             this.numericUpDownModelWeight = new System.Windows.Forms.NumericUpDown();
             this.labelWeight = new System.Windows.Forms.Label();
-            this.labelModelName = new System.Windows.Forms.Label();
-            this.textBoxModelName = new System.Windows.Forms.TextBox();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -133,14 +133,14 @@
             // addBlockToolStripMenuItem
             // 
             this.addBlockToolStripMenuItem.Name = "addBlockToolStripMenuItem";
-            this.addBlockToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.addBlockToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.addBlockToolStripMenuItem.Text = "Add Block";
             this.addBlockToolStripMenuItem.Click += new System.EventHandler(this.addBlockToolStripMenuItem_Click);
             // 
             // removeBlockToolStripMenuItem
             // 
             this.removeBlockToolStripMenuItem.Name = "removeBlockToolStripMenuItem";
-            this.removeBlockToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.removeBlockToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.removeBlockToolStripMenuItem.Text = "Remove Block";
             this.removeBlockToolStripMenuItem.Click += new System.EventHandler(this.removeBlockToolStripMenuItem_Click);
             // 
@@ -179,7 +179,7 @@
             // 
             // splitContainerBlock.Panel1
             // 
-            this.splitContainerBlock.Panel1.Controls.Add(this.listBoxAttributes);
+            this.splitContainerBlock.Panel1.Controls.Add(this.listBoxVariants);
             // 
             // splitContainerBlock.Panel2
             // 
@@ -188,15 +188,15 @@
             this.splitContainerBlock.SplitterDistance = 182;
             this.splitContainerBlock.TabIndex = 1;
             // 
-            // listBoxAttributes
+            // listBoxVariants
             // 
-            this.listBoxAttributes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxAttributes.FormattingEnabled = true;
-            this.listBoxAttributes.Location = new System.Drawing.Point(0, 0);
-            this.listBoxAttributes.Name = "listBoxAttributes";
-            this.listBoxAttributes.Size = new System.Drawing.Size(182, 288);
-            this.listBoxAttributes.TabIndex = 0;
-            this.listBoxAttributes.SelectedIndexChanged += new System.EventHandler(this.listBoxAttributes_SelectedIndexChanged);
+            this.listBoxVariants.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxVariants.FormattingEnabled = true;
+            this.listBoxVariants.Location = new System.Drawing.Point(0, 0);
+            this.listBoxVariants.Name = "listBoxVariants";
+            this.listBoxVariants.Size = new System.Drawing.Size(182, 288);
+            this.listBoxVariants.TabIndex = 0;
+            this.listBoxVariants.SelectedIndexChanged += new System.EventHandler(this.listBoxVariants_SelectedIndexChanged);
             // 
             // splitContainerAttribute
             // 
@@ -227,6 +227,25 @@
             this.listBoxModels.Size = new System.Drawing.Size(161, 288);
             this.listBoxModels.TabIndex = 0;
             this.listBoxModels.SelectedIndexChanged += new System.EventHandler(this.listBoxModels_SelectedIndexChanged);
+            // 
+            // textBoxModelName
+            // 
+            this.textBoxModelName.Enabled = false;
+            this.textBoxModelName.Location = new System.Drawing.Point(6, 60);
+            this.textBoxModelName.Name = "textBoxModelName";
+            this.textBoxModelName.Size = new System.Drawing.Size(120, 20);
+            this.textBoxModelName.TabIndex = 3;
+            this.textBoxModelName.TextChanged += new System.EventHandler(this.textBoxModelName_TextChanged);
+            // 
+            // labelModelName
+            // 
+            this.labelModelName.AutoSize = true;
+            this.labelModelName.Enabled = false;
+            this.labelModelName.Location = new System.Drawing.Point(3, 44);
+            this.labelModelName.Name = "labelModelName";
+            this.labelModelName.Size = new System.Drawing.Size(110, 13);
+            this.labelModelName.TabIndex = 2;
+            this.labelModelName.Text = "Override Model Name";
             // 
             // numericUpDownModelWeight
             // 
@@ -261,25 +280,6 @@
             this.labelWeight.Size = new System.Drawing.Size(73, 13);
             this.labelWeight.TabIndex = 0;
             this.labelWeight.Text = "Model Weight";
-            // 
-            // labelModelName
-            // 
-            this.labelModelName.AutoSize = true;
-            this.labelModelName.Enabled = false;
-            this.labelModelName.Location = new System.Drawing.Point(3, 44);
-            this.labelModelName.Name = "labelModelName";
-            this.labelModelName.Size = new System.Drawing.Size(110, 13);
-            this.labelModelName.TabIndex = 2;
-            this.labelModelName.Text = "Override Model Name";
-            // 
-            // textBoxModelName
-            // 
-            this.textBoxModelName.Enabled = false;
-            this.textBoxModelName.Location = new System.Drawing.Point(6, 60);
-            this.textBoxModelName.Name = "textBoxModelName";
-            this.textBoxModelName.Size = new System.Drawing.Size(120, 20);
-            this.textBoxModelName.TabIndex = 3;
-            this.textBoxModelName.TextChanged += new System.EventHandler(this.textBoxModelName_TextChanged);
             // 
             // FormMain
             // 
@@ -333,7 +333,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDownModelWeight;
         private System.Windows.Forms.ToolStripMenuItem createUnZippedToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainerBlock;
-        private System.Windows.Forms.ListBox listBoxAttributes;
+        private System.Windows.Forms.ListBox listBoxVariants;
         private System.Windows.Forms.TextBox textBoxModelName;
         private System.Windows.Forms.Label labelModelName;
     }
