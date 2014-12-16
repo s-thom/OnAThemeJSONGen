@@ -45,6 +45,7 @@
             this.labelOverwrite = new System.Windows.Forms.Label();
             this.textBoxOverwrite = new System.Windows.Forms.TextBox();
             this.groupBoxTextures = new System.Windows.Forms.GroupBox();
+            this.checkBoxCreateModels = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownVariants)).BeginInit();
             this.groupBoxAddTexture.SuspendLayout();
             this.groupBoxTextures.SuspendLayout();
@@ -78,7 +79,7 @@
             // buttonCreate
             // 
             this.buttonCreate.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonCreate.Location = new System.Drawing.Point(10, 285);
+            this.buttonCreate.Location = new System.Drawing.Point(10, 308);
             this.buttonCreate.Margin = new System.Windows.Forms.Padding(10, 3, 10, 10);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(330, 26);
@@ -194,18 +195,31 @@
             // 
             this.groupBoxTextures.Controls.Add(this.groupBoxAddTexture);
             this.groupBoxTextures.Controls.Add(this.listBoxTextures);
-            this.groupBoxTextures.Location = new System.Drawing.Point(10, 94);
+            this.groupBoxTextures.Location = new System.Drawing.Point(10, 117);
             this.groupBoxTextures.Name = "groupBoxTextures";
             this.groupBoxTextures.Size = new System.Drawing.Size(330, 185);
             this.groupBoxTextures.TabIndex = 5;
             this.groupBoxTextures.TabStop = false;
             this.groupBoxTextures.Text = "Textures";
             // 
-            // FormAddAttribute
+            // checkBoxCreateModels
+            // 
+            this.checkBoxCreateModels.AutoSize = true;
+            this.checkBoxCreateModels.Checked = true;
+            this.checkBoxCreateModels.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxCreateModels.Location = new System.Drawing.Point(10, 94);
+            this.checkBoxCreateModels.Name = "checkBoxCreateModels";
+            this.checkBoxCreateModels.Size = new System.Drawing.Size(166, 17);
+            this.checkBoxCreateModels.TabIndex = 16;
+            this.checkBoxCreateModels.Text = "Create individual model JSON";
+            this.checkBoxCreateModels.UseVisualStyleBackColor = true;
+            // 
+            // FormAddBlockVariant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(352, 319);
+            this.ClientSize = new System.Drawing.Size(352, 338);
+            this.Controls.Add(this.checkBoxCreateModels);
             this.Controls.Add(this.groupBoxTextures);
             this.Controls.Add(this.textBoxOverwrite);
             this.Controls.Add(this.labelOverwrite);
@@ -216,7 +230,7 @@
             this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.labelName);
-            this.Name = "FormAddAttribute";
+            this.Name = "FormAddBlockVariant";
             this.Padding = new System.Windows.Forms.Padding(10, 0, 10, 10);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -249,5 +263,6 @@
         private System.Windows.Forms.Label labelOverwrite;
         private System.Windows.Forms.TextBox textBoxOverwrite;
         private System.Windows.Forms.GroupBox groupBoxTextures;
+        private System.Windows.Forms.CheckBox checkBoxCreateModels;
     }
 }

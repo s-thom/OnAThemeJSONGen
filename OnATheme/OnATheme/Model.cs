@@ -13,6 +13,7 @@ namespace OnATheme
         protected string _name;
         protected string _parent;
         protected int _weight = 1; // Default, just in case
+        protected bool _createModelJson;
         static string MODEL_PATH = @"block/";
 
         /// <summary>
@@ -22,11 +23,12 @@ namespace OnATheme
         /// <param name="Parent"></param>
         /// <param name="Textures"></param>
         /// <param name="Weight"></param>
-        public Model(string Name, string Parent, List<Texture> Textures)
+        public Model(string Name, string Parent, List<Texture> Textures, bool CreateJson)
         {
             _name = Name;
             _parent = Parent;
             _textures = Textures;
+            _createModelJson = CreateJson;
         }
 
         /// <summary>
@@ -37,13 +39,18 @@ namespace OnATheme
         /// Name of the model
         /// </summary>
         public string Name { get { return _name; } set { _name = value; } }
+        /// <summary>
+        /// Whether or not to create the individual model file
+        /// Set to false if you're using your own models
+        /// </summary>
+        public bool CreateJson { get { return _createModelJson; } set { _createModelJson = value; } }
 
         /// <summary>
         /// Create the model file for the variant
         /// </summary>
         public void WriteModel()
         {
-            if (_parent != "")
+            if (_parent != "" && _createModelJson)
             {
                 JsonWriter w = new JsonTextWriter(File.CreateText(@"OaT/assets/minecraft/models/block/" + _name + ".json"));
                 w.Formatting = Formatting.Indented;

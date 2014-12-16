@@ -90,8 +90,10 @@ namespace OnATheme
                 numericUpDownModelWeight.Enabled = true;
                 labelModelName.Enabled = true;
                 textBoxModelName.Enabled = true;
+                checkBoxModelJson.Enabled = true;
                 numericUpDownModelWeight.Value = selectedModel.Weight;
                 textBoxModelName.Text = selectedModel.Name;
+                checkBoxModelJson.Checked = selectedModel.CreateJson;
             }
             catch
             {
@@ -126,6 +128,7 @@ namespace OnATheme
                 labelWeight.Enabled = false;
                 labelModelName.Enabled = false;
                 textBoxModelName.Enabled = false;
+                checkBoxModelJson.Enabled = false;
             }
         }
         /// <summary>
@@ -150,7 +153,6 @@ namespace OnATheme
             foreach (Block b in Blocks)
             {
                 b.CreateJSON();
-                b.CreateJSON();
             }
             File.WriteAllText(@"OaT/assets/minecraft/models/block/none.json", Properties.Resources.none);
             File.WriteAllText(@"OaT/assets/minecraft/models/block/cross_tint.json", Properties.Resources.cross_tint);
@@ -170,6 +172,11 @@ namespace OnATheme
             {
                 Console.WriteLine("Unable to change model name, is a model selected?");
             }
+        }
+
+        private void checkBoxModelJson_CheckedChanged(object sender, EventArgs e)
+        {
+            selectedModel.CreateJson = checkBoxModelJson.Checked;
         }
     }
 }

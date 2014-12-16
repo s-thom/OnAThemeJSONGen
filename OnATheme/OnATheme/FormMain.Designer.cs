@@ -49,6 +49,7 @@
             this.labelModelName = new System.Windows.Forms.Label();
             this.numericUpDownModelWeight = new System.Windows.Forms.NumericUpDown();
             this.labelWeight = new System.Windows.Forms.Label();
+            this.checkBoxModelJson = new System.Windows.Forms.CheckBox();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -210,6 +211,7 @@
             // 
             // splitContainerAttribute.Panel2
             // 
+            this.splitContainerAttribute.Panel2.Controls.Add(this.checkBoxModelJson);
             this.splitContainerAttribute.Panel2.Controls.Add(this.textBoxModelName);
             this.splitContainerAttribute.Panel2.Controls.Add(this.labelModelName);
             this.splitContainerAttribute.Panel2.Controls.Add(this.numericUpDownModelWeight);
@@ -281,6 +283,20 @@
             this.labelWeight.TabIndex = 0;
             this.labelWeight.Text = "Model Weight";
             // 
+            // checkBoxModelJson
+            // 
+            this.checkBoxModelJson.AutoSize = true;
+            this.checkBoxModelJson.Checked = true;
+            this.checkBoxModelJson.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxModelJson.Enabled = false;
+            this.checkBoxModelJson.Location = new System.Drawing.Point(6, 86);
+            this.checkBoxModelJson.Name = "checkBoxModelJson";
+            this.checkBoxModelJson.Size = new System.Drawing.Size(88, 17);
+            this.checkBoxModelJson.TabIndex = 4;
+            this.checkBoxModelJson.Text = "Create JSON";
+            this.checkBoxModelJson.UseVisualStyleBackColor = true;
+            this.checkBoxModelJson.CheckedChanged += new System.EventHandler(this.checkBoxModelJson_CheckedChanged);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -336,6 +352,7 @@
         private System.Windows.Forms.ListBox listBoxVariants;
         private System.Windows.Forms.TextBox textBoxModelName;
         private System.Windows.Forms.Label labelModelName;
+        private System.Windows.Forms.CheckBox checkBoxModelJson;
     }
 }
 

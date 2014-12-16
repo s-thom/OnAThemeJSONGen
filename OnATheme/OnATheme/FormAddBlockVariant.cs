@@ -29,7 +29,7 @@ namespace OnATheme
             {
                 if (dialog.textBoxOverwrite.Text != "")
                     BlockName = dialog.textBoxOverwrite.Text;
-                BlockVariant newBlock = new BlockVariant(dialog.textBoxName.Text, dialog.textBoxParentModel.Text, BlockName, dialog.Textures, (int)dialog.numericUpDownVariants.Value);
+                BlockVariant newBlock = new BlockVariant(dialog.textBoxName.Text, dialog.textBoxParentModel.Text, BlockName, dialog.Textures, (int)dialog.numericUpDownVariants.Value, dialog.checkBoxCreateModels.Checked);
                 return newBlock;
             }
             else
