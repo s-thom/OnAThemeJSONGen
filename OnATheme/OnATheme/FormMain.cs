@@ -90,6 +90,16 @@ namespace OnATheme
                 numericUpDownModelWeight.Value = selectedModel.Weight;
                 textBoxModelName.Text = selectedModel.Name;
                 checkBoxModelJson.Checked = selectedModel.CreateJson;
+
+                checkBoxX0.Checked = selectedModel.XRotation[0];
+                checkBoxX90.Checked = selectedModel.XRotation[1];
+                checkBoxX180.Checked = selectedModel.XRotation[2];
+                checkBoxX270.Checked = selectedModel.XRotation[3];
+
+                checkBoxY0.Checked = selectedModel.YRotation[0];
+                checkBoxY90.Checked = selectedModel.YRotation[1];
+                checkBoxY180.Checked = selectedModel.YRotation[2];
+                checkBoxY270.Checked = selectedModel.YRotation[3];
             }
             catch
             {
@@ -183,7 +193,7 @@ namespace OnATheme
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void UpdateRotations(object sender, EventArgs e)
+        private void buttonUpdateRotations_Click(object sender, EventArgs e)
         {
             bool[] xRot = new bool[4] { checkBoxX0.Checked, checkBoxX90.Checked, checkBoxX180.Checked, checkBoxX270.Checked };
             bool[] yRot = new bool[4] { checkBoxY0.Checked, checkBoxY90.Checked, checkBoxY180.Checked, checkBoxY270.Checked };
