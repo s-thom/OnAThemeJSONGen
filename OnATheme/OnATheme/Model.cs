@@ -17,7 +17,7 @@ namespace OnATheme
         protected bool[] _yRot = new bool[4] { true, false, false, false };
         protected bool _uvLock = false;
         protected bool _createModelJson;
-        static string MODEL_PATH = @"block/";
+        protected static string MODEL_PATH = @"block/";
 
         /// <summary>
         /// Model for the game to use
@@ -70,7 +70,7 @@ namespace OnATheme
         /// <summary>
         /// Create the model file for the variant
         /// </summary>
-        public void WriteModel()
+        public virtual void WriteModel()
         {
             if (_parent != "" && _createModelJson)
             {
@@ -96,7 +96,7 @@ namespace OnATheme
         /// Write the info used in the blockstates file
         /// </summary>
         /// <param name="w"></param>
-        public void WriteBlockstate(JsonWriter w)
+        public virtual void WriteBlockstate(JsonWriter w)
         {
             // The loops and ifs are usd to decide whether or not to write this variant as rotated.
             // Currently, thre is no way to specify different weights for each rotation (apart from manual editing)

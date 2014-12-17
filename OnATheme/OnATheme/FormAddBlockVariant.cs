@@ -12,6 +12,7 @@ namespace OnATheme
     public partial class FormAddBlockVariant : Form
     {
         List<Texture> Textures = new List<Texture>();
+        string _blockName;
 
         public FormAddBlockVariant()
         {
@@ -29,6 +30,8 @@ namespace OnATheme
             {
                 if (dialog.textBoxOverwrite.Text != "")
                     BlockName = dialog.textBoxOverwrite.Text;
+
+                dialog._blockName = BlockName;
 
                 bool[] xRot = new bool[4] { dialog.checkBoxX0.Checked, dialog.checkBoxX90.Checked, dialog.checkBoxX180.Checked, dialog.checkBoxX270.Checked };
                 bool[] yRot = new bool[4] { dialog.checkBoxY0.Checked, dialog.checkBoxY90.Checked, dialog.checkBoxY180.Checked, dialog.checkBoxY270.Checked };

@@ -149,6 +149,7 @@ namespace OnATheme
         /// <param name="e"></param>
         private void createUnZippedToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Cursor = Cursors.WaitCursor;
             Directory.CreateDirectory(@"OaT/assets/minecraft/models/block/");
             Directory.CreateDirectory(@"OaT/assets/minecraft/blockstates/");
 
@@ -160,6 +161,7 @@ namespace OnATheme
             File.WriteAllText(@"OaT/assets/minecraft/models/block/cross_tint.json", Properties.Resources.cross_tint);
             File.WriteAllText(@"OaT/assets/minecraft/models/block/double_cross.json", Properties.Resources.double_cross);
             File.WriteAllText(@"OaT/assets/minecraft/models/block/double_cross_tint.json", Properties.Resources.double_cross_tint);
+            this.Cursor = Cursors.Default;
         }
         /// <summary>
         /// Rename the model
@@ -200,6 +202,15 @@ namespace OnATheme
 
             selectedModel.XRotation = xRot;
             selectedModel.YRotation = yRot;
+        }
+
+        private void tESTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Directory.CreateDirectory(@"OaT/assets/minecraft/models/block/");
+            Directory.CreateDirectory(@"OaT/assets/minecraft/blockstates/");
+
+            Model m = new ModelExpon("test", new List<string> { "test1", "test2", "test3" }, new string[6]{"", "", "","","",""}, new bool[0], new bool[0]);
+            m.WriteModel();
         }
     }
 }

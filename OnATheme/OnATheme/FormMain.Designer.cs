@@ -46,6 +46,7 @@
             this.splitContainerAttribute = new System.Windows.Forms.SplitContainer();
             this.listBoxModels = new System.Windows.Forms.ListBox();
             this.groupBoxRotation = new System.Windows.Forms.GroupBox();
+            this.buttonUpdateRotations = new System.Windows.Forms.Button();
             this.groupBoxRotationY = new System.Windows.Forms.GroupBox();
             this.checkBoxY270 = new System.Windows.Forms.CheckBox();
             this.checkBoxY180 = new System.Windows.Forms.CheckBox();
@@ -61,7 +62,6 @@
             this.labelModelName = new System.Windows.Forms.Label();
             this.numericUpDownModelWeight = new System.Windows.Forms.NumericUpDown();
             this.labelWeight = new System.Windows.Forms.Label();
-            this.buttonUpdateRotations = new System.Windows.Forms.Button();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -259,6 +259,16 @@
             this.groupBoxRotation.TabStop = false;
             this.groupBoxRotation.Text = "Rotations";
             // 
+            // buttonUpdateRotations
+            // 
+            this.buttonUpdateRotations.Location = new System.Drawing.Point(7, 165);
+            this.buttonUpdateRotations.Name = "buttonUpdateRotations";
+            this.buttonUpdateRotations.Size = new System.Drawing.Size(124, 23);
+            this.buttonUpdateRotations.TabIndex = 2;
+            this.buttonUpdateRotations.Text = "Update Rotations";
+            this.buttonUpdateRotations.UseVisualStyleBackColor = true;
+            this.buttonUpdateRotations.Click += new System.EventHandler(this.buttonUpdateRotations_Click);
+            // 
             // groupBoxRotationY
             // 
             this.groupBoxRotationY.Controls.Add(this.checkBoxY270);
@@ -428,16 +438,6 @@
             this.labelWeight.Size = new System.Drawing.Size(73, 13);
             this.labelWeight.TabIndex = 0;
             this.labelWeight.Text = "Model Weight";
-            // 
-            // buttonUpdateRotations
-            // 
-            this.buttonUpdateRotations.Location = new System.Drawing.Point(7, 165);
-            this.buttonUpdateRotations.Name = "buttonUpdateRotations";
-            this.buttonUpdateRotations.Size = new System.Drawing.Size(124, 23);
-            this.buttonUpdateRotations.TabIndex = 2;
-            this.buttonUpdateRotations.Text = "Update Rotations";
-            this.buttonUpdateRotations.UseVisualStyleBackColor = true;
-            this.buttonUpdateRotations.Click += new System.EventHandler(this.buttonUpdateRotations_Click);
             // 
             // FormMain
             // 
