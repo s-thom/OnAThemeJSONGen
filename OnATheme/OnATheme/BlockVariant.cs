@@ -41,6 +41,11 @@ namespace OnATheme
                 Models.Add(new Model(BlockName + "_" + i.ToString(), BlockName, modelTextures, CreateModelJson, XRotations, YRotations));
             }
         }
+        public BlockVariant(string Name, ModelExpon Model)
+        {
+            Models.Add(Model);
+            _name = Name;
+        }
 
         /// <summary>
         /// Write text to be use in the blockstates file

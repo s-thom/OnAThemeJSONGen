@@ -203,14 +203,5 @@ namespace OnATheme
             selectedModel.XRotation = xRot;
             selectedModel.YRotation = yRot;
         }
-
-        private void tESTToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Directory.CreateDirectory(@"OaT/assets/minecraft/models/block/");
-            Directory.CreateDirectory(@"OaT/assets/minecraft/blockstates/");
-
-            Model m = new ModelExpon("test", new List<string> { "test1", "test2", "test3" }, new string[6]{"", "", "","","",""}, new bool[0], new bool[0]);
-            m.WriteModel();
-        }
     }
 }
