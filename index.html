@@ -51,27 +51,32 @@
           <img src="1.png" alt="The program, as seen when first opened.">
           <p>To add and remove block from the pack, you need to use the "Blocks" menu. Click the option to add a new block.</p>
           <img src="2.png" alt="The Blocks menu.">
-          <p>A new window will pop up, and will ask for a block name. For this example, I'm going to use a rose bush. As you can see, I've filled in <code>double_rose</code> as the Block Name. This must be the name that is used by the game. Once you've done that, click "Add" to add an attribute of this block.</p>
+          <p>A new window will pop up, and will ask for a block name. For this example, I'm going to use a rose bush. As you can see, I've filled in <code>crafting_table</code> as the Block Name. This <em>must</em> be the name that is used by the game. Once you've done that, click "Add" to add a variant of this block.</p>
           <img src="3.png" alt="Creating a block.">
-          <p>Yet another window will appear. By default, the attributes are "normal". </p>
-          <img src="4.png" alt="Attributes window.">
-          <p>As we're working with a two block tall block, we need an attribute for both the top and the bottom. I'm going to make the top block invisible, and have both halves of the texture determined by the bottom. If you've played with variants with blocks that take up more than one block (e.g. beds), then you'll know why I am doing this.</p>
-          <p>Included with every pack made by <em>On A Theme</em> are a few models. One of those is <code>none</code>. It creates an invisible block, but the hitbox remains. I'm going to overwrite the model name, otherwise it will conflict when we come to do the bottom half.</p>
+          <p>Yet another window will appear. Looks complicated, I know. Don't worry, it's not that bad. </p>
+          <img src="4.png" alt="Variant addition window.">
+          <p>Fill in the top textboxes. Since the crafting table is based off the <code>cube</code> mode, I've specified that as the parent. I'm also going to overwrite the model names to say <code>crafting_table</code>, otherwise they will be created as <code>cube></code>, and if you're not careful you may end up with some conflicts.</p>
           <img src="5.png" alt="Defining the model to use.">
-          <p>The next part is to define the textures for the model to use. While <code>none</code> has no visible texture, it still has particles when broken. To tell the model to do this, we add a reference of <code>particle</code>, and in our case, a texture of <code>double_plant_rose_top</code>.</p>
-          <img src="6.png" alt="Giving the model textures.">
-          <p>You'll now see it in the list of textures. Since this is the only thing we need to define for the upper half of the rose bush, I'm going to click "Create".</p>
-          <img src="7.png" alt="Top half complete.">
-          <p>You will now see the <code>half=upper</code> in the list of attributes. Now we need to create the lower one.</p>
-          <img src="8.png" alt="The attributes list.">
-          <p>Add another attribute, this time with the parent model being <code>double_cross</code>. This is another model that's bundled with this program. It allows both halves of the plant to be consistent when doing variations. I've also put a number into the number of variants. We'll see the effect of this later. Since you've seen me do it above, I went ahead and put in the textures.</p>
-          <img src="9.png" alt="Creating the top half.">
-          <p>Now that we've created both halves of our block, let's see what will be created.</p>
-          <img src="10.png" alt="Reviewing the block creation.">
-          <p>Back on the original window. You can select the block, attribute, and model to change the weighting and override the model name. More options will be made available as they are added. Use the number selector to change the weight. Higher values mean they are more likely to be picked. If you want to add more blocks, just follow the same steps as above.</p>
-          <img src="11.png" alt="Changing the weighting.">
-          <p>The final thing you'll want to do is generate the files. On the File menu, select "Create UnZipped". This will create a folder named "OaT" in the directory the executable is in. Inside that will be all the files, arranged in folders like those in a resource pack. Just copy and paste, and you're good to go.</p>
-          <img src="12.png" alt="Creating the files.">
+          <p>Now we need to make the textures.</p>
+          <p>In the "Texture" textbox I've typed <code>crafting_table_top</code>. Click "Add Texture".</p>
+          <img src="6.png" alt="Setting the texture for a face.">
+          <p>Now we need to set the reference. This is the string that the game uses to put the texture onto the right face of the model. In this case, we want <code>up</code>. Click "Add Reference".</p>
+          <img src="7.png" alt="Adding a face reference.">
+          <p>Since that's al we want for this face, click "Add Texture Group". It should now look like the screenshot below.</p>
+          <img src="8.png" alt="Texture Group added.">
+          <p>You don't have to specify one texture per face, or only one face per texture. If you give it more, it will go through and create variations for all of the possible combinations.</p>
+          <p>Here I've given the 4 sides of the block the option of the "front" or the "side" textures. This will create every combination, from every side being "front", to every side being "side, and everything inbetween.</p>
+          <img src="9.png" alt="Specifying more than one of eact item.">
+          <p>When added as a Texture Group, only the first items are displayed in the text. The rest are hidden behind a number.</p>
+          <img src="10.png" alt="Viewing the texture groups in the listbox.">
+          <p>Now all we need to do is create that Block Variant.</p>
+          <img src="11.png" alt="Creating the Block Variant.">
+          <p>You will now see the "normal" variant in this listbox. As we didn't specify a variant name, it defaulted to "normal". Click "Create Block".</p>
+          <img src="12.png" alt="Reviewing the variants.">
+          <p>By navigating through the listboxes, you can update the rotations of the block. As more features are added, more options will be available. Be sure to click "Update Rotations", otherwise your changes will not be used.</p>
+          <img src="13.png" alt="Updating rotations.">
+          <p>The final thing to do is create the files. In the file menu, click "Create UnZipped". This will create a new folder called <code>OaT</code> in the same directory as the .exe for this program. Inside will be all of the model and blockstate files.</p>
+          <img src="14.png" alt="Creating model and blockstate files.">
         </section>
         <section>
           Should you wish to improve the program, the source code is available on <a href="https://github.com/SecretOnline/OnAThemeJSONGen">GitHub</a>. Thanks for trying it out, and thank you <em>very</em> much for actually bothering to read the instructions.
