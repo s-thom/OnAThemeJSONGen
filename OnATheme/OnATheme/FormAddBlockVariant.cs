@@ -37,7 +37,7 @@ namespace OnATheme
                 if (dialog.textBoxOverwrite.Text != "")
                     modelName  = dialog.textBoxOverwrite.Text;
 
-                ModelExpon m = new ModelExpon(modelName, dialog.textBoxParentModel.Text, dialog.TextureGroups, xRot, yRot);
+                Model m = new Model(modelName, dialog.textBoxParentModel.Text, dialog.TextureGroups, xRot, yRot);
 
                 BlockVariant newBlock = new BlockVariant(dialog.textBoxName.Text, m);
                 return newBlock;
@@ -65,7 +65,7 @@ namespace OnATheme
         private void buttonAddRef_Click(object sender, EventArgs e)
         {
             TGFaces.Add(textBoxRef.Text);
-            listBoxTextures.Items.Add(TGFaces[TGFaces.Count - 1]);
+            listBoxFaces.Items.Add(TGFaces[TGFaces.Count - 1]);
         }
         /// <summary>
         /// Open the github.io page.
@@ -83,10 +83,16 @@ namespace OnATheme
         /// <param name="e"></param>
         private void buttonAddTextureGroup_Click(object sender, EventArgs e)
         {
-            TextureGroups.Add(new TextureGroup(TGFaces, TGTextures));
-            // Change list refernces to new list, rather than the old one
-            TGFaces = new List<string>();
-            TGTextures = new List<string>();
+            if (TGFaces.Count > 0 && TGTextures.Count > 0)
+            {
+                TextureGroups.Add(new TextureGroup(TGFaces, TGTextures));
+                listBoxTextureGroups.Items.Add(TextureGroups[TextureGroups.Count - 1]);
+                listBoxFaces.Items.Clear();
+                listBoxTextures.Items.Clear();
+                // Change list refernces to new list, rather than the old one
+                TGFaces = new List<string>();
+                TGTextures = new List<string>();
+            }
         }
 
         

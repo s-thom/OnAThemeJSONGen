@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace OnATheme
 {
-    public class ModelExpon
+    public class Model
     {
         protected string _name;
         protected string _parent;
@@ -29,7 +29,7 @@ namespace OnATheme
         /// <param name="ConstTextures"></param>
         /// <param name="XRotation"></param>
         /// <param name="YRotation"></param>
-        public ModelExpon(string Name, string Parent, List<TextureGroup> TextureGroups, bool[] XRotation, bool[] YRotation)
+        public Model(string Name, string Parent, List<TextureGroup> TextureGroups, bool[] XRotation, bool[] YRotation)
         {
             _name = Name;
             _parent = Parent;

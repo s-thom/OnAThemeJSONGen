@@ -12,7 +12,7 @@ namespace OnATheme
         /// <summary>
         /// Models this attribute uses
         /// </summary>
-        public List<ModelExpon> Models = new List<ModelExpon>();
+        public List<Model> Models = new List<Model>();
         private string _name = "normal"; // e.g. "facing=north"
 
         /// <summary>
@@ -22,7 +22,7 @@ namespace OnATheme
         /// <param name="Block"></param>
         /// <param name="Name"></param>
         /// <param name="Models"></param>
-        public BlockVariant(string Name, ModelExpon BlockModel)
+        public BlockVariant(string Name, Model BlockModel)
         {
             if (Name != "")
                 _name = Name;
@@ -38,7 +38,7 @@ namespace OnATheme
         {
             w.WritePropertyName(_name);
             w.WriteStartArray();
-            foreach (ModelExpon m in Models)
+            foreach (Model m in Models)
             {
                 m.WriteBlockstate(w);
             }
