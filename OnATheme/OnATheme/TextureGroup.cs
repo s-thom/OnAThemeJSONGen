@@ -29,5 +29,27 @@ namespace OnATheme
         /// Textures for this group to use
         /// </summary>
         public List<string> Textures { get { return _textures; } }
+
+        public override string ToString()
+        {
+            try
+            {
+                string name = "";
+
+                name += _faces[0];
+                if (_faces.Count > 1)
+                    name += ", +" + (_faces.Count - 1).ToString();
+                name += ": ";
+                name += _textures[0];
+                if (_textures.Count > 1)
+                    name += ", +" + (_textures.Count - 1).ToString();
+
+                return name;
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                return "INVALID: " + ex.Message;
+            }
+        }
     }
 }

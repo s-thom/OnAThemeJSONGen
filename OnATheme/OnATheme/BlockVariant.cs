@@ -22,30 +22,12 @@ namespace OnATheme
         /// <param name="Block"></param>
         /// <param name="Name"></param>
         /// <param name="Models"></param>
-        public BlockVariant(string Name, string ParentModel, string BlockName, List<Texture> Textures, int NumVariants, bool CreateModelJson, bool[] XRotations, bool[] YRotations)
+        public BlockVariant(string Name, ModelExpon BlockModel)
         {
             if (Name != "")
                 _name = Name;
 
-            //Models.Add(new Model(BlockName, ParentModel, Textures, CreateModelJson, XRotations, YRotations));
-            Console.Write("Breakpoint");
-            for (int i = 1; i <= NumVariants; i++)
-            {
-                List<Texture> modelTextures = new List<Texture>();
-                // Add new textures, adding the variant number to the end
-                foreach (Texture t in Textures)
-                {
-                    modelTextures.Add(new Texture(t.Reference, t.Name + "_" + i.ToString()));
-                }
-
-                //Models.Add(new ModelExpon(BlockName + "_" + i.ToString(), BlockName, modelTextures, CreateModelJson, XRotations, YRotations));
-                Console.Write("Breakpoint");
-            }
-        }
-        public BlockVariant(string Name, ModelExpon Model)
-        {
-            Models.Add(Model);
-            _name = Name;
+            Models.Add(BlockModel);
         }
 
         /// <summary>

@@ -87,7 +87,6 @@ namespace OnATheme
             {
                 selectedModel = (ModelExpon)listBoxModels.Items[listBoxModels.SelectedIndex];
                 splitContainerAttribute.Panel2.Enabled = true;
-                textBoxModelName.Text = selectedModel.Name;
 
                 checkBoxX0.Checked = selectedModel.XRotation[0];
                 checkBoxX90.Checked = selectedModel.XRotation[1];
@@ -148,24 +147,6 @@ namespace OnATheme
             File.WriteAllText(@"OaT/assets/minecraft/models/block/double_cross.json", Properties.Resources.double_cross);
             File.WriteAllText(@"OaT/assets/minecraft/models/block/double_cross_tint.json", Properties.Resources.double_cross_tint);
             this.Cursor = Cursors.Default;
-        }
-        /// <summary>
-        /// Rename the model
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void textBoxModelName_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (textBoxModelName.Text != "")
-                    selectedModel.Name = textBoxModelName.Text;
-                listBoxModels.Refresh();
-            }
-            catch
-            {
-                Console.WriteLine("Unable to change model name, is a model selected?");
-            }
         }
         /// <summary>
         /// Update the rotations for the selected model

@@ -9,7 +9,6 @@ namespace OnATheme
 {
     public class ModelExpon
     {
-        protected List<Texture> _textures;
         protected string _name;
         protected string _parent;
         protected int _weight = 1; // Default, just in case
@@ -30,11 +29,10 @@ namespace OnATheme
         /// <param name="ConstTextures"></param>
         /// <param name="XRotation"></param>
         /// <param name="YRotation"></param>
-        public ModelExpon(string Name, string Parent, List<TextureGroup> TextureGroups, List<Texture> ConstTextures, bool[] XRotation, bool[] YRotation)
+        public ModelExpon(string Name, string Parent, List<TextureGroup> TextureGroups, bool[] XRotation, bool[] YRotation)
         {
             _name = Name;
             _parent = Parent;
-            _textures = ConstTextures;
 
             if (XRotation.Length == 4)
                 _xRot = XRotation;
@@ -82,13 +80,13 @@ namespace OnATheme
             int _model = 0;
             List<Texture> _modelTextures = new List<Texture>();
 
-            // Add normal textures (constant)
-            foreach (Texture t in _textures)
-                _modelTextures.Add(t);
-            // Add other ones procedurally
+            // Add textures
             foreach (TextureGroup tg in _textureGroups)
                 WriteExpon(_modelTextures, tg, 0, ref _model);
 
+            // Force the garbage collection.
+            // Since there culd be a lot of objects getting destroyed,
+            // I thought I'd better do this.
             GC.Collect();
         }
         

@@ -11,8 +11,9 @@ namespace OnATheme
 {
     public partial class FormAddBlockVariant : Form
     {
-        List<Texture> Textures = new List<Texture>();
-        string _blockName;
+        List<TextureGroup> TextureGroups = new List<TextureGroup>();
+        List<string> TGTextures = new List<string>();
+        List<string> TGFaces = new List<string>();
 
         public FormAddBlockVariant()
         {
@@ -28,15 +29,17 @@ namespace OnATheme
             FormAddBlockVariant dialog = new FormAddBlockVariant();
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                if (dialog.textBoxOverwrite.Text != "")
-                    BlockName = dialog.textBoxOverwrite.Text;
-
-                dialog._blockName = BlockName;
-
+                
                 bool[] xRot = new bool[4] { dialog.checkBoxX0.Checked, dialog.checkBoxX90.Checked, dialog.checkBoxX180.Checked, dialog.checkBoxX270.Checked };
                 bool[] yRot = new bool[4] { dialog.checkBoxY0.Checked, dialog.checkBoxY90.Checked, dialog.checkBoxY180.Checked, dialog.checkBoxY270.Checked };
 
-                BlockVariant newBlock = new BlockVariant(dialog.textBoxName.Text, dialog.textBoxParentModel.Text, BlockName, dialog.Textures, (int)dialog.numericUpDownVariants.Value, dialog.checkBoxCreateModels.Checked, xRot, yRot);
+                string modelName  = dialog.textBoxParentModel.Text;
+                if (dialog.textBoxOverwrite.Text != "")
+                    modelName  = dialog.textBoxOverwrite.Text;
+
+                ModelExpon m = new ModelExpon(modelName, dialog.textBoxParentModel.Text, dialog.TextureGroups, xRot, yRot);
+
+                BlockVariant newBlock = new BlockVariant(dialog.textBoxName.Text, m);
                 return newBlock;
             }
             else
@@ -44,11 +47,48 @@ namespace OnATheme
                 return null; // In case of canceled dialogue
             }
         }
-
+        /// <summary>
+        /// Add a texture to be added to the texture group
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAddTexture_Click(object sender, EventArgs e)
         {
-            Textures.Add(new Texture(textBoxRef.Text, textBoxTexture.Text));
-            listBoxTextures.Items.Add(Textures[Textures.Count - 1]);
+            TGTextures.Add(textBoxTexture.Text);
+            listBoxTextures.Items.Add(TGTextures[TGTextures.Count - 1]);
         }
+        /// <summary>
+        /// Add a reference to be added to the faces for a texture group
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonAddRef_Click(object sender, EventArgs e)
+        {
+            TGFaces.Add(textBoxRef.Text);
+            listBoxTextures.Items.Add(TGFaces[TGFaces.Count - 1]);
+        }
+        /// <summary>
+        /// Open the github.io page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void linkLabelInstructions_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://git.secretonline.co/OnAThemeJSONGen/");
+        }
+        /// <summary>
+        /// Turn the strings into a texture group
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void buttonAddTextureGroup_Click(object sender, EventArgs e)
+        {
+            TextureGroups.Add(new TextureGroup(TGFaces, TGTextures));
+            // Change list refernces to new list, rather than the old one
+            TGFaces = new List<string>();
+            TGTextures = new List<string>();
+        }
+
+        
     }
 }

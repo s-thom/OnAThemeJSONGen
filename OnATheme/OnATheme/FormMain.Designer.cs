@@ -57,11 +57,6 @@
             this.checkBoxX180 = new System.Windows.Forms.CheckBox();
             this.checkBoxX90 = new System.Windows.Forms.CheckBox();
             this.checkBoxX0 = new System.Windows.Forms.CheckBox();
-            this.checkBoxModelJson = new System.Windows.Forms.CheckBox();
-            this.textBoxModelName = new System.Windows.Forms.TextBox();
-            this.labelModelName = new System.Windows.Forms.Label();
-            this.numericUpDownModelWeight = new System.Windows.Forms.NumericUpDown();
-            this.labelWeight = new System.Windows.Forms.Label();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -78,7 +73,6 @@
             this.groupBoxRotation.SuspendLayout();
             this.groupBoxRotationY.SuspendLayout();
             this.groupBoxRotationX.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownModelWeight)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -227,11 +221,6 @@
             // splitContainerAttribute.Panel2
             // 
             this.splitContainerAttribute.Panel2.Controls.Add(this.groupBoxRotation);
-            this.splitContainerAttribute.Panel2.Controls.Add(this.checkBoxModelJson);
-            this.splitContainerAttribute.Panel2.Controls.Add(this.textBoxModelName);
-            this.splitContainerAttribute.Panel2.Controls.Add(this.labelModelName);
-            this.splitContainerAttribute.Panel2.Controls.Add(this.numericUpDownModelWeight);
-            this.splitContainerAttribute.Panel2.Controls.Add(this.labelWeight);
             this.splitContainerAttribute.Panel2.Enabled = false;
             this.splitContainerAttribute.Size = new System.Drawing.Size(318, 312);
             this.splitContainerAttribute.SplitterDistance = 161;
@@ -252,7 +241,7 @@
             this.groupBoxRotation.Controls.Add(this.buttonUpdateRotations);
             this.groupBoxRotation.Controls.Add(this.groupBoxRotationY);
             this.groupBoxRotation.Controls.Add(this.groupBoxRotationX);
-            this.groupBoxRotation.Location = new System.Drawing.Point(6, 109);
+            this.groupBoxRotation.Location = new System.Drawing.Point(7, 3);
             this.groupBoxRotation.Name = "groupBoxRotation";
             this.groupBoxRotation.Size = new System.Drawing.Size(139, 191);
             this.groupBoxRotation.TabIndex = 18;
@@ -379,65 +368,6 @@
             this.checkBoxX0.Text = "0";
             this.checkBoxX0.UseVisualStyleBackColor = true;
             // 
-            // checkBoxModelJson
-            // 
-            this.checkBoxModelJson.AutoSize = true;
-            this.checkBoxModelJson.Checked = true;
-            this.checkBoxModelJson.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxModelJson.Location = new System.Drawing.Point(6, 86);
-            this.checkBoxModelJson.Name = "checkBoxModelJson";
-            this.checkBoxModelJson.Size = new System.Drawing.Size(88, 17);
-            this.checkBoxModelJson.TabIndex = 4;
-            this.checkBoxModelJson.Text = "Create JSON";
-            this.checkBoxModelJson.UseVisualStyleBackColor = true;
-            // 
-            // textBoxModelName
-            // 
-            this.textBoxModelName.Location = new System.Drawing.Point(6, 60);
-            this.textBoxModelName.Name = "textBoxModelName";
-            this.textBoxModelName.Size = new System.Drawing.Size(120, 20);
-            this.textBoxModelName.TabIndex = 3;
-            // 
-            // labelModelName
-            // 
-            this.labelModelName.AutoSize = true;
-            this.labelModelName.Location = new System.Drawing.Point(3, 44);
-            this.labelModelName.Name = "labelModelName";
-            this.labelModelName.Size = new System.Drawing.Size(110, 13);
-            this.labelModelName.TabIndex = 2;
-            this.labelModelName.Text = "Override Model Name";
-            // 
-            // numericUpDownModelWeight
-            // 
-            this.numericUpDownModelWeight.Location = new System.Drawing.Point(6, 17);
-            this.numericUpDownModelWeight.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
-            this.numericUpDownModelWeight.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownModelWeight.Name = "numericUpDownModelWeight";
-            this.numericUpDownModelWeight.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDownModelWeight.TabIndex = 1;
-            this.numericUpDownModelWeight.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // labelWeight
-            // 
-            this.labelWeight.AutoSize = true;
-            this.labelWeight.Location = new System.Drawing.Point(3, 0);
-            this.labelWeight.Name = "labelWeight";
-            this.labelWeight.Size = new System.Drawing.Size(73, 13);
-            this.labelWeight.TabIndex = 0;
-            this.labelWeight.Text = "Model Weight";
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -465,7 +395,6 @@
             this.splitContainerBlock.ResumeLayout(false);
             this.splitContainerAttribute.Panel1.ResumeLayout(false);
             this.splitContainerAttribute.Panel2.ResumeLayout(false);
-            this.splitContainerAttribute.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerAttribute)).EndInit();
             this.splitContainerAttribute.ResumeLayout(false);
             this.groupBoxRotation.ResumeLayout(false);
@@ -473,7 +402,6 @@
             this.groupBoxRotationY.PerformLayout();
             this.groupBoxRotationX.ResumeLayout(false);
             this.groupBoxRotationX.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownModelWeight)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -494,14 +422,9 @@
         private System.Windows.Forms.SplitContainer splitContainerMain;
         private System.Windows.Forms.SplitContainer splitContainerAttribute;
         private System.Windows.Forms.ListBox listBoxModels;
-        private System.Windows.Forms.Label labelWeight;
-        private System.Windows.Forms.NumericUpDown numericUpDownModelWeight;
         private System.Windows.Forms.ToolStripMenuItem createUnZippedToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainerBlock;
         private System.Windows.Forms.ListBox listBoxVariants;
-        private System.Windows.Forms.TextBox textBoxModelName;
-        private System.Windows.Forms.Label labelModelName;
-        private System.Windows.Forms.CheckBox checkBoxModelJson;
         private System.Windows.Forms.GroupBox groupBoxRotation;
         private System.Windows.Forms.GroupBox groupBoxRotationY;
         private System.Windows.Forms.CheckBox checkBoxY270;
