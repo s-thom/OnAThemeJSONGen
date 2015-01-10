@@ -12,9 +12,9 @@ Making variatons in Minecraft is tedious. As well as actually creating the textu
 Instructions: [github.io](http://git.secretonline.co/OnAThemeJSONGen#usage)
 
 To Do:  
+---
 
 (order has no meaning)
----
 
 1. ~~Tidy it up. (It needs serious cleaning. I'm sure there's a far better way to do a lot of this.)~~
 2. ~~Attributes system. (e.g. "half=upper" and hopefully be able to handle things such as "alt=false,east=false,flip=false,north=false,south=false,upper=0,west=false". The fire file is massive.~~
