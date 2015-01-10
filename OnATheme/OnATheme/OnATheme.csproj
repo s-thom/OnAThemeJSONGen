@@ -83,6 +83,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Texture.cs" />
+    <Compile Include="TextureGroup.cs" />
     <EmbeddedResource Include="FormAddBlockExponential.resx">
       <DependentUpon>FormAddBlockExponential.cs</DependentUpon>
     </EmbeddedResource>
