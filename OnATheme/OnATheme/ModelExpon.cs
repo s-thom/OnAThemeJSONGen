@@ -7,8 +7,17 @@ using Newtonsoft.Json;
 
 namespace OnATheme
 {
-    public class ModelExpon : Model
+    public class ModelExpon
     {
+        protected List<Texture> _textures;
+        protected string _name;
+        protected string _parent;
+        protected int _weight = 1; // Default, just in case
+        protected bool[] _xRot = new bool[4] { true, false, false, false };
+        protected bool[] _yRot = new bool[4] { true, false, false, false };
+        protected bool _uvLock = false;
+        protected bool _createModelJson;
+        protected static string MODEL_PATH = @"block/";
         List<TextureGroup> _textureGroups = new List<TextureGroup>();
 
         /// <summary>
@@ -22,10 +31,36 @@ namespace OnATheme
         /// <param name="XRotation"></param>
         /// <param name="YRotation"></param>
         public ModelExpon(string Name, string Parent, List<TextureGroup> TextureGroups, List<Texture> ConstTextures, bool[] XRotation, bool[] YRotation)
-            : base(Name, Parent, ConstTextures, true, XRotation, YRotation)
         {
+            _name = Name;
+            _parent = Parent;
+            _textures = ConstTextures;
+
+            if (XRotation.Length == 4)
+                _xRot = XRotation;
+            if (YRotation.Length == 4)
+                _yRot = YRotation;
             _textureGroups = TextureGroups;
         }
+
+        /// <summary>
+        /// Name of the model
+        /// </summary>
+        public string Name { get { return _name; } set { _name = value; } }
+        /// <summary>
+        /// Rotate the texture with the block if false (default)
+        /// </summary>
+        public bool UVLock { get { return _uvLock; } set { _uvLock = value; } }
+        /// <summary>
+        /// Rotations around the X axis for this block
+        /// [0] = 0, [1] = 90, [2] = 180, [3] = 270
+        /// </summary>
+        public bool[] XRotation { get { return _xRot; } set { if (value.Length == 4) _xRot = value; } }
+        /// <summary>
+        /// Rotations around the Y axis for this block
+        /// [0] = 0, [1] = 90, [2] = 180, [3] = 270
+        /// </summary>
+        public bool[] YRotation { get { return _yRot; } set { if (value.Length == 4) _yRot = value; } }
         /// <summary>
         /// Total number of models that will be created by this class
         /// </summary>
@@ -39,7 +74,10 @@ namespace OnATheme
 
             return numModels;
         }
-        public override void WriteModel()
+        /// <summary>
+        /// Write the model files for the model
+        /// </summary>
+        public void WriteModel()
         {
             int _model = 0;
             List<Texture> _modelTextures = new List<Texture>();
@@ -100,7 +138,11 @@ namespace OnATheme
                 }
             }
         }
-        public override void WriteBlockstate(JsonWriter w)
+        /// <summary>
+        /// Write the blockstates file for the model
+        /// </summary>
+        /// <param name="w"></param>
+        public void WriteBlockstate(JsonWriter w)
         {
             // The loops and ifs are used to decide whether or not to write this variant as rotated.
             // Currently, thre is no way to specify different weights for each rotation (apart from manual editing)
@@ -117,11 +159,6 @@ namespace OnATheme
                                 w.WritePropertyName("model");
                                 w.WriteValue(_name + "_" + k.ToString());
 
-                                if (_weight != 1)
-                                {
-                                    w.WritePropertyName("weight");
-                                    w.WriteValue(_weight);
-                                }
                                 if (i != 0) // Do not need to write if it's 0.
                                 {
                                     w.WritePropertyName("x");
@@ -141,6 +178,14 @@ namespace OnATheme
                                 w.WriteEndObject();
                             }
                         }
+        }
+        /// <summary>
+        /// Name of the Model
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return _name;
         }
     }
 }

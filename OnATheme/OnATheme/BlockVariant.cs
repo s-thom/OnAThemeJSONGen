@@ -12,7 +12,7 @@ namespace OnATheme
         /// <summary>
         /// Models this attribute uses
         /// </summary>
-        public List<Model> Models = new List<Model>();
+        public List<ModelExpon> Models = new List<ModelExpon>();
         private string _name = "normal"; // e.g. "facing=north"
 
         /// <summary>
@@ -27,8 +27,8 @@ namespace OnATheme
             if (Name != "")
                 _name = Name;
 
-            Models.Add(new Model(BlockName, ParentModel, Textures, CreateModelJson, XRotations, YRotations));
-
+            //Models.Add(new Model(BlockName, ParentModel, Textures, CreateModelJson, XRotations, YRotations));
+            Console.Write("Breakpoint");
             for (int i = 1; i <= NumVariants; i++)
             {
                 List<Texture> modelTextures = new List<Texture>();
@@ -38,7 +38,8 @@ namespace OnATheme
                     modelTextures.Add(new Texture(t.Reference, t.Name + "_" + i.ToString()));
                 }
 
-                Models.Add(new Model(BlockName + "_" + i.ToString(), BlockName, modelTextures, CreateModelJson, XRotations, YRotations));
+                //Models.Add(new ModelExpon(BlockName + "_" + i.ToString(), BlockName, modelTextures, CreateModelJson, XRotations, YRotations));
+                Console.Write("Breakpoint");
             }
         }
         public BlockVariant(string Name, ModelExpon Model)
@@ -55,7 +56,7 @@ namespace OnATheme
         {
             w.WritePropertyName(_name);
             w.WriteStartArray();
-            foreach (Model m in Models)
+            foreach (ModelExpon m in Models)
             {
                 m.WriteBlockstate(w);
             }

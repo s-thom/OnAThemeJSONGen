@@ -24,7 +24,7 @@ namespace OnATheme
         {
             // Create the model files first
             foreach (BlockVariant b in BlockVariants)
-                foreach (Model m in b.Models)
+                foreach (ModelExpon m in b.Models)
                     m.WriteModel();
 
             // Create writer and set style

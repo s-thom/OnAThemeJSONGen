@@ -17,7 +17,7 @@ namespace OnATheme
 
         Block selectedBlock;
         BlockVariant selectedVariant;
-        Model selectedModel;
+        ModelExpon selectedModel;
 
         public FormMain()
         {
@@ -67,7 +67,7 @@ namespace OnATheme
             {
                 selectedVariant = (BlockVariant)listBoxVariants.Items[listBoxVariants.SelectedIndex];
                 listBoxModels.Items.Clear();
-                foreach (Model m in selectedVariant.Models)
+                foreach (ModelExpon m in selectedVariant.Models)
                     listBoxModels.Items.Add(m);
 
             }
@@ -85,11 +85,9 @@ namespace OnATheme
         {
             try
             {
-                selectedModel = (Model)listBoxModels.Items[listBoxModels.SelectedIndex];
+                selectedModel = (ModelExpon)listBoxModels.Items[listBoxModels.SelectedIndex];
                 splitContainerAttribute.Panel2.Enabled = true;
-                numericUpDownModelWeight.Value = selectedModel.Weight;
                 textBoxModelName.Text = selectedModel.Name;
-                checkBoxModelJson.Checked = selectedModel.CreateJson;
 
                 checkBoxX0.Checked = selectedModel.XRotation[0];
                 checkBoxX90.Checked = selectedModel.XRotation[1];
@@ -104,18 +102,6 @@ namespace OnATheme
             catch
             {
                 Console.WriteLine("A block might have been deleted");
-            }
-        }
-        /// <summary>
-        /// Change the weight of the selected model
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void numericUpDownModelWeight_ValueChanged(object sender, EventArgs e)
-        {
-            if (selectedModel != null)
-            {
-                selectedModel.Weight = (int)numericUpDownModelWeight.Value;
             }
         }
         /// <summary>
@@ -180,15 +166,6 @@ namespace OnATheme
             {
                 Console.WriteLine("Unable to change model name, is a model selected?");
             }
-        }
-        /// <summary>
-        /// Change whether or not to create the model file
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void checkBoxModelJson_CheckedChanged(object sender, EventArgs e)
-        {
-            selectedModel.CreateJson = checkBoxModelJson.Checked;
         }
         /// <summary>
         /// Update the rotations for the selected model

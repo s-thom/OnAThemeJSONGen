@@ -428,7 +428,6 @@
             0,
             0,
             0});
-            this.numericUpDownModelWeight.ValueChanged += new System.EventHandler(this.numericUpDownModelWeight_ValueChanged);
             // 
             // labelWeight
             // 
