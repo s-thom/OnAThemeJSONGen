@@ -117,7 +117,7 @@ namespace OnATheme
             {
                 JsonWriter w;
                 // Write the model
-                if (modelNo == 0)
+                if (modelNo == 0 && _parent != _name)
                     w = new JsonTextWriter(File.CreateText(@"OaT/assets/minecraft/models/block/" + _name + ".json"));
                 else
                     w = new JsonTextWriter(File.CreateText(@"OaT/assets/minecraft/models/block/" + _name + "_" + modelNo.ToString() + ".json"));
@@ -165,7 +165,7 @@ namespace OnATheme
                                 w.WriteStartObject();
 
                                 w.WritePropertyName("model");
-                                if (k == 0)
+                                if (k == 0 && _parent != _name)
                                     w.WriteValue(_name);
                                 else
                                     w.WriteValue(_name + "_" + k.ToString());
