@@ -10,7 +10,7 @@ namespace OnATheme
     {
         private string _ref;
         private string _name;
-        static string TEXTURE_PATH = @"blocks/";
+        public static string TEXTURE_PATH = @"blocks/";
 
         /// <summary>
         /// A texture for use by a model

@@ -179,7 +179,6 @@
             // 
             // groupBoxTextureGroups
             // 
-            this.groupBoxTextureGroups.Controls.Add(this.buttonAddTextureGroup);
             this.groupBoxTextureGroups.Controls.Add(this.listBoxTextureGroups);
             this.groupBoxTextureGroups.Controls.Add(this.groupBoxNewTextureGroup);
             this.groupBoxTextureGroups.Location = new System.Drawing.Point(6, 155);
@@ -191,9 +190,9 @@
             // 
             // buttonAddTextureGroup
             // 
-            this.buttonAddTextureGroup.Location = new System.Drawing.Point(6, 276);
+            this.buttonAddTextureGroup.Location = new System.Drawing.Point(6, 149);
             this.buttonAddTextureGroup.Name = "buttonAddTextureGroup";
-            this.buttonAddTextureGroup.Size = new System.Drawing.Size(335, 23);
+            this.buttonAddTextureGroup.Size = new System.Drawing.Size(321, 23);
             this.buttonAddTextureGroup.TabIndex = 14;
             this.buttonAddTextureGroup.Text = "Add Texture Group";
             this.buttonAddTextureGroup.UseVisualStyleBackColor = true;
@@ -202,13 +201,14 @@
             // listBoxTextureGroups
             // 
             this.listBoxTextureGroups.FormattingEnabled = true;
-            this.listBoxTextureGroups.Location = new System.Drawing.Point(6, 175);
+            this.listBoxTextureGroups.Location = new System.Drawing.Point(6, 204);
             this.listBoxTextureGroups.Name = "listBoxTextureGroups";
             this.listBoxTextureGroups.Size = new System.Drawing.Size(335, 95);
             this.listBoxTextureGroups.TabIndex = 15;
             // 
             // groupBoxNewTextureGroup
             // 
+            this.groupBoxNewTextureGroup.Controls.Add(this.buttonAddTextureGroup);
             this.groupBoxNewTextureGroup.Controls.Add(this.listBoxTextures);
             this.groupBoxNewTextureGroup.Controls.Add(this.buttonAddRef);
             this.groupBoxNewTextureGroup.Controls.Add(this.listBoxFaces);
@@ -219,7 +219,7 @@
             this.groupBoxNewTextureGroup.Controls.Add(this.textBoxTexture);
             this.groupBoxNewTextureGroup.Location = new System.Drawing.Point(6, 19);
             this.groupBoxNewTextureGroup.Name = "groupBoxNewTextureGroup";
-            this.groupBoxNewTextureGroup.Size = new System.Drawing.Size(335, 150);
+            this.groupBoxNewTextureGroup.Size = new System.Drawing.Size(335, 179);
             this.groupBoxNewTextureGroup.TabIndex = 14;
             this.groupBoxNewTextureGroup.TabStop = false;
             this.groupBoxNewTextureGroup.Text = "New Texture Group";

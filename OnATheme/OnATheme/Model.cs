@@ -16,7 +16,7 @@ namespace OnATheme
         protected bool[] _yRot = new bool[4] { true, false, false, false };
         protected bool _uvLock = false;
         protected bool _createModelJson;
-        protected static string MODEL_PATH = @"block/";
+        public static string MODEL_PATH = @"block/";
         List<TextureGroup> _textureGroups = new List<TextureGroup>();
 
         /// <summary>

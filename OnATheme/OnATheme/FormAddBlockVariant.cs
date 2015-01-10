@@ -54,7 +54,7 @@ namespace OnATheme
         /// <param name="e"></param>
         private void buttonAddTexture_Click(object sender, EventArgs e)
         {
-            TGTextures.Add(textBoxTexture.Text);
+            TGTextures.Add(Texture.TEXTURE_PATH + textBoxTexture.Text);
             listBoxTextures.Items.Add(TGTextures[TGTextures.Count - 1]);
         }
         /// <summary>
