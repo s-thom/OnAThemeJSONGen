@@ -14,6 +14,8 @@ namespace OnATheme
         List<TextureGroup> TextureGroups = new List<TextureGroup>();
         List<string> TGTextures = new List<string>();
         List<string> TGFaces = new List<string>();
+        List<Texture> SeqConst = new List<Texture>();
+        List<Texture> SeqVar = new List<Texture>();
 
         public FormAddBlockVariant()
         {
@@ -37,7 +39,12 @@ namespace OnATheme
                 if (dialog.textBoxOverwrite.Text != "")
                     modelName  = dialog.textBoxOverwrite.Text;
 
-                ModelCompoundExponential m = new ModelCompoundExponential(modelName, dialog.textBoxParentModel.Text, dialog.TextureGroups, xRot, yRot);
+                Model m;
+
+                if (dialog.radioButtonTypeExponential.Checked)
+                    m = new ModelCompoundExponential(modelName, dialog.textBoxParentModel.Text, dialog.TextureGroups, xRot, yRot);
+                else
+                    m = new ModelCompoundSequential(modelName, dialog.textBoxParentModel.Text, dialog.SeqConst, dialog.SeqVar, (int)dialog.numericUpDownNumVariants.Value, xRot, yRot);
 
                 BlockVariant newBlock = new BlockVariant(dialog.textBoxName.Text, m);
                 return newBlock;
@@ -93,6 +100,38 @@ namespace OnATheme
                 TGFaces = new List<string>();
                 TGTextures = new List<string>();
             }
+        }
+
+        private void radioButtonTypeSequential_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonTypeSequential.Checked)
+            {
+                groupBoxTextureGroups.Enabled = false;
+                groupBoxTexturesSequential.Enabled = true;
+                buttonCreate.Enabled = true;
+            }
+        }
+
+        private void radioButtonTypeExponential_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonTypeExponential.Checked)
+            {
+                groupBoxTextureGroups.Enabled = true;
+                groupBoxTexturesSequential.Enabled = false;
+                buttonCreate.Enabled = true;
+            }
+        }
+
+        private void buttonSeqConstAdd_Click(object sender, EventArgs e)
+        {
+            SeqConst.Add(new Texture(textBoxSeqConstReference.Text, textBoxSeqConstTexture.Text));
+            listBoxSeqConst.Items.Add(SeqConst[SeqConst.Count - 1]);
+        }
+
+        private void buttonSeqVarAdd_Click(object sender, EventArgs e)
+        {
+            SeqVar.Add(new Texture(textBoxSeqVarReference.Text, textBoxSeqVarTexture.Text));
+            listBoxSeqVar.Items.Add(SeqVar[SeqVar.Count - 1]);
         }
 
         
