@@ -17,7 +17,7 @@ namespace OnATheme
 
         Block selectedBlock;
         BlockVariant selectedVariant;
-        ModelCompoundExponential selectedModel;
+        Model selectedModel;
 
         public FormMain()
         {
@@ -67,7 +67,7 @@ namespace OnATheme
             {
                 selectedVariant = (BlockVariant)listBoxVariants.Items[listBoxVariants.SelectedIndex];
                 listBoxModels.Items.Clear();
-                foreach (ModelCompoundExponential m in selectedVariant.Models)
+                foreach (Model m in selectedVariant.Models)
                     listBoxModels.Items.Add(m);
 
             }
@@ -85,7 +85,7 @@ namespace OnATheme
         {
             try
             {
-                selectedModel = (ModelCompoundExponential)listBoxModels.Items[listBoxModels.SelectedIndex];
+                selectedModel = (Model)listBoxModels.Items[listBoxModels.SelectedIndex];
                 splitContainerAttribute.Panel2.Enabled = true;
 
                 checkBoxX0.Checked = selectedModel.XRotation[0];
@@ -142,10 +142,6 @@ namespace OnATheme
             {
                 b.CreateJSON();
             }
-            //File.WriteAllText(@"OaT/assets/minecraft/models/block/none.json", Properties.Resources.none);
-            //File.WriteAllText(@"OaT/assets/minecraft/models/block/cross_tint.json", Properties.Resources.cross_tint);
-            //File.WriteAllText(@"OaT/assets/minecraft/models/block/double_cross.json", Properties.Resources.double_cross);
-            //File.WriteAllText(@"OaT/assets/minecraft/models/block/double_cross_tint.json", Properties.Resources.double_cross_tint);
             this.Cursor = Cursors.Default;
         }
         /// <summary>
@@ -160,6 +156,35 @@ namespace OnATheme
 
             selectedModel.XRotation = xRot;
             selectedModel.YRotation = yRot;
+        }
+
+        private void splitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (selectedModel is ModelCompound)
+            {
+                selectedVariant.Models = (selectedModel as ModelCompound).ConvertToIndividualModels();
+                listBoxModels.Items.Clear();
+                foreach (Model m in selectedVariant.Models)
+                    listBoxModels.Items.Add(m);
+                listBoxModels.SelectedIndex = 0;
+            }
+            else
+            {
+                Console.WriteLine("Tried to convert converted model");
+            }
+        }
+        /// <summary>
+        /// Crate built in models
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void addBuiltinBaseModelsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Directory.CreateDirectory(@"OaT/assets/minecraft/models/block/");
+            File.WriteAllText(@"OaT/assets/minecraft/models/block/none.json", Properties.Resources.none);
+            File.WriteAllText(@"OaT/assets/minecraft/models/block/cross_tint.json", Properties.Resources.cross_tint);
+            File.WriteAllText(@"OaT/assets/minecraft/models/block/double_cross.json", Properties.Resources.double_cross);
+            File.WriteAllText(@"OaT/assets/minecraft/models/block/double_cross_tint.json", Properties.Resources.double_cross_tint);
         }
     }
 }

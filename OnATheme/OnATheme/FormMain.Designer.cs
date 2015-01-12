@@ -39,6 +39,8 @@
             this.blocksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addBlockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeBlockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listBoxBlocks = new System.Windows.Forms.ListBox();
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
             this.splitContainerBlock = new System.Windows.Forms.SplitContainer();
@@ -57,6 +59,8 @@
             this.checkBoxX180 = new System.Windows.Forms.CheckBox();
             this.checkBoxX90 = new System.Windows.Forms.CheckBox();
             this.checkBoxX0 = new System.Windows.Forms.CheckBox();
+            this.addBuiltinBaseModelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -79,7 +83,8 @@
             // 
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.blocksToolStripMenuItem});
+            this.blocksToolStripMenuItem,
+            this.modelsToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
             this.menuStripMain.Size = new System.Drawing.Size(663, 24);
@@ -143,16 +148,33 @@
             // addBlockToolStripMenuItem
             // 
             this.addBlockToolStripMenuItem.Name = "addBlockToolStripMenuItem";
-            this.addBlockToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.addBlockToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.addBlockToolStripMenuItem.Text = "Add Block";
             this.addBlockToolStripMenuItem.Click += new System.EventHandler(this.addBlockToolStripMenuItem_Click);
             // 
             // removeBlockToolStripMenuItem
             // 
             this.removeBlockToolStripMenuItem.Name = "removeBlockToolStripMenuItem";
-            this.removeBlockToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.removeBlockToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.removeBlockToolStripMenuItem.Text = "Remove Block";
             this.removeBlockToolStripMenuItem.Click += new System.EventHandler(this.removeBlockToolStripMenuItem_Click);
+            // 
+            // modelsToolStripMenuItem
+            // 
+            this.modelsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addBuiltinBaseModelsToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.splitToolStripMenuItem});
+            this.modelsToolStripMenuItem.Name = "modelsToolStripMenuItem";
+            this.modelsToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.modelsToolStripMenuItem.Text = "Models";
+            // 
+            // splitToolStripMenuItem
+            // 
+            this.splitToolStripMenuItem.Name = "splitToolStripMenuItem";
+            this.splitToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.splitToolStripMenuItem.Text = "Split";
+            this.splitToolStripMenuItem.Click += new System.EventHandler(this.splitToolStripMenuItem_Click);
             // 
             // listBoxBlocks
             // 
@@ -368,6 +390,18 @@
             this.checkBoxX0.Text = "0";
             this.checkBoxX0.UseVisualStyleBackColor = true;
             // 
+            // addBuiltinBaseModelsToolStripMenuItem
+            // 
+            this.addBuiltinBaseModelsToolStripMenuItem.Name = "addBuiltinBaseModelsToolStripMenuItem";
+            this.addBuiltinBaseModelsToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.addBuiltinBaseModelsToolStripMenuItem.Text = "Add Built-in Base Models";
+            this.addBuiltinBaseModelsToolStripMenuItem.Click += new System.EventHandler(this.addBuiltinBaseModelsToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(204, 6);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,6 +471,10 @@
         private System.Windows.Forms.CheckBox checkBoxX90;
         private System.Windows.Forms.CheckBox checkBoxX0;
         private System.Windows.Forms.Button buttonUpdateRotations;
+        private System.Windows.Forms.ToolStripMenuItem modelsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem splitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addBuiltinBaseModelsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
     }
 }
 

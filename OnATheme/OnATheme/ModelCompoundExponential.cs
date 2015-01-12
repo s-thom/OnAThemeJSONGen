@@ -16,28 +16,18 @@ namespace OnATheme
         /// </summary>
         /// <param name="Name"></param>
         /// <param name="Parent"></param>
-        /// <param name="RandTextures"></param>
-        /// <param name="RandFaces"></param>
-        /// <param name="ConstTextures"></param>
+        /// <param name="TextureGroups"></param>
         /// <param name="XRotation"></param>
         /// <param name="YRotation"></param>
         public ModelCompoundExponential(string Name, string Parent, List<TextureGroup> TextureGroups, bool[] XRotation, bool[] YRotation)
             :base(Name,Parent,XRotation,YRotation)
         {
             _textureGroups = TextureGroups;
-        }
-        /// <summary>
-        /// Total number of models that will be created by this class
-        /// </summary>
-        /// <returns></returns>
-        private int NumModels()
-        {
-            int numModels = 1;
+
+            _numModels = 1;
 
             foreach (TextureGroup tg in _textureGroups)
-                numModels *= (int)Math.Pow(tg.Textures.Count, tg.Faces.Count);
-
-            return numModels;
+                _numModels *= (int)Math.Pow(tg.Textures.Count, tg.Faces.Count);
         }
         /// <summary>
         /// Write the model files for the model
@@ -107,50 +97,6 @@ namespace OnATheme
                 groupNo--;
             }
         }
-        /// <summary>
-        /// Write the blockstates file for the model
-        /// </summary>
-        /// <param name="w"></param>
-        public override void WriteBlockstate(JsonWriter w)
-        {
-            // The loops and ifs are used to decide whether or not to write this variant as rotated.
-            // Currently, thre is no way to specify different weights for each rotation (apart from manual editing)
-            // To do so would be a pain to do. Hence, I'm not doing it. (right now, that is)
-            for (int i = 0; i < 4; i++)
-                if (_xRot[i])
-                    for (int j = 0; j < 4; j++)
-                        if (_yRot[j])
-                        {
-                            for (int k = 0; k < NumModels(); k++)
-                            {
-                                w.WriteStartObject();
-
-                                w.WritePropertyName("model");
-                                if (k == 0 && _parent != _name)
-                                    w.WriteValue(_name);
-                                else
-                                    w.WriteValue(_name + "_" + k.ToString());
-
-                                if (i != 0) // Do not need to write if it's 0.
-                                {
-                                    w.WritePropertyName("x");
-                                    w.WriteValue(i * 90);
-                                }
-                                if (j != 0) // Same as above.
-                                {
-                                    w.WritePropertyName("y");
-                                    w.WriteValue(j * 90);
-                                }
-                                if (_uvLock)
-                                {
-                                    w.WritePropertyName("uvlock");
-                                    w.WriteValue(true); // If this piece of code is executed, then it must be true.
-                                }
-
-                                w.WriteEndObject();
-                            }
-                        }
-        }
         public override List<Model> ConvertToIndividualModels()
         {
             int _modelNo = 0, _groupNo = 0;
@@ -189,16 +135,12 @@ namespace OnATheme
                 // Create a new list based on the current one.
                 // Can't use ModelTexures, or it will use the same reference.
                 List<Texture> t = new List<Texture>(ModelTextures);
-                Models.Add(new Model(_name, _parent, t, _xRot, _yRot)); 
+
+                if (modelNo == 0 && _parent != _name)
+                    Models.Add(new Model(_name, _parent, t, _xRot, _yRot)); 
+                else
+                    Models.Add(new Model(_name + "_" + modelNo.ToString(), _parent, t, _xRot, _yRot));
             }
-        }
-        /// <summary>
-        /// Name of the Model
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return _name;
         }
     }
 }

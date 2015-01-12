@@ -22,7 +22,7 @@ namespace OnATheme
         /// <param name="Block"></param>
         /// <param name="Name"></param>
         /// <param name="Models"></param>
-        public BlockVariant(string Name, ModelCompoundExponential BlockModel)
+        public BlockVariant(string Name, Model BlockModel)
         {
             if (Name != "")
                 _name = Name;
