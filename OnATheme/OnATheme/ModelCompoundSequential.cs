@@ -79,29 +79,32 @@ namespace OnATheme
         public override List<Model> ConvertToIndividualModels()
         {
             List<Model> models = new List<Model>();
+            // For every model
             for (int i = 0; i < _numModels; i++)
             {
+                // Create a list of textures
+                // Use constant ones, if avalable
                 List<Texture> t;
                 if (_textures == null)
                     t = new List<Texture>();
                 else
                     t = new List<Texture>(_textures);
 
+                // For every variabel texture
                 for (int j = 0; j < _texturesVariable.Count; j++)
                 {
+                    // Add to the list, with name change if needed
                     if (i == 0)
                         t.Add(new Texture(_texturesVariable[j].Reference, _texturesVariable[j].Name));
                     else
                         t.Add(new Texture(_texturesVariable[j].Reference, _texturesVariable[j].Name + "_" + i.ToString()));
                 }
-                if (_parent != _name)
-                {
-                    if (i == 0)
-                        models.Add(new Model(_name, _parent, t, _xRot, _yRot));
-                    else
-                        models.Add(new Model(_name + "_" + i.ToString(), _parent, t, _xRot, _yRot));
-                    Console.WriteLine("break");
-                }
+                // Add the models
+                if (i == 0 && _parent != _name)
+                    models.Add(new Model(_name, _parent, t, _xRot, _yRot));
+                else
+                    models.Add(new Model(_name + "_" + i.ToString(), _parent, t, _xRot, _yRot));
+                Console.WriteLine("break");
             }
             return models;
         }

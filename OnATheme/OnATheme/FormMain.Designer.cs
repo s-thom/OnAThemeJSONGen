@@ -40,6 +40,8 @@
             this.addBlockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeBlockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addBuiltinBaseModelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.splitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listBoxBlocks = new System.Windows.Forms.ListBox();
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
@@ -47,7 +49,14 @@
             this.listBoxVariants = new System.Windows.Forms.ListBox();
             this.splitContainerAttribute = new System.Windows.Forms.SplitContainer();
             this.listBoxModels = new System.Windows.Forms.ListBox();
+            this.groupBoxCompoundSpecific = new System.Windows.Forms.GroupBox();
+            this.numericUpDownEstimate = new System.Windows.Forms.NumericUpDown();
+            this.labelEstimate = new System.Windows.Forms.Label();
+            this.groupBoxModelSpecific = new System.Windows.Forms.GroupBox();
+            this.numericUpDownWeight = new System.Windows.Forms.NumericUpDown();
+            this.labelWeight = new System.Windows.Forms.Label();
             this.groupBoxRotation = new System.Windows.Forms.GroupBox();
+            this.checkBoxUVLock = new System.Windows.Forms.CheckBox();
             this.buttonUpdateRotations = new System.Windows.Forms.Button();
             this.groupBoxRotationY = new System.Windows.Forms.GroupBox();
             this.checkBoxY270 = new System.Windows.Forms.CheckBox();
@@ -59,15 +68,6 @@
             this.checkBoxX180 = new System.Windows.Forms.CheckBox();
             this.checkBoxX90 = new System.Windows.Forms.CheckBox();
             this.checkBoxX0 = new System.Windows.Forms.CheckBox();
-            this.addBuiltinBaseModelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.groupBoxModelSpecific = new System.Windows.Forms.GroupBox();
-            this.labelWeight = new System.Windows.Forms.Label();
-            this.numericUpDownWeight = new System.Windows.Forms.NumericUpDown();
-            this.groupBoxCompoundSpecific = new System.Windows.Forms.GroupBox();
-            this.labelEstimate = new System.Windows.Forms.Label();
-            this.numericUpDownEstimate = new System.Windows.Forms.NumericUpDown();
-            this.checkBoxUVLock = new System.Windows.Forms.CheckBox();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -81,13 +81,13 @@
             this.splitContainerAttribute.Panel1.SuspendLayout();
             this.splitContainerAttribute.Panel2.SuspendLayout();
             this.splitContainerAttribute.SuspendLayout();
+            this.groupBoxCompoundSpecific.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEstimate)).BeginInit();
+            this.groupBoxModelSpecific.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).BeginInit();
             this.groupBoxRotation.SuspendLayout();
             this.groupBoxRotationY.SuspendLayout();
             this.groupBoxRotationX.SuspendLayout();
-            this.groupBoxModelSpecific.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).BeginInit();
-            this.groupBoxCompoundSpecific.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEstimate)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -165,6 +165,7 @@
             // 
             // removeBlockToolStripMenuItem
             // 
+            this.removeBlockToolStripMenuItem.Enabled = false;
             this.removeBlockToolStripMenuItem.Name = "removeBlockToolStripMenuItem";
             this.removeBlockToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.removeBlockToolStripMenuItem.Text = "Remove Block";
@@ -179,6 +180,18 @@
             this.modelsToolStripMenuItem.Name = "modelsToolStripMenuItem";
             this.modelsToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.modelsToolStripMenuItem.Text = "Models";
+            // 
+            // addBuiltinBaseModelsToolStripMenuItem
+            // 
+            this.addBuiltinBaseModelsToolStripMenuItem.Name = "addBuiltinBaseModelsToolStripMenuItem";
+            this.addBuiltinBaseModelsToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.addBuiltinBaseModelsToolStripMenuItem.Text = "Add Built-in Base Models";
+            this.addBuiltinBaseModelsToolStripMenuItem.Click += new System.EventHandler(this.addBuiltinBaseModelsToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(204, 6);
             // 
             // splitToolStripMenuItem
             // 
@@ -272,6 +285,92 @@
             this.listBoxModels.TabIndex = 0;
             this.listBoxModels.SelectedIndexChanged += new System.EventHandler(this.listBoxModels_SelectedIndexChanged);
             // 
+            // groupBoxCompoundSpecific
+            // 
+            this.groupBoxCompoundSpecific.Controls.Add(this.numericUpDownEstimate);
+            this.groupBoxCompoundSpecific.Controls.Add(this.labelEstimate);
+            this.groupBoxCompoundSpecific.Location = new System.Drawing.Point(8, 69);
+            this.groupBoxCompoundSpecific.Name = "groupBoxCompoundSpecific";
+            this.groupBoxCompoundSpecific.Size = new System.Drawing.Size(273, 47);
+            this.groupBoxCompoundSpecific.TabIndex = 20;
+            this.groupBoxCompoundSpecific.TabStop = false;
+            this.groupBoxCompoundSpecific.Text = "Compound Model Specific";
+            // 
+            // numericUpDownEstimate
+            // 
+            this.numericUpDownEstimate.Location = new System.Drawing.Point(153, 19);
+            this.numericUpDownEstimate.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numericUpDownEstimate.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownEstimate.Name = "numericUpDownEstimate";
+            this.numericUpDownEstimate.ReadOnly = true;
+            this.numericUpDownEstimate.Size = new System.Drawing.Size(114, 20);
+            this.numericUpDownEstimate.TabIndex = 1;
+            this.numericUpDownEstimate.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // labelEstimate
+            // 
+            this.labelEstimate.AutoSize = true;
+            this.labelEstimate.Location = new System.Drawing.Point(6, 21);
+            this.labelEstimate.Name = "labelEstimate";
+            this.labelEstimate.Size = new System.Drawing.Size(139, 13);
+            this.labelEstimate.TabIndex = 0;
+            this.labelEstimate.Text = "Estimated number of models";
+            // 
+            // groupBoxModelSpecific
+            // 
+            this.groupBoxModelSpecific.Controls.Add(this.numericUpDownWeight);
+            this.groupBoxModelSpecific.Controls.Add(this.labelWeight);
+            this.groupBoxModelSpecific.Location = new System.Drawing.Point(8, 14);
+            this.groupBoxModelSpecific.Name = "groupBoxModelSpecific";
+            this.groupBoxModelSpecific.Size = new System.Drawing.Size(273, 49);
+            this.groupBoxModelSpecific.TabIndex = 19;
+            this.groupBoxModelSpecific.TabStop = false;
+            this.groupBoxModelSpecific.Text = "Individual Model Specific";
+            // 
+            // numericUpDownWeight
+            // 
+            this.numericUpDownWeight.Location = new System.Drawing.Point(53, 19);
+            this.numericUpDownWeight.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numericUpDownWeight.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownWeight.Name = "numericUpDownWeight";
+            this.numericUpDownWeight.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownWeight.TabIndex = 1;
+            this.numericUpDownWeight.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownWeight.ValueChanged += new System.EventHandler(this.numericUpDownWeight_ValueChanged);
+            // 
+            // labelWeight
+            // 
+            this.labelWeight.AutoSize = true;
+            this.labelWeight.Location = new System.Drawing.Point(6, 21);
+            this.labelWeight.Name = "labelWeight";
+            this.labelWeight.Size = new System.Drawing.Size(41, 13);
+            this.labelWeight.TabIndex = 0;
+            this.labelWeight.Text = "Weight";
+            // 
             // groupBoxRotation
             // 
             this.groupBoxRotation.Controls.Add(this.checkBoxUVLock);
@@ -284,6 +383,16 @@
             this.groupBoxRotation.TabIndex = 18;
             this.groupBoxRotation.TabStop = false;
             this.groupBoxRotation.Text = "Rotations";
+            // 
+            // checkBoxUVLock
+            // 
+            this.checkBoxUVLock.AutoSize = true;
+            this.checkBoxUVLock.Location = new System.Drawing.Point(6, 20);
+            this.checkBoxUVLock.Name = "checkBoxUVLock";
+            this.checkBoxUVLock.Size = new System.Drawing.Size(200, 17);
+            this.checkBoxUVLock.TabIndex = 3;
+            this.checkBoxUVLock.Text = "UV Lock (Rotate textures with block)";
+            this.checkBoxUVLock.UseVisualStyleBackColor = true;
             // 
             // buttonUpdateRotations
             // 
@@ -405,114 +514,6 @@
             this.checkBoxX0.Text = "0";
             this.checkBoxX0.UseVisualStyleBackColor = true;
             // 
-            // addBuiltinBaseModelsToolStripMenuItem
-            // 
-            this.addBuiltinBaseModelsToolStripMenuItem.Name = "addBuiltinBaseModelsToolStripMenuItem";
-            this.addBuiltinBaseModelsToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
-            this.addBuiltinBaseModelsToolStripMenuItem.Text = "Add Built-in Base Models";
-            this.addBuiltinBaseModelsToolStripMenuItem.Click += new System.EventHandler(this.addBuiltinBaseModelsToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(204, 6);
-            // 
-            // groupBoxModelSpecific
-            // 
-            this.groupBoxModelSpecific.Controls.Add(this.numericUpDownWeight);
-            this.groupBoxModelSpecific.Controls.Add(this.labelWeight);
-            this.groupBoxModelSpecific.Location = new System.Drawing.Point(8, 14);
-            this.groupBoxModelSpecific.Name = "groupBoxModelSpecific";
-            this.groupBoxModelSpecific.Size = new System.Drawing.Size(273, 49);
-            this.groupBoxModelSpecific.TabIndex = 19;
-            this.groupBoxModelSpecific.TabStop = false;
-            this.groupBoxModelSpecific.Text = "Individual Model Specific";
-            // 
-            // labelWeight
-            // 
-            this.labelWeight.AutoSize = true;
-            this.labelWeight.Location = new System.Drawing.Point(6, 21);
-            this.labelWeight.Name = "labelWeight";
-            this.labelWeight.Size = new System.Drawing.Size(41, 13);
-            this.labelWeight.TabIndex = 0;
-            this.labelWeight.Text = "Weight";
-            // 
-            // numericUpDownWeight
-            // 
-            this.numericUpDownWeight.Location = new System.Drawing.Point(53, 19);
-            this.numericUpDownWeight.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.numericUpDownWeight.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownWeight.Name = "numericUpDownWeight";
-            this.numericUpDownWeight.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDownWeight.TabIndex = 1;
-            this.numericUpDownWeight.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownWeight.ValueChanged += new System.EventHandler(this.numericUpDownWeight_ValueChanged);
-            // 
-            // groupBoxCompoundSpecific
-            // 
-            this.groupBoxCompoundSpecific.Controls.Add(this.numericUpDownEstimate);
-            this.groupBoxCompoundSpecific.Controls.Add(this.labelEstimate);
-            this.groupBoxCompoundSpecific.Location = new System.Drawing.Point(8, 69);
-            this.groupBoxCompoundSpecific.Name = "groupBoxCompoundSpecific";
-            this.groupBoxCompoundSpecific.Size = new System.Drawing.Size(273, 47);
-            this.groupBoxCompoundSpecific.TabIndex = 20;
-            this.groupBoxCompoundSpecific.TabStop = false;
-            this.groupBoxCompoundSpecific.Text = "Compound Model Specific";
-            // 
-            // labelEstimate
-            // 
-            this.labelEstimate.AutoSize = true;
-            this.labelEstimate.Location = new System.Drawing.Point(6, 21);
-            this.labelEstimate.Name = "labelEstimate";
-            this.labelEstimate.Size = new System.Drawing.Size(139, 13);
-            this.labelEstimate.TabIndex = 0;
-            this.labelEstimate.Text = "Estimated number of models";
-            // 
-            // numericUpDownEstimate
-            // 
-            this.numericUpDownEstimate.Location = new System.Drawing.Point(153, 19);
-            this.numericUpDownEstimate.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.numericUpDownEstimate.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDownEstimate.Name = "numericUpDownEstimate";
-            this.numericUpDownEstimate.ReadOnly = true;
-            this.numericUpDownEstimate.Size = new System.Drawing.Size(114, 20);
-            this.numericUpDownEstimate.TabIndex = 1;
-            this.numericUpDownEstimate.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // checkBoxUVLock
-            // 
-            this.checkBoxUVLock.AutoSize = true;
-            this.checkBoxUVLock.Location = new System.Drawing.Point(6, 20);
-            this.checkBoxUVLock.Name = "checkBoxUVLock";
-            this.checkBoxUVLock.Size = new System.Drawing.Size(200, 17);
-            this.checkBoxUVLock.TabIndex = 3;
-            this.checkBoxUVLock.Text = "UV Lock (Rotate textures with block)";
-            this.checkBoxUVLock.UseVisualStyleBackColor = true;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -542,18 +543,18 @@
             this.splitContainerAttribute.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerAttribute)).EndInit();
             this.splitContainerAttribute.ResumeLayout(false);
+            this.groupBoxCompoundSpecific.ResumeLayout(false);
+            this.groupBoxCompoundSpecific.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEstimate)).EndInit();
+            this.groupBoxModelSpecific.ResumeLayout(false);
+            this.groupBoxModelSpecific.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).EndInit();
             this.groupBoxRotation.ResumeLayout(false);
             this.groupBoxRotation.PerformLayout();
             this.groupBoxRotationY.ResumeLayout(false);
             this.groupBoxRotationY.PerformLayout();
             this.groupBoxRotationX.ResumeLayout(false);
             this.groupBoxRotationX.PerformLayout();
-            this.groupBoxModelSpecific.ResumeLayout(false);
-            this.groupBoxModelSpecific.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).EndInit();
-            this.groupBoxCompoundSpecific.ResumeLayout(false);
-            this.groupBoxCompoundSpecific.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEstimate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

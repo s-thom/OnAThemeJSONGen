@@ -9,14 +9,23 @@ namespace OnATheme
 {
     public class Block
     {
+        /// <summary>
+        /// The variants this block has
+        /// </summary>
         public List<BlockVariant> BlockVariants = new List<BlockVariant>();
         private string _name;
 
+        /// <summary>
+        /// A block to be used by the game
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <param name="Variants"></param>
         public Block(string Name, List<BlockVariant> Variants)
         {
             _name = Name;
             BlockVariants = Variants;
         }
+
         /// <summary>
         /// Create all JSON files
         /// </summary>

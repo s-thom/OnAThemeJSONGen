@@ -17,6 +17,7 @@ namespace OnATheme
         {
             InitializeComponent();
         }
+
         /// <summary>
         /// Show the dialogue, and return a Block object
         /// </summary>
@@ -34,6 +35,11 @@ namespace OnATheme
                return null; // In case of canceled dialogue
             }
         }
+        /// <summary>
+        /// Add a new variant to the list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAddBlockVariant_Click(object sender, EventArgs e)
         {
             BlockVariant newVariant = FormAddBlockVariant.ShowAndReturnObject(textBoxBlockName.Text);

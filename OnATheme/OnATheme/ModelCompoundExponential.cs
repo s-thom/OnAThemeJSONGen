@@ -24,11 +24,12 @@ namespace OnATheme
         {
             _textureGroups = TextureGroups;
 
+            // Calculate the number of models
             _numModels = 1;
-
             foreach (TextureGroup tg in _textureGroups)
                 _numModels *= (int)Math.Pow(tg.Textures.Count, tg.Faces.Count);
         }
+
         /// <summary>
         /// Write the model files for the model
         /// </summary>
@@ -54,17 +55,21 @@ namespace OnATheme
         /// <param name="modelNo"></param>
         private void WriteModelRecur(List<Texture> ModelTextures, int Face, ref int modelNo, int groupNo)
         {
+            // Test to see if we've gone too deep
             if (groupNo < _textureGroups.Count)
             {
                 if (Face < _textureGroups[groupNo].Faces.Count)
                 {
+                    // Fore every texture, go deeper
                     for (int i = 0; i < _textureGroups[groupNo].Textures.Count; i++)
                     {
                         ModelTextures.Add(new Texture(_textureGroups[groupNo].Faces[Face], _textureGroups[groupNo].Textures[i]));
+                        // Down the rabbit hole
                         if (Face >= _textureGroups[groupNo].Faces.Count - 1)
                             WriteModelRecur(ModelTextures, 0, ref modelNo, groupNo + 1);
                         else
                             WriteModelRecur(ModelTextures, Face + 1, ref modelNo, groupNo);
+                        // Remove the texture just created
                         ModelTextures.RemoveAt(ModelTextures.Count - 1);
                     }
                 }
@@ -72,7 +77,7 @@ namespace OnATheme
             else
             {
                 JsonWriter w;
-                // Write the model
+                // Create the writer
                 if (modelNo == 0 && _parent != _name)
                     w = new JsonTextWriter(File.CreateText(@"OaT/assets/minecraft/models/block/" + _name + ".json"));
                 else
@@ -84,7 +89,7 @@ namespace OnATheme
                 w.WritePropertyName("parent");
                 w.WriteValue(MODEL_PATH + _parent);
                 w.WritePropertyName("textures");
-
+                // Write each texture
                 w.WriteStartObject();
                 foreach (Texture t in ModelTextures)
                     t.WriteTextureJSON(w);
@@ -93,6 +98,7 @@ namespace OnATheme
                 w.WriteEndObject();
 
                 w.Close();
+                // Go to the next model number, and get back into it
                 modelNo++;
                 groupNo--;
             }
@@ -102,7 +108,9 @@ namespace OnATheme
             int _modelNo = 0, _groupNo = 0;
             List<Texture> _modelTextures = new List<Texture>();
             List<Model> models = new List<Model>();
+
             ConvertModelRecur(_modelTextures, 0, ref _modelNo, _groupNo, models);
+
             return models;
         }
         /// <summary>
@@ -115,10 +123,12 @@ namespace OnATheme
         /// <param name="Models"></param>
         private void ConvertModelRecur(List<Texture> ModelTextures, int Face, ref int modelNo, int groupNo, List<Model> Models)
         {
+            // Have we gone too deep?
             if (groupNo < _textureGroups.Count)
             {
                 if (Face < _textureGroups[groupNo].Faces.Count)
                 {
+                    // For every texture
                     for (int i = 0; i < _textureGroups[groupNo].Textures.Count; i++)
                     {
                         ModelTextures.Add(new Texture(_textureGroups[groupNo].Faces[Face], _textureGroups[groupNo].Textures[i]));

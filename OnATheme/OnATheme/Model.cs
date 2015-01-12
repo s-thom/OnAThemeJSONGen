@@ -32,6 +32,7 @@ namespace OnATheme
             _parent = Parent;
             _textures = Textures;
 
+            // Set rotations
             if (XRotations.Length == 4)
                 _xRot = XRotations;
             if (YRotations.Length == 4)
@@ -73,14 +74,17 @@ namespace OnATheme
         {
             if (_parent != "")
             {
+                // Create JSON writer
                 JsonWriter w = new JsonTextWriter(File.CreateText(@"OaT/assets/minecraft/models/block/" + _name + ".json"));
                 w.Formatting = Formatting.Indented;
 
+                // Write model to the Minecraft JSON specification
                 w.WriteStartObject();
                 w.WritePropertyName("parent");
                 w.WriteValue(MODEL_PATH + _parent);
                 w.WritePropertyName("textures");
 
+                // Write each texture
                 w.WriteStartObject();
                 foreach (Texture t in _textures)
                     t.WriteTextureJSON(w);
@@ -104,6 +108,8 @@ namespace OnATheme
                     for (int j = 0; j < 4; j++)
                         if (_yRot[j])
                         {
+                            // For each model
+                            // Only one, if it's a normal model, potentially more if it's a compound
                             for (int k = 0; k < _numModels; k++)
                             {
                                 w.WriteStartObject();
