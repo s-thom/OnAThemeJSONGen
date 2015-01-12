@@ -37,7 +37,7 @@ namespace OnATheme
                 if (dialog.textBoxOverwrite.Text != "")
                     modelName  = dialog.textBoxOverwrite.Text;
 
-                Model m = new Model(modelName, dialog.textBoxParentModel.Text, dialog.TextureGroups, xRot, yRot);
+                ModelCompoundExponential m = new ModelCompoundExponential(modelName, dialog.textBoxParentModel.Text, dialog.TextureGroups, xRot, yRot);
 
                 BlockVariant newBlock = new BlockVariant(dialog.textBoxName.Text, m);
                 return newBlock;

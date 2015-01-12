@@ -17,7 +17,7 @@ namespace OnATheme
 
         Block selectedBlock;
         BlockVariant selectedVariant;
-        Model selectedModel;
+        ModelCompoundExponential selectedModel;
 
         public FormMain()
         {
@@ -67,7 +67,7 @@ namespace OnATheme
             {
                 selectedVariant = (BlockVariant)listBoxVariants.Items[listBoxVariants.SelectedIndex];
                 listBoxModels.Items.Clear();
-                foreach (Model m in selectedVariant.Models)
+                foreach (ModelCompoundExponential m in selectedVariant.Models)
                     listBoxModels.Items.Add(m);
 
             }
@@ -85,7 +85,7 @@ namespace OnATheme
         {
             try
             {
-                selectedModel = (Model)listBoxModels.Items[listBoxModels.SelectedIndex];
+                selectedModel = (ModelCompoundExponential)listBoxModels.Items[listBoxModels.SelectedIndex];
                 splitContainerAttribute.Panel2.Enabled = true;
 
                 checkBoxX0.Checked = selectedModel.XRotation[0];
