@@ -8,11 +8,12 @@ namespace OnATheme
 {
     public abstract class ModelCompound : Model
     {
-        protected int _numModels;
+        
 
         public ModelCompound(string Name, string Parent, bool[] XRotations, bool[] YRotations)
             : base(Name, Parent, null, XRotations, YRotations)
         { }
+        
 
         /// <summary>
         /// Convert the compound model into individual models

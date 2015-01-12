@@ -88,6 +88,21 @@ namespace OnATheme
                 selectedModel = (Model)listBoxModels.Items[listBoxModels.SelectedIndex];
                 splitContainerAttribute.Panel2.Enabled = true;
 
+                if (selectedModel is ModelCompound)
+                {
+                    splitToolStripMenuItem.Enabled = true;
+                    groupBoxCompoundSpecific.Enabled = true;
+                    groupBoxModelSpecific.Enabled = false;
+                    numericUpDownEstimate.Value = (selectedModel as ModelCompound).NumModels;
+                }
+                else
+                {
+                    splitToolStripMenuItem.Enabled = false;
+                    groupBoxCompoundSpecific.Enabled = false;
+                    groupBoxModelSpecific.Enabled = true;
+                    numericUpDownEstimate.Value = (selectedModel as ModelCompound).NumModels;
+                }
+
                 checkBoxX0.Checked = selectedModel.XRotation[0];
                 checkBoxX90.Checked = selectedModel.XRotation[1];
                 checkBoxX180.Checked = selectedModel.XRotation[2];
@@ -97,6 +112,8 @@ namespace OnATheme
                 checkBoxY90.Checked = selectedModel.YRotation[1];
                 checkBoxY180.Checked = selectedModel.YRotation[2];
                 checkBoxY270.Checked = selectedModel.YRotation[3];
+
+                checkBoxUVLock.Checked = selectedModel.UVLock;
             }
             catch
             {
@@ -156,6 +173,7 @@ namespace OnATheme
 
             selectedModel.XRotation = xRot;
             selectedModel.YRotation = yRot;
+            selectedModel.UVLock = checkBoxUVLock.Checked;
         }
 
         private void splitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -185,6 +203,11 @@ namespace OnATheme
             File.WriteAllText(@"OaT/assets/minecraft/models/block/cross_tint.json", Properties.Resources.cross_tint);
             File.WriteAllText(@"OaT/assets/minecraft/models/block/double_cross.json", Properties.Resources.double_cross);
             File.WriteAllText(@"OaT/assets/minecraft/models/block/double_cross_tint.json", Properties.Resources.double_cross_tint);
+        }
+
+        private void numericUpDownWeight_ValueChanged(object sender, EventArgs e)
+        {
+            selectedModel.Weight = (int)numericUpDownWeight.Value;
         }
     }
 }

@@ -61,6 +61,13 @@
             this.checkBoxX0 = new System.Windows.Forms.CheckBox();
             this.addBuiltinBaseModelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.groupBoxModelSpecific = new System.Windows.Forms.GroupBox();
+            this.labelWeight = new System.Windows.Forms.Label();
+            this.numericUpDownWeight = new System.Windows.Forms.NumericUpDown();
+            this.groupBoxCompoundSpecific = new System.Windows.Forms.GroupBox();
+            this.labelEstimate = new System.Windows.Forms.Label();
+            this.numericUpDownEstimate = new System.Windows.Forms.NumericUpDown();
+            this.checkBoxUVLock = new System.Windows.Forms.CheckBox();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -77,6 +84,10 @@
             this.groupBoxRotation.SuspendLayout();
             this.groupBoxRotationY.SuspendLayout();
             this.groupBoxRotationX.SuspendLayout();
+            this.groupBoxModelSpecific.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).BeginInit();
+            this.groupBoxCompoundSpecific.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEstimate)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStripMain
@@ -87,7 +98,7 @@
             this.modelsToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(663, 24);
+            this.menuStripMain.Size = new System.Drawing.Size(795, 24);
             this.menuStripMain.TabIndex = 0;
             this.menuStripMain.Text = "menuStrip1";
             // 
@@ -171,6 +182,7 @@
             // 
             // splitToolStripMenuItem
             // 
+            this.splitToolStripMenuItem.Enabled = false;
             this.splitToolStripMenuItem.Name = "splitToolStripMenuItem";
             this.splitToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.splitToolStripMenuItem.Text = "Split";
@@ -182,7 +194,7 @@
             this.listBoxBlocks.FormattingEnabled = true;
             this.listBoxBlocks.Location = new System.Drawing.Point(0, 0);
             this.listBoxBlocks.Name = "listBoxBlocks";
-            this.listBoxBlocks.Size = new System.Drawing.Size(178, 312);
+            this.listBoxBlocks.Size = new System.Drawing.Size(160, 279);
             this.listBoxBlocks.TabIndex = 1;
             this.listBoxBlocks.SelectedIndexChanged += new System.EventHandler(this.listBoxBlocks_SelectedIndexChanged);
             // 
@@ -199,8 +211,8 @@
             // splitContainerMain.Panel2
             // 
             this.splitContainerMain.Panel2.Controls.Add(this.splitContainerBlock);
-            this.splitContainerMain.Size = new System.Drawing.Size(663, 312);
-            this.splitContainerMain.SplitterDistance = 178;
+            this.splitContainerMain.Size = new System.Drawing.Size(795, 279);
+            this.splitContainerMain.SplitterDistance = 160;
             this.splitContainerMain.TabIndex = 2;
             // 
             // splitContainerBlock
@@ -216,8 +228,8 @@
             // splitContainerBlock.Panel2
             // 
             this.splitContainerBlock.Panel2.Controls.Add(this.splitContainerAttribute);
-            this.splitContainerBlock.Size = new System.Drawing.Size(481, 312);
-            this.splitContainerBlock.SplitterDistance = 159;
+            this.splitContainerBlock.Size = new System.Drawing.Size(631, 279);
+            this.splitContainerBlock.SplitterDistance = 176;
             this.splitContainerBlock.TabIndex = 1;
             // 
             // listBoxVariants
@@ -226,7 +238,7 @@
             this.listBoxVariants.FormattingEnabled = true;
             this.listBoxVariants.Location = new System.Drawing.Point(0, 0);
             this.listBoxVariants.Name = "listBoxVariants";
-            this.listBoxVariants.Size = new System.Drawing.Size(159, 312);
+            this.listBoxVariants.Size = new System.Drawing.Size(176, 279);
             this.listBoxVariants.TabIndex = 0;
             this.listBoxVariants.SelectedIndexChanged += new System.EventHandler(this.listBoxVariants_SelectedIndexChanged);
             // 
@@ -242,10 +254,12 @@
             // 
             // splitContainerAttribute.Panel2
             // 
+            this.splitContainerAttribute.Panel2.Controls.Add(this.groupBoxCompoundSpecific);
+            this.splitContainerAttribute.Panel2.Controls.Add(this.groupBoxModelSpecific);
             this.splitContainerAttribute.Panel2.Controls.Add(this.groupBoxRotation);
             this.splitContainerAttribute.Panel2.Enabled = false;
-            this.splitContainerAttribute.Size = new System.Drawing.Size(318, 312);
-            this.splitContainerAttribute.SplitterDistance = 161;
+            this.splitContainerAttribute.Size = new System.Drawing.Size(451, 279);
+            this.splitContainerAttribute.SplitterDistance = 159;
             this.splitContainerAttribute.TabIndex = 0;
             // 
             // listBoxModels
@@ -254,27 +268,28 @@
             this.listBoxModels.FormattingEnabled = true;
             this.listBoxModels.Location = new System.Drawing.Point(0, 0);
             this.listBoxModels.Name = "listBoxModels";
-            this.listBoxModels.Size = new System.Drawing.Size(161, 312);
+            this.listBoxModels.Size = new System.Drawing.Size(159, 279);
             this.listBoxModels.TabIndex = 0;
             this.listBoxModels.SelectedIndexChanged += new System.EventHandler(this.listBoxModels_SelectedIndexChanged);
             // 
             // groupBoxRotation
             // 
+            this.groupBoxRotation.Controls.Add(this.checkBoxUVLock);
             this.groupBoxRotation.Controls.Add(this.buttonUpdateRotations);
             this.groupBoxRotation.Controls.Add(this.groupBoxRotationY);
             this.groupBoxRotation.Controls.Add(this.groupBoxRotationX);
-            this.groupBoxRotation.Location = new System.Drawing.Point(7, 3);
+            this.groupBoxRotation.Location = new System.Drawing.Point(8, 122);
             this.groupBoxRotation.Name = "groupBoxRotation";
-            this.groupBoxRotation.Size = new System.Drawing.Size(139, 191);
+            this.groupBoxRotation.Size = new System.Drawing.Size(273, 148);
             this.groupBoxRotation.TabIndex = 18;
             this.groupBoxRotation.TabStop = false;
             this.groupBoxRotation.Text = "Rotations";
             // 
             // buttonUpdateRotations
             // 
-            this.buttonUpdateRotations.Location = new System.Drawing.Point(7, 165);
+            this.buttonUpdateRotations.Location = new System.Drawing.Point(6, 110);
             this.buttonUpdateRotations.Name = "buttonUpdateRotations";
-            this.buttonUpdateRotations.Size = new System.Drawing.Size(124, 23);
+            this.buttonUpdateRotations.Size = new System.Drawing.Size(261, 23);
             this.buttonUpdateRotations.TabIndex = 2;
             this.buttonUpdateRotations.Text = "Update Rotations";
             this.buttonUpdateRotations.UseVisualStyleBackColor = true;
@@ -286,7 +301,7 @@
             this.groupBoxRotationY.Controls.Add(this.checkBoxY180);
             this.groupBoxRotationY.Controls.Add(this.checkBoxY90);
             this.groupBoxRotationY.Controls.Add(this.checkBoxY0);
-            this.groupBoxRotationY.Location = new System.Drawing.Point(7, 92);
+            this.groupBoxRotationY.Location = new System.Drawing.Point(143, 43);
             this.groupBoxRotationY.Name = "groupBoxRotationY";
             this.groupBoxRotationY.Size = new System.Drawing.Size(124, 66);
             this.groupBoxRotationY.TabIndex = 1;
@@ -341,7 +356,7 @@
             this.groupBoxRotationX.Controls.Add(this.checkBoxX180);
             this.groupBoxRotationX.Controls.Add(this.checkBoxX90);
             this.groupBoxRotationX.Controls.Add(this.checkBoxX0);
-            this.groupBoxRotationX.Location = new System.Drawing.Point(7, 20);
+            this.groupBoxRotationX.Location = new System.Drawing.Point(6, 43);
             this.groupBoxRotationX.Name = "groupBoxRotationX";
             this.groupBoxRotationX.Size = new System.Drawing.Size(124, 66);
             this.groupBoxRotationX.TabIndex = 0;
@@ -402,11 +417,107 @@
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(204, 6);
             // 
+            // groupBoxModelSpecific
+            // 
+            this.groupBoxModelSpecific.Controls.Add(this.numericUpDownWeight);
+            this.groupBoxModelSpecific.Controls.Add(this.labelWeight);
+            this.groupBoxModelSpecific.Location = new System.Drawing.Point(8, 14);
+            this.groupBoxModelSpecific.Name = "groupBoxModelSpecific";
+            this.groupBoxModelSpecific.Size = new System.Drawing.Size(273, 49);
+            this.groupBoxModelSpecific.TabIndex = 19;
+            this.groupBoxModelSpecific.TabStop = false;
+            this.groupBoxModelSpecific.Text = "Individual Model Specific";
+            // 
+            // labelWeight
+            // 
+            this.labelWeight.AutoSize = true;
+            this.labelWeight.Location = new System.Drawing.Point(6, 21);
+            this.labelWeight.Name = "labelWeight";
+            this.labelWeight.Size = new System.Drawing.Size(41, 13);
+            this.labelWeight.TabIndex = 0;
+            this.labelWeight.Text = "Weight";
+            // 
+            // numericUpDownWeight
+            // 
+            this.numericUpDownWeight.Location = new System.Drawing.Point(53, 19);
+            this.numericUpDownWeight.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numericUpDownWeight.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownWeight.Name = "numericUpDownWeight";
+            this.numericUpDownWeight.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownWeight.TabIndex = 1;
+            this.numericUpDownWeight.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownWeight.ValueChanged += new System.EventHandler(this.numericUpDownWeight_ValueChanged);
+            // 
+            // groupBoxCompoundSpecific
+            // 
+            this.groupBoxCompoundSpecific.Controls.Add(this.numericUpDownEstimate);
+            this.groupBoxCompoundSpecific.Controls.Add(this.labelEstimate);
+            this.groupBoxCompoundSpecific.Location = new System.Drawing.Point(8, 69);
+            this.groupBoxCompoundSpecific.Name = "groupBoxCompoundSpecific";
+            this.groupBoxCompoundSpecific.Size = new System.Drawing.Size(273, 47);
+            this.groupBoxCompoundSpecific.TabIndex = 20;
+            this.groupBoxCompoundSpecific.TabStop = false;
+            this.groupBoxCompoundSpecific.Text = "Compound Model Specific";
+            // 
+            // labelEstimate
+            // 
+            this.labelEstimate.AutoSize = true;
+            this.labelEstimate.Location = new System.Drawing.Point(6, 21);
+            this.labelEstimate.Name = "labelEstimate";
+            this.labelEstimate.Size = new System.Drawing.Size(139, 13);
+            this.labelEstimate.TabIndex = 0;
+            this.labelEstimate.Text = "Estimated number of models";
+            // 
+            // numericUpDownEstimate
+            // 
+            this.numericUpDownEstimate.Location = new System.Drawing.Point(153, 19);
+            this.numericUpDownEstimate.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numericUpDownEstimate.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownEstimate.Name = "numericUpDownEstimate";
+            this.numericUpDownEstimate.ReadOnly = true;
+            this.numericUpDownEstimate.Size = new System.Drawing.Size(114, 20);
+            this.numericUpDownEstimate.TabIndex = 1;
+            this.numericUpDownEstimate.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // checkBoxUVLock
+            // 
+            this.checkBoxUVLock.AutoSize = true;
+            this.checkBoxUVLock.Location = new System.Drawing.Point(6, 20);
+            this.checkBoxUVLock.Name = "checkBoxUVLock";
+            this.checkBoxUVLock.Size = new System.Drawing.Size(200, 17);
+            this.checkBoxUVLock.TabIndex = 3;
+            this.checkBoxUVLock.Text = "UV Lock (Rotate textures with block)";
+            this.checkBoxUVLock.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(663, 336);
+            this.ClientSize = new System.Drawing.Size(795, 303);
             this.Controls.Add(this.splitContainerMain);
             this.Controls.Add(this.menuStripMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -432,10 +543,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerAttribute)).EndInit();
             this.splitContainerAttribute.ResumeLayout(false);
             this.groupBoxRotation.ResumeLayout(false);
+            this.groupBoxRotation.PerformLayout();
             this.groupBoxRotationY.ResumeLayout(false);
             this.groupBoxRotationY.PerformLayout();
             this.groupBoxRotationX.ResumeLayout(false);
             this.groupBoxRotationX.PerformLayout();
+            this.groupBoxModelSpecific.ResumeLayout(false);
+            this.groupBoxModelSpecific.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownWeight)).EndInit();
+            this.groupBoxCompoundSpecific.ResumeLayout(false);
+            this.groupBoxCompoundSpecific.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEstimate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -475,6 +593,13 @@
         private System.Windows.Forms.ToolStripMenuItem splitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addBuiltinBaseModelsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.GroupBox groupBoxModelSpecific;
+        private System.Windows.Forms.NumericUpDown numericUpDownWeight;
+        private System.Windows.Forms.Label labelWeight;
+        private System.Windows.Forms.GroupBox groupBoxCompoundSpecific;
+        private System.Windows.Forms.NumericUpDown numericUpDownEstimate;
+        private System.Windows.Forms.Label labelEstimate;
+        private System.Windows.Forms.CheckBox checkBoxUVLock;
     }
 }
 

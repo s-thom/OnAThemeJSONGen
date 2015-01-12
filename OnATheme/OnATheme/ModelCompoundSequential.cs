@@ -10,7 +10,6 @@ namespace OnATheme
     class ModelCompoundSequential : ModelCompound
     {
         List<Texture> _texturesVariable = new List<Texture>();
-        private int _numVariations;
 
         /// <summary>
         /// A model wchich changes textures based on the internal number
@@ -27,7 +26,7 @@ namespace OnATheme
             _textures = ConstantTextures;
             _texturesVariable = VariableTextures;
             // +1 to include "0th" model 
-            _numVariations = NumVariations + 1;
+            _numModels = NumVariations + 1;
         }
         public override void WriteModel()
         {
@@ -101,6 +100,7 @@ namespace OnATheme
                         models.Add(new Model(_name, _parent, t, _xRot, _yRot));
                     else
                         models.Add(new Model(_name + "_" + i.ToString(), _parent, t, _xRot, _yRot));
+                    Console.WriteLine("break");
                 }
             }
             return models;
