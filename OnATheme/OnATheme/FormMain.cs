@@ -103,13 +103,13 @@ namespace OnATheme
                     groupBoxModelSpecific.Enabled = false;
                     numericUpDownEstimate.Value = (selectedModel as ModelCompound).NumModels;
                 }
-                else
+                else if (selectedModel is ModelIndividual)
                 {
                     // Enable all individual related items
                     splitToolStripMenuItem.Enabled = false;
                     groupBoxCompoundSpecific.Enabled = false;
                     groupBoxModelSpecific.Enabled = true;
-                    numericUpDownEstimate.Value = (selectedModel as ModelCompound).NumModels;
+                    numericUpDownEstimate.Value = 1;
                 }
 
                 // Set rotations
@@ -250,7 +250,8 @@ namespace OnATheme
         /// <param name="e"></param>
         private void numericUpDownWeight_ValueChanged(object sender, EventArgs e)
         {
-            selectedModel.Weight = (int)numericUpDownWeight.Value;
+            if (selectedModel is ModelIndividual)
+                (selectedModel as ModelIndividual).Weight = (int)numericUpDownWeight.Value;
         }
     }
 }

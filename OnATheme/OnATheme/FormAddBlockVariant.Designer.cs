@@ -59,18 +59,9 @@
             this.checkBoxX90 = new System.Windows.Forms.CheckBox();
             this.checkBoxX0 = new System.Windows.Forms.CheckBox();
             this.groupBoxModel = new System.Windows.Forms.GroupBox();
-            this.linkLabelInstructions = new System.Windows.Forms.LinkLabel();
-            this.groupBoxType = new System.Windows.Forms.GroupBox();
-            this.radioButtonTypeExponential = new System.Windows.Forms.RadioButton();
-            this.radioButtonTypeSequential = new System.Windows.Forms.RadioButton();
             this.groupBoxTexturesSequential = new System.Windows.Forms.GroupBox();
-            this.groupBoxSequentialTexConst = new System.Windows.Forms.GroupBox();
-            this.listBoxSeqConst = new System.Windows.Forms.ListBox();
-            this.labelSeqConstTexture = new System.Windows.Forms.Label();
-            this.textBoxSeqConstTexture = new System.Windows.Forms.TextBox();
-            this.labelSeqConstReference = new System.Windows.Forms.Label();
-            this.textBoxSeqConstReference = new System.Windows.Forms.TextBox();
-            this.buttonSeqConstAdd = new System.Windows.Forms.Button();
+            this.labelSeqNumVariants = new System.Windows.Forms.Label();
+            this.numericUpDownNumVariants = new System.Windows.Forms.NumericUpDown();
             this.groupBoxSequentialTexVar = new System.Windows.Forms.GroupBox();
             this.buttonSeqVarAdd = new System.Windows.Forms.Button();
             this.textBoxSeqVarReference = new System.Windows.Forms.TextBox();
@@ -78,19 +69,28 @@
             this.textBoxSeqVarTexture = new System.Windows.Forms.TextBox();
             this.labelSeqVarTexture = new System.Windows.Forms.Label();
             this.listBoxSeqVar = new System.Windows.Forms.ListBox();
-            this.numericUpDownNumVariants = new System.Windows.Forms.NumericUpDown();
-            this.labelSeqNumVariants = new System.Windows.Forms.Label();
+            this.groupBoxSequentialTexConst = new System.Windows.Forms.GroupBox();
+            this.buttonSeqConstAdd = new System.Windows.Forms.Button();
+            this.textBoxSeqConstReference = new System.Windows.Forms.TextBox();
+            this.labelSeqConstReference = new System.Windows.Forms.Label();
+            this.textBoxSeqConstTexture = new System.Windows.Forms.TextBox();
+            this.labelSeqConstTexture = new System.Windows.Forms.Label();
+            this.listBoxSeqConst = new System.Windows.Forms.ListBox();
+            this.groupBoxType = new System.Windows.Forms.GroupBox();
+            this.radioButtonTypeSequential = new System.Windows.Forms.RadioButton();
+            this.radioButtonTypeExponential = new System.Windows.Forms.RadioButton();
+            this.linkLabelInstructions = new System.Windows.Forms.LinkLabel();
             this.groupBoxTextureGroups.SuspendLayout();
             this.groupBoxNewTextureGroup.SuspendLayout();
             this.groupBoxRotation.SuspendLayout();
             this.groupBoxRotationY.SuspendLayout();
             this.groupBoxRotationX.SuspendLayout();
             this.groupBoxModel.SuspendLayout();
-            this.groupBoxType.SuspendLayout();
             this.groupBoxTexturesSequential.SuspendLayout();
-            this.groupBoxSequentialTexConst.SuspendLayout();
-            this.groupBoxSequentialTexVar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumVariants)).BeginInit();
+            this.groupBoxSequentialTexVar.SuspendLayout();
+            this.groupBoxSequentialTexConst.SuspendLayout();
+            this.groupBoxType.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelName
@@ -407,52 +407,6 @@
             this.groupBoxModel.TabStop = false;
             this.groupBoxModel.Text = "Model";
             // 
-            // linkLabelInstructions
-            // 
-            this.linkLabelInstructions.AutoSize = true;
-            this.linkLabelInstructions.Location = new System.Drawing.Point(617, 13);
-            this.linkLabelInstructions.Name = "linkLabelInstructions";
-            this.linkLabelInstructions.Size = new System.Drawing.Size(107, 13);
-            this.linkLabelInstructions.TabIndex = 19;
-            this.linkLabelInstructions.TabStop = true;
-            this.linkLabelInstructions.Text = "Instructions and Help";
-            this.linkLabelInstructions.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelInstructions_LinkClicked);
-            // 
-            // groupBoxType
-            // 
-            this.groupBoxType.Controls.Add(this.radioButtonTypeSequential);
-            this.groupBoxType.Controls.Add(this.radioButtonTypeExponential);
-            this.groupBoxType.Location = new System.Drawing.Point(9, 58);
-            this.groupBoxType.Name = "groupBoxType";
-            this.groupBoxType.Size = new System.Drawing.Size(169, 42);
-            this.groupBoxType.TabIndex = 18;
-            this.groupBoxType.TabStop = false;
-            this.groupBoxType.Text = "Model Type";
-            // 
-            // radioButtonTypeExponential
-            // 
-            this.radioButtonTypeExponential.AutoSize = true;
-            this.radioButtonTypeExponential.Location = new System.Drawing.Point(87, 19);
-            this.radioButtonTypeExponential.Name = "radioButtonTypeExponential";
-            this.radioButtonTypeExponential.Size = new System.Drawing.Size(80, 17);
-            this.radioButtonTypeExponential.TabIndex = 0;
-            this.radioButtonTypeExponential.TabStop = true;
-            this.radioButtonTypeExponential.Text = "Exponential";
-            this.radioButtonTypeExponential.UseVisualStyleBackColor = true;
-            this.radioButtonTypeExponential.CheckedChanged += new System.EventHandler(this.radioButtonTypeExponential_CheckedChanged);
-            // 
-            // radioButtonTypeSequential
-            // 
-            this.radioButtonTypeSequential.AutoSize = true;
-            this.radioButtonTypeSequential.Location = new System.Drawing.Point(6, 19);
-            this.radioButtonTypeSequential.Name = "radioButtonTypeSequential";
-            this.radioButtonTypeSequential.Size = new System.Drawing.Size(75, 17);
-            this.radioButtonTypeSequential.TabIndex = 1;
-            this.radioButtonTypeSequential.TabStop = true;
-            this.radioButtonTypeSequential.Text = "Sequential";
-            this.radioButtonTypeSequential.UseVisualStyleBackColor = true;
-            this.radioButtonTypeSequential.CheckedChanged += new System.EventHandler(this.radioButtonTypeSequential_CheckedChanged);
-            // 
             // groupBoxTexturesSequential
             // 
             this.groupBoxTexturesSequential.Controls.Add(this.labelSeqNumVariants);
@@ -467,70 +421,36 @@
             this.groupBoxTexturesSequential.TabStop = false;
             this.groupBoxTexturesSequential.Text = "Sequential Textures";
             // 
-            // groupBoxSequentialTexConst
+            // labelSeqNumVariants
             // 
-            this.groupBoxSequentialTexConst.Controls.Add(this.buttonSeqConstAdd);
-            this.groupBoxSequentialTexConst.Controls.Add(this.textBoxSeqConstReference);
-            this.groupBoxSequentialTexConst.Controls.Add(this.labelSeqConstReference);
-            this.groupBoxSequentialTexConst.Controls.Add(this.textBoxSeqConstTexture);
-            this.groupBoxSequentialTexConst.Controls.Add(this.labelSeqConstTexture);
-            this.groupBoxSequentialTexConst.Controls.Add(this.listBoxSeqConst);
-            this.groupBoxSequentialTexConst.Location = new System.Drawing.Point(6, 45);
-            this.groupBoxSequentialTexConst.Name = "groupBoxSequentialTexConst";
-            this.groupBoxSequentialTexConst.Size = new System.Drawing.Size(331, 107);
-            this.groupBoxSequentialTexConst.TabIndex = 0;
-            this.groupBoxSequentialTexConst.TabStop = false;
-            this.groupBoxSequentialTexConst.Text = "Constant Textures";
+            this.labelSeqNumVariants.AutoSize = true;
+            this.labelSeqNumVariants.Location = new System.Drawing.Point(6, 21);
+            this.labelSeqNumVariants.Name = "labelSeqNumVariants";
+            this.labelSeqNumVariants.Size = new System.Drawing.Size(105, 13);
+            this.labelSeqNumVariants.TabIndex = 8;
+            this.labelSeqNumVariants.Text = "Number of Variations";
             // 
-            // listBoxSeqConst
+            // numericUpDownNumVariants
             // 
-            this.listBoxSeqConst.FormattingEnabled = true;
-            this.listBoxSeqConst.Location = new System.Drawing.Point(7, 20);
-            this.listBoxSeqConst.Name = "listBoxSeqConst";
-            this.listBoxSeqConst.Size = new System.Drawing.Size(150, 82);
-            this.listBoxSeqConst.TabIndex = 0;
-            // 
-            // labelSeqConstTexture
-            // 
-            this.labelSeqConstTexture.AutoSize = true;
-            this.labelSeqConstTexture.Location = new System.Drawing.Point(163, 22);
-            this.labelSeqConstTexture.Name = "labelSeqConstTexture";
-            this.labelSeqConstTexture.Size = new System.Drawing.Size(43, 13);
-            this.labelSeqConstTexture.TabIndex = 1;
-            this.labelSeqConstTexture.Text = "Texture";
-            // 
-            // textBoxSeqConstTexture
-            // 
-            this.textBoxSeqConstTexture.Location = new System.Drawing.Point(225, 19);
-            this.textBoxSeqConstTexture.Name = "textBoxSeqConstTexture";
-            this.textBoxSeqConstTexture.Size = new System.Drawing.Size(100, 20);
-            this.textBoxSeqConstTexture.TabIndex = 2;
-            // 
-            // labelSeqConstReference
-            // 
-            this.labelSeqConstReference.AutoSize = true;
-            this.labelSeqConstReference.Location = new System.Drawing.Point(163, 55);
-            this.labelSeqConstReference.Name = "labelSeqConstReference";
-            this.labelSeqConstReference.Size = new System.Drawing.Size(57, 13);
-            this.labelSeqConstReference.TabIndex = 3;
-            this.labelSeqConstReference.Text = "Reference";
-            // 
-            // textBoxSeqConstReference
-            // 
-            this.textBoxSeqConstReference.Location = new System.Drawing.Point(225, 52);
-            this.textBoxSeqConstReference.Name = "textBoxSeqConstReference";
-            this.textBoxSeqConstReference.Size = new System.Drawing.Size(100, 20);
-            this.textBoxSeqConstReference.TabIndex = 4;
-            // 
-            // buttonSeqConstAdd
-            // 
-            this.buttonSeqConstAdd.Location = new System.Drawing.Point(163, 78);
-            this.buttonSeqConstAdd.Name = "buttonSeqConstAdd";
-            this.buttonSeqConstAdd.Size = new System.Drawing.Size(162, 23);
-            this.buttonSeqConstAdd.TabIndex = 5;
-            this.buttonSeqConstAdd.Text = "Add";
-            this.buttonSeqConstAdd.UseVisualStyleBackColor = true;
-            this.buttonSeqConstAdd.Click += new System.EventHandler(this.buttonSeqConstAdd_Click);
+            this.numericUpDownNumVariants.Location = new System.Drawing.Point(117, 19);
+            this.numericUpDownNumVariants.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numericUpDownNumVariants.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownNumVariants.Name = "numericUpDownNumVariants";
+            this.numericUpDownNumVariants.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownNumVariants.TabIndex = 7;
+            this.numericUpDownNumVariants.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // groupBoxSequentialTexVar
             // 
@@ -597,26 +517,116 @@
             this.listBoxSeqVar.Size = new System.Drawing.Size(150, 82);
             this.listBoxSeqVar.TabIndex = 0;
             // 
-            // numericUpDownNumVariants
+            // groupBoxSequentialTexConst
             // 
-            this.numericUpDownNumVariants.Location = new System.Drawing.Point(117, 19);
-            this.numericUpDownNumVariants.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.numericUpDownNumVariants.Name = "numericUpDownNumVariants";
-            this.numericUpDownNumVariants.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDownNumVariants.TabIndex = 7;
+            this.groupBoxSequentialTexConst.Controls.Add(this.buttonSeqConstAdd);
+            this.groupBoxSequentialTexConst.Controls.Add(this.textBoxSeqConstReference);
+            this.groupBoxSequentialTexConst.Controls.Add(this.labelSeqConstReference);
+            this.groupBoxSequentialTexConst.Controls.Add(this.textBoxSeqConstTexture);
+            this.groupBoxSequentialTexConst.Controls.Add(this.labelSeqConstTexture);
+            this.groupBoxSequentialTexConst.Controls.Add(this.listBoxSeqConst);
+            this.groupBoxSequentialTexConst.Location = new System.Drawing.Point(6, 45);
+            this.groupBoxSequentialTexConst.Name = "groupBoxSequentialTexConst";
+            this.groupBoxSequentialTexConst.Size = new System.Drawing.Size(331, 107);
+            this.groupBoxSequentialTexConst.TabIndex = 0;
+            this.groupBoxSequentialTexConst.TabStop = false;
+            this.groupBoxSequentialTexConst.Text = "Constant Textures";
             // 
-            // labelSeqNumVariants
+            // buttonSeqConstAdd
             // 
-            this.labelSeqNumVariants.AutoSize = true;
-            this.labelSeqNumVariants.Location = new System.Drawing.Point(6, 21);
-            this.labelSeqNumVariants.Name = "labelSeqNumVariants";
-            this.labelSeqNumVariants.Size = new System.Drawing.Size(105, 13);
-            this.labelSeqNumVariants.TabIndex = 8;
-            this.labelSeqNumVariants.Text = "Number of Variations";
+            this.buttonSeqConstAdd.Location = new System.Drawing.Point(163, 78);
+            this.buttonSeqConstAdd.Name = "buttonSeqConstAdd";
+            this.buttonSeqConstAdd.Size = new System.Drawing.Size(162, 23);
+            this.buttonSeqConstAdd.TabIndex = 5;
+            this.buttonSeqConstAdd.Text = "Add";
+            this.buttonSeqConstAdd.UseVisualStyleBackColor = true;
+            this.buttonSeqConstAdd.Click += new System.EventHandler(this.buttonSeqConstAdd_Click);
+            // 
+            // textBoxSeqConstReference
+            // 
+            this.textBoxSeqConstReference.Location = new System.Drawing.Point(225, 52);
+            this.textBoxSeqConstReference.Name = "textBoxSeqConstReference";
+            this.textBoxSeqConstReference.Size = new System.Drawing.Size(100, 20);
+            this.textBoxSeqConstReference.TabIndex = 4;
+            // 
+            // labelSeqConstReference
+            // 
+            this.labelSeqConstReference.AutoSize = true;
+            this.labelSeqConstReference.Location = new System.Drawing.Point(163, 55);
+            this.labelSeqConstReference.Name = "labelSeqConstReference";
+            this.labelSeqConstReference.Size = new System.Drawing.Size(57, 13);
+            this.labelSeqConstReference.TabIndex = 3;
+            this.labelSeqConstReference.Text = "Reference";
+            // 
+            // textBoxSeqConstTexture
+            // 
+            this.textBoxSeqConstTexture.Location = new System.Drawing.Point(225, 19);
+            this.textBoxSeqConstTexture.Name = "textBoxSeqConstTexture";
+            this.textBoxSeqConstTexture.Size = new System.Drawing.Size(100, 20);
+            this.textBoxSeqConstTexture.TabIndex = 2;
+            // 
+            // labelSeqConstTexture
+            // 
+            this.labelSeqConstTexture.AutoSize = true;
+            this.labelSeqConstTexture.Location = new System.Drawing.Point(163, 22);
+            this.labelSeqConstTexture.Name = "labelSeqConstTexture";
+            this.labelSeqConstTexture.Size = new System.Drawing.Size(43, 13);
+            this.labelSeqConstTexture.TabIndex = 1;
+            this.labelSeqConstTexture.Text = "Texture";
+            // 
+            // listBoxSeqConst
+            // 
+            this.listBoxSeqConst.FormattingEnabled = true;
+            this.listBoxSeqConst.Location = new System.Drawing.Point(7, 20);
+            this.listBoxSeqConst.Name = "listBoxSeqConst";
+            this.listBoxSeqConst.Size = new System.Drawing.Size(150, 82);
+            this.listBoxSeqConst.TabIndex = 0;
+            // 
+            // groupBoxType
+            // 
+            this.groupBoxType.Controls.Add(this.radioButtonTypeSequential);
+            this.groupBoxType.Controls.Add(this.radioButtonTypeExponential);
+            this.groupBoxType.Location = new System.Drawing.Point(9, 58);
+            this.groupBoxType.Name = "groupBoxType";
+            this.groupBoxType.Size = new System.Drawing.Size(169, 42);
+            this.groupBoxType.TabIndex = 18;
+            this.groupBoxType.TabStop = false;
+            this.groupBoxType.Text = "Model Type";
+            // 
+            // radioButtonTypeSequential
+            // 
+            this.radioButtonTypeSequential.AutoSize = true;
+            this.radioButtonTypeSequential.Location = new System.Drawing.Point(6, 19);
+            this.radioButtonTypeSequential.Name = "radioButtonTypeSequential";
+            this.radioButtonTypeSequential.Size = new System.Drawing.Size(75, 17);
+            this.radioButtonTypeSequential.TabIndex = 1;
+            this.radioButtonTypeSequential.TabStop = true;
+            this.radioButtonTypeSequential.Text = "Sequential";
+            this.radioButtonTypeSequential.UseVisualStyleBackColor = true;
+            this.radioButtonTypeSequential.CheckedChanged += new System.EventHandler(this.radioButtonTypeSequential_CheckedChanged);
+            // 
+            // radioButtonTypeExponential
+            // 
+            this.radioButtonTypeExponential.AutoSize = true;
+            this.radioButtonTypeExponential.Location = new System.Drawing.Point(87, 19);
+            this.radioButtonTypeExponential.Name = "radioButtonTypeExponential";
+            this.radioButtonTypeExponential.Size = new System.Drawing.Size(80, 17);
+            this.radioButtonTypeExponential.TabIndex = 0;
+            this.radioButtonTypeExponential.TabStop = true;
+            this.radioButtonTypeExponential.Text = "Exponential";
+            this.radioButtonTypeExponential.UseVisualStyleBackColor = true;
+            this.radioButtonTypeExponential.CheckedChanged += new System.EventHandler(this.radioButtonTypeExponential_CheckedChanged);
+            // 
+            // linkLabelInstructions
+            // 
+            this.linkLabelInstructions.AutoSize = true;
+            this.linkLabelInstructions.Location = new System.Drawing.Point(617, 13);
+            this.linkLabelInstructions.Name = "linkLabelInstructions";
+            this.linkLabelInstructions.Size = new System.Drawing.Size(107, 13);
+            this.linkLabelInstructions.TabIndex = 19;
+            this.linkLabelInstructions.TabStop = true;
+            this.linkLabelInstructions.Text = "Instructions and Help";
+            this.linkLabelInstructions.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelInstructions_LinkClicked);
             // 
             // FormAddBlockVariant
             // 
@@ -646,15 +656,15 @@
             this.groupBoxRotationX.PerformLayout();
             this.groupBoxModel.ResumeLayout(false);
             this.groupBoxModel.PerformLayout();
-            this.groupBoxType.ResumeLayout(false);
-            this.groupBoxType.PerformLayout();
             this.groupBoxTexturesSequential.ResumeLayout(false);
             this.groupBoxTexturesSequential.PerformLayout();
-            this.groupBoxSequentialTexConst.ResumeLayout(false);
-            this.groupBoxSequentialTexConst.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumVariants)).EndInit();
             this.groupBoxSequentialTexVar.ResumeLayout(false);
             this.groupBoxSequentialTexVar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumVariants)).EndInit();
+            this.groupBoxSequentialTexConst.ResumeLayout(false);
+            this.groupBoxSequentialTexConst.PerformLayout();
+            this.groupBoxType.ResumeLayout(false);
+            this.groupBoxType.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

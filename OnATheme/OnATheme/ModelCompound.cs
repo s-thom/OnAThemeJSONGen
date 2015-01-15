@@ -16,7 +16,7 @@ namespace OnATheme
         /// <param name="XRotations"></param>
         /// <param name="YRotations"></param>
         public ModelCompound(string Name, string Parent, bool[] XRotations, bool[] YRotations)
-            : base(Name, Parent, null, XRotations, YRotations)
+            : base(Name, Parent, XRotations, YRotations)
         { }
         /// <summary>
         /// Convert the compound model into individual models

@@ -7,9 +7,9 @@ using Newtonsoft.Json;
 
 namespace OnATheme
 {
-    public class Model
+    public abstract class Model
     {
-        protected List<Texture> _textures;
+        
         protected string _name;
         protected string _parent;
         protected int _weight = 1; // Default, just in case
@@ -26,11 +26,10 @@ namespace OnATheme
         /// <param name="Parent"></param>
         /// <param name="Textures"></param>
         /// <param name="Weight"></param>
-        public Model(string Name, string Parent, List<Texture> Textures, bool[] XRotations, bool[] YRotations)
+        public Model(string Name, string Parent, bool[] XRotations, bool[] YRotations)
         {
             _name = Name;
             _parent = Parent;
-            _textures = Textures;
 
             // Set rotations
             if (XRotations.Length == 4)
@@ -39,62 +38,35 @@ namespace OnATheme
                 _yRot = YRotations;
         }
 
-        /// <summary>
-        /// Model weight. Must be greater than 0
-        /// </summary>
-        public int Weight { get { return _weight; } set { if (value > 0) _weight = value; } }
+        
         /// <summary>
         /// Name of the model
         /// </summary>
         public string Name { get { return _name; } set { _name = value; } }
         /// <summary>
-        /// Rotate the texture with the block if false (default)
-        /// </summary>
-        public bool UVLock { get { return _uvLock; } set { _uvLock = value; } }
-        /// <summary>
         /// Rotations around the X axis for this block
         /// [0] = 0, [1] = 90, [2] = 180, [3] = 270
         /// </summary>
-        public bool[] XRotation { get { return _xRot; } set { if (value.Length == 4) _xRot = value; } }
+        public bool[] XRotation { get { return _xRot; } set { if (value.Length == 4) _xRot = value; else Console.WriteLine("Invalid array length"); } }
         /// <summary>
         /// Rotations around the Y axis for this block
         /// [0] = 0, [1] = 90, [2] = 180, [3] = 270
         /// </summary>
-        public bool[] YRotation { get { return _yRot; } set { if (value.Length == 4) _yRot = value; } }
+        public bool[] YRotation { get { return _yRot; } set { if (value.Length == 4) _yRot = value; else Console.WriteLine("Invalid array length"); } }
         /// <summary>
         /// Number of models this model hold information for
         /// Mostly used for compounds
         /// </summary>
         public int NumModels { get { return _numModels; } }
+        /// <summary>
+        /// Rotate the texture with the block if false (default)
+        /// </summary>
+        public bool UVLock { get { return _uvLock; } set { _uvLock = value; } }
 
         /// <summary>
         /// Create the model file for the variant
         /// </summary>
-        public virtual void WriteModel()
-        {
-            if (_parent != "")
-            {
-                // Create JSON writer
-                JsonWriter w = new JsonTextWriter(File.CreateText(@"OaT/assets/minecraft/models/block/" + _name + ".json"));
-                w.Formatting = Formatting.Indented;
-
-                // Write model to the Minecraft JSON specification
-                w.WriteStartObject();
-                w.WritePropertyName("parent");
-                w.WriteValue(MODEL_PATH + _parent);
-                w.WritePropertyName("textures");
-
-                // Write each texture
-                w.WriteStartObject();
-                foreach (Texture t in _textures)
-                    t.WriteTextureJSON(w);
-                w.WriteEndObject();
-
-                w.WriteEndObject();
-
-                w.Close();
-            }
-        }
+        public abstract void WriteModel();
         /// <summary>
         /// Write the info used in the blockstates file
         /// </summary>

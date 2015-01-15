@@ -10,6 +10,7 @@ namespace OnATheme
     class ModelCompoundSequential : ModelCompound
     {
         List<Texture> _texturesVariable = new List<Texture>();
+        List<Texture> _texturesConstant = new List<Texture>();
 
         /// <summary>
         /// A model wchich changes textures based on the internal number
@@ -23,7 +24,7 @@ namespace OnATheme
         public ModelCompoundSequential(string Name, string Parent, List<Texture> ConstantTextures, List<Texture> VariableTextures, int NumVariations, bool[] XRotation, bool[] YRotation)
             : base(Name, Parent, XRotation, YRotation)
         {
-            _textures = ConstantTextures;
+            _texturesConstant = ConstantTextures;
             _texturesVariable = VariableTextures;
             // +1 to include "0th" model 
             _numModels = NumVariations + 1;
@@ -33,10 +34,10 @@ namespace OnATheme
             for (int i = 0; i < _numModels; i++)
             {
                 List<Texture> t;
-                if (_textures == null)
+                if (_texturesConstant == null)
                     t = new List<Texture>();
                 else
-                    t = new List<Texture>(_textures);
+                    t = new List<Texture>(_texturesConstant);
 
                 for (int j = 0; j < _texturesVariable.Count; j++)
                 {
@@ -85,10 +86,10 @@ namespace OnATheme
                 // Create a list of textures
                 // Use constant ones, if avalable
                 List<Texture> t;
-                if (_textures == null)
+                if (_texturesConstant == null)
                     t = new List<Texture>();
                 else
-                    t = new List<Texture>(_textures);
+                    t = new List<Texture>(_texturesConstant);
 
                 // For every variabel texture
                 for (int j = 0; j < _texturesVariable.Count; j++)
@@ -101,9 +102,9 @@ namespace OnATheme
                 }
                 // Add the models
                 if (i == 0 && _parent != _name)
-                    models.Add(new Model(_name, _parent, t, _xRot, _yRot));
+                    models.Add(new ModelIndividual(_name, _parent, t, _xRot, _yRot));
                 else
-                    models.Add(new Model(_name + "_" + i.ToString(), _parent, t, _xRot, _yRot));
+                    models.Add(new ModelIndividual(_name + "_" + i.ToString(), _parent, t, _xRot, _yRot));
                 Console.WriteLine("break");
             }
             return models;

@@ -76,6 +76,7 @@
     <Compile Include="ModelCompoundExponential.cs" />
     <Compile Include="ModelCompound.cs" />
     <Compile Include="ModelCompoundSequential.cs" />
+    <Compile Include="ModelIndividual.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Texture.cs" />

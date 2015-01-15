@@ -147,9 +147,11 @@ namespace OnATheme
                 List<Texture> t = new List<Texture>(ModelTextures);
 
                 if (modelNo == 0 && _parent != _name)
-                    Models.Add(new Model(_name, _parent, t, _xRot, _yRot)); 
+                    Models.Add(new ModelIndividual(_name, _parent, t, _xRot, _yRot)); 
                 else
-                    Models.Add(new Model(_name + "_" + modelNo.ToString(), _parent, t, _xRot, _yRot));
+                    Models.Add(new ModelIndividual(_name + "_" + modelNo.ToString(), _parent, t, _xRot, _yRot));
+
+                modelNo++;
             }
         }
     }
